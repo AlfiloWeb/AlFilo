@@ -15,6 +15,17 @@ export class NavBarComponent {
 
   loggedIn: boolean = false;
 
+  public toggleLoggedIn() {
+    this.loggedIn = !this.loggedIn;
+    const checkbox = document.getElementById(
+      'my-drawer-4',
+    ) as HTMLInputElement | null;
+
+    if (checkbox != null && checkbox.checked) {
+      checkbox.checked = false;
+    }
+
+  }
   public toggleActive(item: NavTab) {
     this.navItems.forEach((navItem) => {
       navItem.active = false;
