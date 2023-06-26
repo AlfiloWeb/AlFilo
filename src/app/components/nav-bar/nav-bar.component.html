@@ -5,7 +5,8 @@
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
       </label>
       <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-200 rounded-box w-52">
-        <li *ngFor="let item of navItems"><a routerLink="{{item.path}}" (click)="toggleActive(item)" [ngClass]="{'text-alFilo-blue' : item.active, 'text-alFilo-white' : !item.active}">{{item.name}}</a></li>
+        <!-- TODO personalizar activeTab -->
+        <li *ngFor="let item of navItems"><a routerLink="{{item.path}}" [ngClass]="{'text-white' : item.active, 'text-base' : !item.active}">{{item.name}}</a></li>
       </ul>
     </div>
     <a class="btn btn-ghost normal-case text-xl hidden lg:flex">AlFilo</a>
@@ -14,7 +15,7 @@
   <div class="navbar-center">
     <a class="btn btn-ghost normal-case text-xl lg:hidden">AlFilo</a>
     <div class="tabs hidden lg:inline-flex">
-      <a *ngFor="let item of navItems" routerLink="{{item.path}}" (click)="toggleActive(item)"  class="tab" [ngClass]="{'text-alFilo-blue' : item.active, 'text-alFilo-white' : !item.active}">{{item.name}}</a>
+      <a *ngFor="let item of navItems" routerLink="{{item.path}}"  class="tab" [ngClass]="{'text-white' : item.active, 'text-base' : !item.active}">{{item.name}}</a>
     </div>
   </div>
 
@@ -23,13 +24,13 @@
     <div class="dropdown dropdown-end">
       <label *ngIf="!loggedIn" for="my-drawer-4" tabindex="0" class="btn btn-ghost btn-circle avatar">
         <div class="w-10 rounded-full">
-          <img src="/assets/images/unknownUser.png" />
+          <img src="/assets/images/unknownUser.png"  alt="UserNotLogged"/>
         </div>
       </label>
 
       <label *ngIf="loggedIn" tabindex="0" class="btn btn-ghost btn-circle avatar">
         <div class="w-10 rounded-full">
-          <img src="/assets/images/logo.png" />
+          <img src="/assets/images/logo.png" alt="LoggedUser"/>
         </div>
       </label>
 
@@ -71,16 +72,16 @@
               <form class="space-y-4 md:space-y-6" action="#">
                 <div>
                   <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
-                  <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required="">
+                  <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com">
                 </div>
                 <div>
                   <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                  <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                  <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 </div>
                 <div class="flex items-center justify-between">
                   <div class="flex items-start">
                     <div class="flex items-center h-5">
-                      <input id="remember" aria-describedby="remember" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" required="">
+                      <input id="remember" aria-describedby="remember" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" >
                     </div>
                     <div class="ml-3 text-sm">
                       <label for="remember" class="text-gray-500 dark:text-gray-300">Remember me</label>

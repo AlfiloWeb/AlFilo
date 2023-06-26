@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {NavigationService} from "../../services/navigation.service";
 
 @Component({
   selector: 'app-wiki',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./wiki.component.css']
 })
 export class WikiComponent {
+
+  constructor(private navigationService: NavigationService) { }
+
+  ngOnInit() {
+    this.navigationService.setActiveTab('Wiki');
+  }
 
 }

@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
+import {NavigationService} from "../../services/navigation.service";
+import {Subscription} from "rxjs";
+
 import {NavTab} from "../../models/navTab";
 
 @Component({
@@ -6,7 +9,19 @@ import {NavTab} from "../../models/navTab";
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css']
 })
+
 export class NavBarComponent {
+  activeTab!: string;
+  subscription!: Subscription;
+
+  constructor(private navigationService: NavigationService) { }
+
+  ngOnInit() {
+    this.subscription = this.navigationService.activeTab$.subscribe( activeTab => {
+        this.updateActiveTab(activeTab);
+      }
+    );
+  }
 
   navItems: NavTab[] = [
     {name: 'Clan', path: '', active: true},
@@ -26,11 +41,19 @@ export class NavBarComponent {
     }
 
   }
-  public toggleActive(item: NavTab) {
+
+  updateActiveTab(tab: string) {
+    this.activeTab = tab;
+
     this.navItems.forEach((navItem) => {
-      navItem.active = false;
-    });
-    item.active = true;
+      navItem.active = navItem.name === tab;
+    }
+    );
+
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
 }
