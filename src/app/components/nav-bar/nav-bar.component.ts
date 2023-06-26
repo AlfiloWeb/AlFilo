@@ -52,6 +52,15 @@ export class NavBarComponent {
 
   }
 
+  loginWithDiscord() {
+    const clientId = '1122911967934414971';
+    const redirectUri = encodeURIComponent('http://localhost:4200/auth/callback');
+    const scopes = encodeURIComponent('identify email');
+    window.location.href = `https://discord.com/api/oauth2/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&scope=${scopes}`;
+  }
+
+
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
