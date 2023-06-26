@@ -1,6 +1,7 @@
-import { Component} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {NavigationService} from "../../services/navigation.service";
 import {Subscription} from "rxjs";
+import {AuthService} from "../../services/auth.service";
 
 import {NavTab} from "../../models/navTab";
 
@@ -10,15 +11,29 @@ import {NavTab} from "../../models/navTab";
   styleUrls: ['./nav-bar.component.css']
 })
 
-export class NavBarComponent {
+export class NavBarComponent implements OnInit{
+  username!: string | null;
+  loggedIn: boolean = false;
   activeTab!: string;
   subscription!: Subscription;
 
-  constructor(private navigationService: NavigationService) { }
+  constructor(
+    private navigationService: NavigationService,
+    private authService: AuthService
+    ) { }
 
   ngOnInit() {
+    let loggedUser = this.authService.getUsername();
+    if (loggedUser){
+      this.username = loggedUser;
+      this.loggedIn = true;
+    }
+
+
     this.subscription = this.navigationService.activeTab$.subscribe( activeTab => {
         this.updateActiveTab(activeTab);
+        //TODO buscar otro metodo de login
+        this.login();
       }
     );
   }
@@ -28,7 +43,7 @@ export class NavBarComponent {
     {name: 'Wiki', path: '/wiki'},
     {name: 'Tienda', path: '/tienda'}];
 
-  loggedIn: boolean = false;
+
 
   public toggleLoggedIn() {
     this.loggedIn = !this.loggedIn;
@@ -40,6 +55,19 @@ export class NavBarComponent {
       checkbox.checked = false;
     }
 
+  }
+
+  login(): void{
+    let loggedUser = this.authService.getUsername();
+    if (loggedUser){
+      this.username = loggedUser;
+      this.loggedIn = true;
+    }
+  }
+
+  logout(): void{
+    this.authService.logout();
+    this.loggedIn = false;
   }
 
   updateActiveTab(tab: string) {

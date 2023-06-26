@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {DiscordService} from "../../services/discord.service";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-auth-callback',
@@ -10,7 +11,9 @@ import {DiscordService} from "../../services/discord.service";
 export class AuthCallbackComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
-    private discordService: DiscordService // Inyecta el servicio DiscordService
+    private discordService: DiscordService,
+    private authService: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -24,7 +27,9 @@ export class AuthCallbackComponent implements OnInit {
             this.discordService.getUserProfile(accessToken).subscribe(
               (username: string) => {
                 // Aquí puedes utilizar el nombre de usuario obtenido
-                console.log('Nombre de usuario: ', username);
+                this.authService.login(username);
+                this.router.navigate(['/']);
+
               },
               (error: any) => {
                 // Manejo de errores
