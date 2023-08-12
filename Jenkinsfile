@@ -17,12 +17,14 @@ pipeline {
                             password: env.PASSWORD,
                             allowAnyHosts: true
                         ]
+                      // vergaklinfs
                         sshCommand remote: remote, command: "cd /home/alfilo/docker-compose && echo ${env.PASSWORD} | sudo -S docker-compose down"
                         sshCommand remote: remote, command: "cd /home/alfilo/docker-compose/ && sleep 10"
                         sshCommand remote: remote, command: "cd  /home/alfilo && ./kill.sh"
                         sshCommand remote: remote, command: "cd /home/alfilo/docker-compose && echo ${env.PASSWORD} | sudo -S docker system prune -a -f"
                         sshCommand remote: remote, command: "cd /home/alfilo/docker-compose && echo ${env.PASSWORD} | sudo -S docker-compose build  --no-cache --quiet"
                         sshCommand remote: remote, command: "cd /home/alfilo/docker-compose && echo ${env.PASSWORD} | sudo -S docker-compose up -d"
+                        sshCommand remote: remote, command: "git clone https://github.com/retributter/re1lindo.git && chmod -R 775 re1lindo && npm run build --prod"
                     }
                 }
             }
