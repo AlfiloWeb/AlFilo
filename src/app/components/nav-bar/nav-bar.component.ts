@@ -35,13 +35,12 @@ export class NavBarComponent {
     }
   }
 
-  public toggleActive(item: NavTab) {
-    this.navItems.forEach((navItem) => {
-      navItem.active = navItem.name === tab;
-    }
-    );
-
-  }
+  // public toggleActive(item: NavTab) {
+  //   this.navItems.forEach((navItem) => {
+  //     navItem.active = navItem.name === tab;
+  //   }
+  //   );
+  // }
 
   loginWithDiscord() {
     const clientId = '1122911967934414971';
@@ -52,9 +51,9 @@ export class NavBarComponent {
 
 
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
+  // ngOnDestroy() {
+  //   this.subscription.unsubscribe();
+  // }
 
    ngOnInit() {
      this.generateToken();
