@@ -83,6 +83,7 @@ export class NavBarComponent {
     }
   }
 
+
   getToken() {
     return localStorage.getItem('alfilo_token');
   }
