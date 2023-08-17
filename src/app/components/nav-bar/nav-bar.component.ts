@@ -78,6 +78,8 @@ export class NavBarComponent {
           localStorage.setItem('alfilo_token', resp);
           this.isLogin = true;
         });
+    } else {
+      this.isLogin = true;
     }
   }
 
