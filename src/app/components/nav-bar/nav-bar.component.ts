@@ -6,6 +6,8 @@ import {
   HttpHeaders,
   HttpStatusCode,
 } from '@angular/common/http';
+import { Subscription } from 'rxjs';
+import { NavigationService } from 'src/app/services/navigation.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -21,8 +23,10 @@ export class NavBarComponent {
     { name: 'Tienda', path: '/tienda' },
   ];
   loggedIn: boolean = false;
+  activeTab!: string;
+  subscription!: Subscription;
 
-  constructor(private http: HttpClient) {}
+  constructor(private navigationService: NavigationService, private http: HttpClient) {}
 
   public toggleLoggedIn() {
     this.loggedIn = !this.loggedIn;
@@ -35,28 +39,22 @@ export class NavBarComponent {
     }
   }
 
-  // public toggleActive(item: NavTab) {
-  //   this.navItems.forEach((navItem) => {
-  //     navItem.active = navItem.name === tab;
-  //   }
-  //   );
-  // }
+  updateActiveTab(tab: string) {
+    this.activeTab = tab;
 
-  loginWithDiscord() {
-    const clientId = '1122911967934414971';
-    const redirectUri = encodeURIComponent(
-      'http://localhost:4200/auth/callback'
+    this.navItems.forEach((navItem) => {
+      navItem.active = navItem.name === tab;
+    }
     );
-    const scopes = encodeURIComponent('identify email');
-    window.location.href = `https://discord.com/api/oauth2/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&scope=${scopes}`;
-  }
 
-  // ngOnDestroy() {
-  //   this.subscription.unsubscribe();
-  // }
+  }
 
   ngOnInit() {
     this.generateToken();
+    this.subscription = this.navigationService.activeTab$.subscribe( activeTab => {
+      this.updateActiveTab(activeTab);
+    }
+  );
   }
 
   login() {
