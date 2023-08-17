@@ -26,7 +26,10 @@ export class NavBarComponent {
   activeTab!: string;
   subscription!: Subscription;
 
-  constructor(private navigationService: NavigationService, private http: HttpClient) {}
+  constructor(
+    private navigationService: NavigationService,
+    private http: HttpClient
+  ) {}
 
   public toggleLoggedIn() {
     this.loggedIn = !this.loggedIn;
@@ -44,17 +47,16 @@ export class NavBarComponent {
 
     this.navItems.forEach((navItem) => {
       navItem.active = navItem.name === tab;
-    }
-    );
-
+    });
   }
 
   ngOnInit() {
     this.generateToken();
-    this.subscription = this.navigationService.activeTab$.subscribe( activeTab => {
-      this.updateActiveTab(activeTab);
-    }
-  );
+    this.subscription = this.navigationService.activeTab$.subscribe(
+      (activeTab) => {
+        this.updateActiveTab(activeTab);
+      }
+    );
   }
 
   login() {
@@ -83,7 +85,6 @@ export class NavBarComponent {
     }
   }
 
-
   getToken() {
     return localStorage.getItem('alfilo_token');
   }
@@ -94,11 +95,13 @@ export class NavBarComponent {
 
   logout() {
     let headers = new HttpHeaders({
-      Authorization: 'Bearer ' + this.getToken(),
       'Content-Type': 'application/json',
     });
     this.http
-      .get<any>('https://api.staging.alfilo.org/signOut', { headers })
+      .get<any>('https://api.staging.alfilo.org/signOut', {
+        headers,
+        withCredentials: true,
+      })
       .subscribe((resp) => {
         this.removeToken();
         this.isLogin = false;
