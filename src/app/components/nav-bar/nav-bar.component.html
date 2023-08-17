@@ -71,7 +71,7 @@
           <div class="w-full rounded-tr-3xl rounded-3xl shadow border md:mt-0 sm:max-w-md xl:p-0 bg-gray-800 border-gray-700">
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8 rounded-tr-3xl rounded-3xl">
               <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-white">
-                Login con Discord
+                {{loginTitle}}
               </h1>
               <div class="flex flex-col gap-4">
                 <button class="btn btn-primary btn-discord" *ngIf="!isLogin" (click)="login()">Login</button>
@@ -85,7 +85,6 @@
                   <input type="radio" class="btn" (click)="loginTestDaga()" name="button" aria-label="Daga"/>
                   <input type="radio" class="btn" (click)="loginEspada()" name="button" aria-label="Espada"/>
                   <input type="radio" class="btn" (click)="loginAdmin()" name="button" aria-label="Admin"/>
-                  <h2 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-white">Resultado</h2>
                   <h2 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-white">{{textResult}}</h2>
                 </div>
               </div>

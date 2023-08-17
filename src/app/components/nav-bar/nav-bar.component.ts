@@ -26,6 +26,7 @@ export class NavBarComponent {
   loggedIn: boolean = false;
   activeTab!: string;
   subscription!: Subscription;
+  loginTitle: string = "Login con Discord";
 
   constructor(
     private navigationService: NavigationService,
@@ -53,11 +54,6 @@ export class NavBarComponent {
 
   ngOnInit() {
     this.generateToken();
-    let token = 'jeje';
-    token = this.getToken();
-    var decoded = jwt_decode(token);
-    console.log(decoded);
-
     this.subscription = this.navigationService.activeTab$.subscribe(
       (activeTab) => {
         this.updateActiveTab(activeTab);
@@ -84,10 +80,20 @@ export class NavBarComponent {
         })
         .subscribe((resp) => {
           localStorage.setItem('alfilo_token', resp);
+          var tokenDecoded = this.getDecodedAccessToken(resp);
+          this.loginTitle = "Bienvenido " + tokenDecoded.unique_name;
           this.isLogin = true;
         });
     } else {
       this.isLogin = true;
+    }
+  }
+
+  getDecodedAccessToken(token: string): any {
+    try {
+      return jwt_decode(token);
+    } catch(Error) {
+      return null;
     }
   }
 
