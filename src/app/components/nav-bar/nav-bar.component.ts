@@ -98,7 +98,7 @@ export class NavBarComponent {
       'Content-Type': 'application/json',
     });
     this.http
-      .get<any>('https://api.staging.alfilo.org/singOut', { headers })
+      .get<any>('https://api.staging.alfilo.org/signOut', { headers })
       .subscribe((resp) => {
         this.removeToken();
         this.isLogin = false;
