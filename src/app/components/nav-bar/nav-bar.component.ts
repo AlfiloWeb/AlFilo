@@ -8,6 +8,7 @@ import {
 } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 import { NavigationService } from 'src/app/services/navigation.service';
+import jwt_decode from "jwt-decode";
 
 @Component({
   selector: 'app-nav-bar',
@@ -52,6 +53,11 @@ export class NavBarComponent {
 
   ngOnInit() {
     this.generateToken();
+    let token = 'jeje';
+    token = this.getToken();
+    var decoded = jwt_decode(token);
+    console.log(decoded);
+
     this.subscription = this.navigationService.activeTab$.subscribe(
       (activeTab) => {
         this.updateActiveTab(activeTab);
@@ -85,8 +91,9 @@ export class NavBarComponent {
     }
   }
 
-  getToken() {
-    return localStorage.getItem('alfilo_token');
+  getToken(): string {
+    let token = localStorage.getItem('alfilo_token');
+    return  token === null ? "" : token;
   }
 
   removeToken() {
