@@ -117,6 +117,7 @@ export class NavBarComponent {
       })
       .subscribe((resp) => {
         this.removeToken();
+        this.loginTitle = "Login con Discord";
         this.isLogin = false;
       });
   }
