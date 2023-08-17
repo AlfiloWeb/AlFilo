@@ -132,7 +132,6 @@ export class NavBarComponent {
       .subscribe({
         next: (result) => {
           this.textResult = result;
-          console.log('testlogin');
         },
         error: (error: HttpErrorResponse) => {
           if (error.status !== HttpStatusCode.Forbidden) {
