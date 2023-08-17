@@ -1,9 +1,17 @@
-<p>landing works!</p>
-
-<!--
-<div *ngFor="let number of [].constructor(100); let i = index">
-  <div>Contenido #{{i+1}}</div>
+<div class="flex border ">
+  <div class="basis-1/2"></div>
+  <div class=" basis-1/2 place-content-center pt-40 flex">
+    <app-join-card></app-join-card>
+  </div>
 </div>
--->
-
-<app-join-card></app-join-card>
+<div class="flex border">
+  <div class="basis-1/3 place-content-end flex">
+    <app-basic-card></app-basic-card>
+  </div>
+  <div class="basis-1/3 place-content-center flex">
+    <app-basic-card></app-basic-card>
+  </div>
+  <div class="basis-1/3 place-content-start flex">
+    <app-basic-card></app-basic-card>
+  </div>
+</div>

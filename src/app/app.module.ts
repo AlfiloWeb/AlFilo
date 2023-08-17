@@ -9,6 +9,7 @@ import { WikiComponent } from './components/wiki/wiki.component';
 import { AppRoutingModule } from './app.routing.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { JoinCardComponent } from './components/join-card/join-card.component';
+import { BasicCardComponent } from './components/basic-card/basic-card.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { JoinCardComponent } from './components/join-card/join-card.component';
     WikiComponent,
     FooterComponent,
     JoinCardComponent,
+    BasicCardComponent,
   ],
   imports: [
     BrowserModule,
