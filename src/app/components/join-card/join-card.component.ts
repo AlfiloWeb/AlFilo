@@ -8,10 +8,11 @@ import { trigger, state, style, animate, transition} from "@angular/animations";
   animations: [
     trigger('fadeInOut', [
       state('visible', style({
-        opacity: 1,
+        opacity: 1,transform: 'translateY(0px)'
+
       })),
       state('hidden', style({
-        opacity: 0,
+        opacity: 0, transform: 'translateY(50px)'
       })),
       transition('hidden => visible', animate('1000ms ease-in-out')),
     ]),

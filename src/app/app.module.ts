@@ -9,6 +9,7 @@ import { WikiComponent } from './components/wiki/wiki.component';
 import { AppRoutingModule } from './app.routing.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { JoinCardComponent } from './components/join-card/join-card.component';
+import { BasicCardComponent } from './components/basic-card/basic-card.component';
 import { LandingJoinComponent } from './components/landing-join/landing-join.component';
 import { JoinInfoComponent } from './components/join-info/join-info.component';
 
@@ -20,6 +21,7 @@ import { JoinInfoComponent } from './components/join-info/join-info.component';
     WikiComponent,
     FooterComponent,
     JoinCardComponent,
+    BasicCardComponent,
     LandingJoinComponent,
     JoinInfoComponent,
   ],
