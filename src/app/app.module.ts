@@ -12,6 +12,7 @@ import { JoinCardComponent } from './components/join-card/join-card.component';
 import { BasicCardComponent } from './components/basic-card/basic-card.component';
 import { LandingJoinComponent } from './components/landing-join/landing-join.component';
 import { JoinInfoComponent } from './components/join-info/join-info.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { JoinInfoComponent } from './components/join-info/join-info.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
