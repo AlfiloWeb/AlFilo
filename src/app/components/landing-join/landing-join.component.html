@@ -1,13 +1,15 @@
-<div class="landing-join flex max-w-2k flex-row">
-  <video #myVideo class="background-video  " muted autoplay>
+<div class="landing-join max-w-2k mx-auto flex justify-center">
+  <video #myVideo class="background-video absolute max-w-2k w-full object-cover z-0" muted autoplay>
     <source src="/assets/videos/video2.mp4" type="video/mp4">
   </video>
-  <div class="join-card-wrap">
-    <app-join-card></app-join-card>
+  <div class="h-full flex flex-col justify-end">
+    <div class="join-card-wrap flex justify-end pb-32">
+      <app-join-card></app-join-card>
+    </div>
+    <div class="basic-card-wrap self-end flex gap-10 pb-10">
+      <app-basic-card title="¿Qué es al filo?" body='En AL FILO queremos ver todo el contenido del juego con ritmo sano. Nos consideramos un clan "Pro-Billete".'></app-basic-card>
+      <app-basic-card title="Juega en compañia" body="En Al FiLO encontrarás gente sana y con ganas de disfrutar de Star Citizen tanto como tu. "></app-basic-card>
+      <app-basic-card title="Crea eventos" body="Participa en neustras actividades del clan y conviertete en un miembrto de pleno derecho, llamado Daga. "></app-basic-card>
+    </div>
   </div>
-  <!-- <div class="join-info-wrap">
-    <app-join-info></app-join-info>
-  </div> -->
 </div>
-
-
