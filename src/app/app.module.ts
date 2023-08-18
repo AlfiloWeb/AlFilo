@@ -13,6 +13,7 @@ import { BasicCardComponent } from './components/basic-card/basic-card.component
 import { LandingJoinComponent } from './components/landing-join/landing-join.component';
 import { JoinInfoComponent } from './components/join-info/join-info.component';
 import { AuthCallbackComponent } from './components/auth-callback/auth-callback.component';
+import { LandingActivitiesComponent } from './components/landing-activities/landing-activities.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { AuthCallbackComponent } from './components/auth-callback/auth-callback.
     LandingJoinComponent,
     JoinInfoComponent,
     AuthCallbackComponent,
+    LandingActivitiesComponent,
   ],
   imports: [
     BrowserModule,
