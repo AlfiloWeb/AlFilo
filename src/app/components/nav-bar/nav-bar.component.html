@@ -2,11 +2,15 @@
   <div class="navbar-start">
     <div class="dropdown">
       <label tabindex="0" class="btn btn-ghost lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"/>
+        </svg>
       </label>
       <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-200 rounded-box w-52">
         <!-- TODO personalizar activeTab -->
-        <li *ngFor="let item of navItems"><a routerLink="{{item.path}}" [ngClass]="{'text-accent' : item.active, 'text-base' : !item.active}">{{item.name}}</a></li>
+        <li *ngFor="let item of navItems"><a routerLink="{{item.path}}"
+                                             [ngClass]="{'text-accent' : item.active, 'text-base' : !item.active}">{{item.name}}</a>
+        </li>
       </ul>
     </div>
     <a class="btn btn-ghost normal-case text-xl hidden lg:flex">AlFilo</a>
@@ -15,14 +19,15 @@
   <div class="navbar-end">
     <div class="w-5/6 flex justify-end">
       <div class="tabs hidden lg:inline-flex">
-        <a *ngFor="let item of navItems" routerLink="{{item.path}}"  class="tab hover:bg-secondary rounded-lg " [ngClass]="{'text-accent' : item.active, 'text-base-content' : !item.active}">{{item.name}}</a>
+        <a *ngFor="let item of navItems" routerLink="{{item.path}}" class="tab hover:bg-secondary rounded-lg "
+           [ngClass]="{'text-accent' : item.active, 'text-base-content' : !item.active}">{{item.name}}</a>
       </div>
     </div>
     <div class="w-1/6 flex justify-end">
       <div class="dropdown dropdown-end">
         <label *ngIf="!loggedIn" for="my-drawer-4" tabindex="0" class="btn btn-ghost btn-circle avatar">
           <div class="w-10 rounded-full">
-            <img src="/assets/images/unknownUser.png"  alt="UserNotLogged"/>
+            <img src="/assets/images/unknownUser.png" alt="UserNotLogged"/>
           </div>
         </label>
 
@@ -32,7 +37,8 @@
           </div>
         </label>
 
-        <ul *ngIf="loggedIn" tabindex="0" class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+        <ul *ngIf="loggedIn" tabindex="0"
+            class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
           <li>
             <a class="justify-between">
               Profile
@@ -52,7 +58,7 @@
 
 <div class="drawer drawer-end ">
 
-  <input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
+  <input id="my-drawer-4" type="checkbox" class="drawer-toggle"/>
   <div class="drawer-content">
     <div class="w-full h-full bg-no-repeat bg-cover bg-fixed">
       <router-outlet></router-outlet>
@@ -74,8 +80,8 @@
                 {{loginTitle}}
               </h1>
               <div class="flex flex-col gap-4">
-                <button class="btn  btn-discord" *ngIf="!isLogin" (click)="login()">Login</button>
-                <button class="btn  btn-discord" *ngIf="isLogin" (click)="logout()">Logout</button>
+                <button class="btn btn-primary btn-discord" *ngIf="!isLogin" (click)="login()">Login</button>
+                <button class="btn btn-primary btn-discord" *ngIf="isLogin" (click)="logout()">Logout</button>
                 <div *ngIf="isLogin" class="flex flex-col gap-4">
                   <h2 class="text-xl font-bold leading-tight tracking-tight  md:text-2xl text-white">
                     ¿Cuál es tu rol más alto?

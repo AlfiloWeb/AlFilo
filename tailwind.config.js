@@ -3,8 +3,12 @@ module.exports = {
     "./src/**/*.{html,ts}"
   ],
   theme: {
-    extend: {},
-  },
+    extend: {
+      maxWidth: {
+        '2k': '2560px',
+      },
+      }
+    },
   plugins: [require("daisyui")],
   daisyui: {
     themes: [

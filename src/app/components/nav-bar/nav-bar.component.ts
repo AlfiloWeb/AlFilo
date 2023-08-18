@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
-import { NavTab } from '../../models/navTab';
+import {Component} from '@angular/core';
+import {NavTab} from '../../models/navTab';
 import {
   HttpClient,
   HttpErrorResponse,
   HttpHeaders,
   HttpStatusCode,
 } from '@angular/common/http';
-import { Subscription } from 'rxjs';
-import { NavigationService } from 'src/app/services/navigation.service';
+import {Subscription} from 'rxjs';
+import {NavigationService} from 'src/app/services/navigation.service';
 import jwt_decode from "jwt-decode";
 
 @Component({
@@ -19,9 +19,9 @@ export class NavBarComponent {
   textResult: string = '';
   isLogin: boolean = false;
   navItems: NavTab[] = [
-    { name: 'Clan', path: '', active: true },
-    { name: 'Wiki', path: '/wiki' },
-    { name: 'Tienda', path: '/tienda' },
+    {name: 'Clan', path: '', active: true},
+    {name: 'Wiki', path: '/wiki'},
+    {name: 'Tienda', path: '/tienda'},
   ];
   loggedIn: boolean = false;
   activeTab!: string;
@@ -31,7 +31,8 @@ export class NavBarComponent {
   constructor(
     private navigationService: NavigationService,
     private http: HttpClient
-  ) {}
+  ) {
+  }
 
   public toggleLoggedIn() {
     this.loggedIn = !this.loggedIn;
@@ -92,14 +93,14 @@ export class NavBarComponent {
   getDecodedAccessToken(token: string): any {
     try {
       return jwt_decode(token);
-    } catch(Error) {
+    } catch (Error) {
       return null;
     }
   }
 
   getToken(): string {
     let token = localStorage.getItem('alfilo_token');
-    return  token === null ? "" : token;
+    return token === null ? "" : token;
   }
 
   removeToken() {
@@ -148,7 +149,7 @@ export class NavBarComponent {
       'Content-Type': 'application/json',
     });
     this.http
-      .get<any>('https://api.staging.alfilo.org/' + method, { headers })
+      .get<any>('https://api.staging.alfilo.org/' + method, {headers})
       .subscribe({
         next: (result) => {
           this.textResult = result;
