@@ -4,4 +4,12 @@
   .background-video {
     height: calc(100vh - 66px);
   }
+
+  .activity-option:hover .radio-info {
+    background-color: #8cb9ca;
+  }
+
+  .activity-option:hover .radio-info:checked {
+    background-color: #0394cc;
+  }
 }
