@@ -1,0 +1,7 @@
+.landing-activities {
+  height: calc(100vh - 66px);
+
+  .background-video {
+    height: calc(100vh - 66px);
+  }
+}
