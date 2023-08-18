@@ -63,21 +63,21 @@
 
 
   <div class="drawer-side ">
-    <label for="my-drawer-4" class="drawer-overlay"></label>
-    <ul class="menu w-1/3 bg-alFilo-gray-100/90 p-0">
+    <label for="my-drawer-4" class="drawer-overlay "></label>
+    <ul class="menu w-1/3 p-0">
       <!-- Sidebar content here -->
-      <section class="bg-gray-900 ">
+      <section class="bg-secondary ">
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-          <div class="w-full rounded-tr-3xl rounded-3xl shadow border md:mt-0 sm:max-w-md xl:p-0 bg-gray-800 border-gray-700">
+          <div class="w-full rounded-tr-3xl rounded-3xl shadow-2xl border md:mt-0 sm:max-w-md xl:p-0 ">
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8 rounded-tr-3xl rounded-3xl">
-              <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-white">
+              <h1 class="text-xl font-bold leading-tight tracking-tight md:text-2xl text-white">
                 {{loginTitle}}
               </h1>
               <div class="flex flex-col gap-4">
-                <button class="btn btn-primary btn-discord" *ngIf="!isLogin" (click)="login()">Login</button>
-                <button class="btn btn-primary btn-discord" *ngIf="isLogin" (click)="logout()">Logout</button>
+                <button class="btn  btn-discord" *ngIf="!isLogin" (click)="login()">Login</button>
+                <button class="btn  btn-discord" *ngIf="isLogin" (click)="logout()">Logout</button>
                 <div *ngIf="isLogin" class="flex flex-col gap-4">
-                  <h2 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-white">
+                  <h2 class="text-xl font-bold leading-tight tracking-tight  md:text-2xl text-white">
                     ¿Cuál es tu rol más alto?
                   </h2>
                   <input type="radio" class="btn" (click)="loginTestAlfilo()" name="button" aria-label="Afiliado"/>
@@ -85,7 +85,7 @@
                   <input type="radio" class="btn" (click)="loginTestDaga()" name="button" aria-label="Daga"/>
                   <input type="radio" class="btn" (click)="loginEspada()" name="button" aria-label="Espada"/>
                   <input type="radio" class="btn" (click)="loginAdmin()" name="button" aria-label="Admin"/>
-                  <h2 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-white">{{textResult}}</h2>
+                  <h2 class="text-xl font-bold leading-tight tracking-tight  md:text-2xl text-white">{{textResult}}</h2>
                 </div>
               </div>
             </div>
