@@ -63,27 +63,27 @@
 
 
   <div class="drawer-side ">
-    <label for="my-drawer-4" class="drawer-overlay"></label>
-    <ul class="menu w-1/3 bg-alFilo-gray-100/90 p-0">
+    <label for="my-drawer-4" class="drawer-overlay "></label>
+    <ul class="menu w-1/3 p-0">
       <!-- Sidebar content here -->
-      <section class="bg-gray-900 ">
+      <section class="bg-secondary ">
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-          <div class="w-full rounded-tr-3xl rounded-3xl shadow border md:mt-0 sm:max-w-md xl:p-0 bg-gray-800 border-gray-700">
+          <div class="w-full rounded-tr-3xl rounded-3xl shadow-2xl border md:mt-0 sm:max-w-md xl:p-0 ">
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8 rounded-tr-3xl rounded-3xl">
-              <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-white">
+              <h1 class="text-xl font-bold leading-tight tracking-tight md:text-2xl text-white">
                 Login con Discord
               </h1>
               <div class="flex flex-col gap-4">
-                <button class="btn btn-primary btn-discord" *ngIf="!isLogin" (click)="login()">Login</button>
-                <button class="btn btn-primary btn-discord" *ngIf="isLogin" (click)="logout()">Logout</button>
-                <h2 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-white">
+                <button class="btn btn-discord" *ngIf="!isLogin" (click)="login()">Login</button>
+                <button class="btn btn-discord" *ngIf="isLogin" (click)="logout()">Logout</button>
+                <h2 class="text-xl font-bold leading-tight tracking-tight  md:text-2xl text-white">
                   ¿Cuál es tu rol más alto?
                 </h2>
-                <button class="btn btn-neutral" (click)="loginTestAlfilo()">Afiliado</button>
-                <button class="btn btn-neutral" (click)="loginTestCadete()">Cadete</button>
-                <button class="btn btn-neutral" (click)="loginTestDaga()">Daga</button>
-                <button class="btn btn-neutral" (click)="loginEspada()">Espada</button>
-                <button class="btn btn-neutral" (click)="loginAdmin()">Admin</button>
+                <button class="btn " (click)="loginTestAlfilo()">Afiliado</button>
+                <button class="btn " (click)="loginTestCadete()">Cadete</button>
+                <button class="btn " (click)="loginTestDaga()">Daga</button>
+                <button class="btn " (click)="loginEspada()">Espada</button>
+                <button class="btn " (click)="loginAdmin()">Admin</button>
               </div>
               <div class="font-bold text-xl text-white">Resultado</div>
               <div class="font-bold text-xl text-white">{{textResult}}</div>
