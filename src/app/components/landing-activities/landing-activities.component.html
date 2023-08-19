@@ -1,7 +1,7 @@
 <div class="landing-activities max-w-2k mx-auto flex justify-center">
   <video #myVideo class="background-video absolute max-w-2k w-full object-cover -z-10" autoplay loop muted playsinline="true" webkit-playsinline="true" [src]="videoSrc" type="video/mp4"></video>
   <div class="flex flex-col w-full">
-    <div class="basis-7/12 flex flex-col basis items-center gap-10 pt-20">
+    <div class="basis-8/12 flex flex-col basis items-center gap-10 pt-20">
       <div class="font-bold text-4xl">PARTICIPA EN DIFERENTES</div>
       <div class="font-bold text-8xl">ACTIVIDADES</div>
       <div class="flex gap-20">
@@ -10,7 +10,7 @@
           <a href="https://robertsspaceindustries.com" class="btn text-black ring-2 ring-white rounded-2xl font-black">Juega Star Citizen</a>
       </div>
     </div>
-    <div class="basis-5/12 border-t-2 border-r-2 w-6/12 self-start rounded-tr-2xl flex flex-col items-end">
+    <div class="basis-4/12 border-t-2 border-r-2 w-6/12 self-start rounded-tr-2xl flex flex-col items-end">
       <div class="-mt-[6.6rem] flex gap-10">
         <div class="activity-option flex flex-col items-center gap-3 text-white hover:text-[#8cb9ca]">
           <img src="/assets/images/logo.png" alt="" class="w-10 h-10">
@@ -43,7 +43,7 @@
           <input (click)="changeActivity('competition')" type="radio" class="radio radio-info bg-white hover:text-[#8cb9ca] checked:bg-[#0394cc]" name="activityOption" aria-label=""/>
         </div>
       </div>
-      <div class="m-20">
+      <div class="m-10">
         <app-basic-card *ngIf="combatSelected" title="COMBATE" body='Adrenalina, táctica, fuerza y valor.'></app-basic-card>
         <app-basic-card *ngIf="transportSelected" title="TRANSPORTE" body='Pasajeros, Datos, Cargamento valioso o tu ruta favorita.'></app-basic-card>
         <app-basic-card *ngIf="explorationSelected" title="EXPLORACIÓN" body='Misterio, aventura, descubrimientos, ciencia y navegar por los confines del espacio.'></app-basic-card>
