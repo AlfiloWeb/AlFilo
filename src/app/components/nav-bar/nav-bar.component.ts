@@ -21,7 +21,6 @@ export class NavBarComponent {
   navItems: NavTab[] = [
     {name: 'Clan', path: '', active: true},
     {name: 'Wiki', path: '/wiki'},
-    {name: 'Tienda', path: '/tienda'},
   ];
   loggedIn: boolean = false;
   activeTab!: string;

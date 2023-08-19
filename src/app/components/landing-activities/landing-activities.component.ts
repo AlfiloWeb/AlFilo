@@ -37,10 +37,12 @@ export class LandingActivitiesComponent implements AfterViewInit {
     switch(activity) {
       case 'transport': {
         this.transportSelected = true;
+        this.videoSrc = '/assets/videos/landing_activities_transport.mp4';
         break;
       }
       case 'exploration': {
         this.explorationSelected = true;
+        this.videoSrc = '/assets/videos/landing_activities_exploration.mp4';
         break;
       }
       case 'industrial': {
@@ -50,10 +52,12 @@ export class LandingActivitiesComponent implements AfterViewInit {
       }
       case 'support': {
         this.supportSelected = true;
+        this.videoSrc = '/assets/videos/landing_activities_support.mp4';
         break;
       }
       case 'competition': {
         this.competitionSelected = true;
+        this.videoSrc = '/assets/videos/landing_activities_competition.mp4';
         break;
       }
       default: {
