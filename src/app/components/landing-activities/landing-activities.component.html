@@ -17,36 +17,41 @@
         <div class="activity-option flex flex-col items-center gap-3 text-white hover:text-[#8cb9ca]">
           <img src="/assets/images/logo.png" alt="" class="w-10 h-10">
           <div class="font-bold text-lg">COMBATE</div>
-          <input type="radio" class="radio radio-info bg-white" name="activityOption" aria-label=""/>
+          <input (click)="changeActivity('combat')" type="radio" class="radio radio-info bg-white" name="activityOption" aria-label="" checked/>
         </div>
         <div class="activity-option flex flex-col items-center gap-3 text-white hover:text-[#8cb9ca]">
           <img src="/assets/images/logo.png" alt="" class="w-10 h-10">
           <div class="font-bold text-lg">TRANSPORTE</div>
-          <input type="radio" class="radio radio-info bg-white hover:text-[#8cb9ca] checked:bg-[#0394cc]" name="activityOption" aria-label=""/>
+          <input (click)="changeActivity('transport')" type="radio" class="radio radio-info bg-white hover:text-[#8cb9ca] checked:bg-[#0394cc]" name="activityOption" aria-label=""/>
         </div>
         <div class="activity-option flex flex-col items-center gap-3 text-white hover:text-[#8cb9ca]">
           <img src="/assets/images/logo.png" alt="" class="w-10 h-10">
           <div class="font-bold text-lg">EXPLORACIÓN</div>
-          <input type="radio" class="radio radio-info bg-white hover:text-[#8cb9ca] checked:bg-[#0394cc]" name="activityOption" aria-label=""/>
+          <input (click)="changeActivity('exploration')" type="radio" class="radio radio-info bg-white hover:text-[#8cb9ca] checked:bg-[#0394cc]" name="activityOption" aria-label=""/>
         </div>
         <div class="activity-option flex flex-col items-center gap-3 text-white hover:text-[#8cb9ca]">
           <img src="/assets/images/logo.png" alt="" class="w-10 h-10">
           <div class="font-bold text-lg">INDUSTRIA</div>
-          <input type="radio" class="radio radio-info bg-white hover:text-[#8cb9ca] checked:bg-[#0394cc]" name="activityOption" aria-label=""/>
+          <input (click)="changeActivity('industrial')" type="radio" class="radio radio-info bg-white hover:text-[#8cb9ca] checked:bg-[#0394cc]" name="activityOption" aria-label=""/>
         </div>
         <div class="activity-option flex flex-col items-center gap-3 text-white hover:text-[#8cb9ca]">
           <img src="/assets/images/logo.png" alt="" class="w-10 h-10">
           <div class="font-bold text-lg">SOPORTE</div>
-          <input type="radio" class="radio radio-info bg-white hover:text-[#8cb9ca] checked:bg-[#0394cc]" name="activityOption" aria-label=""/>
+          <input (click)="changeActivity('support')" type="radio" class="radio radio-info bg-white hover:text-[#8cb9ca] checked:bg-[#0394cc]" name="activityOption" aria-label=""/>
         </div>
         <div class="activity-option flex flex-col items-center gap-3 text-white hover:text-[#8cb9ca]">
           <img src="/assets/images/logo.png" alt="" class="w-10 h-10">
           <div class="lala font-bold text-lg">COMPETICIÓN</div>
-          <input type="radio" class="radio radio-info bg-white hover:text-[#8cb9ca] checked:bg-[#0394cc]" name="activityOption" aria-label=""/>
+          <input (click)="changeActivity('competition')" type="radio" class="radio radio-info bg-white hover:text-[#8cb9ca] checked:bg-[#0394cc]" name="activityOption" aria-label=""/>
         </div>
       </div>
       <div class="m-20">
-        <app-basic-card title="COMBATE" body='Eventos en los que el JcJ hace que todo sea imprevisible y emocionante.'></app-basic-card>
+        <app-basic-card *ngIf="combatSelected" title="COMBATE" body='Adrenalina, táctica, fuerza y valor.'></app-basic-card>
+        <app-basic-card *ngIf="transportSelected" title="TRANSPORTE" body='Pasajeros, Datos, Cargamento valioso o tu ruta favorita.'></app-basic-card>
+        <app-basic-card *ngIf="explorationSelected" title="EXPLORACIÓN" body='Misterio, aventura, descubrimientos, ciencia y navegar por los confines del espacio.'></app-basic-card>
+        <app-basic-card *ngIf="industrialSelected" title="INDUSTRIA" body='Recursos, pequeñas aventuras y la maquinaria mas pesada.'></app-basic-card>
+        <app-basic-card *ngIf="supportSelected" title="SOPORTE" body='Rescates, reabastecimiento y la medicina mas moderna.'></app-basic-card>
+        <app-basic-card *ngIf="competitionSelected" title="COMPETICIÓN" body='Prepárate para superar tus limites.'></app-basic-card>
       </div>
     </div>
   </div>
