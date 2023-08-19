@@ -13,6 +13,7 @@ export class LandingActivitiesComponent implements AfterViewInit {
   industrialSelected: boolean = false;
   supportSelected: boolean = false;
   competitionSelected: boolean = false;
+  videoSrc: string = '/assets/videos/landing_activities_combat.mp4'
 
   @ViewChild('myVideo') videoElement!: ElementRef;
 
@@ -44,6 +45,7 @@ export class LandingActivitiesComponent implements AfterViewInit {
       }
       case 'industrial': {
         this.industrialSelected = true;
+        this.videoSrc = '/assets/videos/landing_activities_industrial.mp4';
         break;
       }
       case 'support': {
@@ -56,6 +58,7 @@ export class LandingActivitiesComponent implements AfterViewInit {
       }
       default: {
         this.combatSelected = true;
+        this.videoSrc = '/assets/videos/landing_activities_combat.mp4'
         break;
       }
    }

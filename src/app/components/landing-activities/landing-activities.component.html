@@ -1,7 +1,5 @@
 <div class="landing-activities max-w-2k mx-auto flex justify-center">
-  <video #myVideo class="background-video absolute max-w-2k w-full object-cover -z-10" muted autoplay loop>
-    <source src="/assets/videos/landing_activities_combat.mp4" type="video/mp4">
-  </video>
+  <video #myVideo class="background-video absolute max-w-2k w-full object-cover -z-10" autoplay loop muted playsinline="true" webkit-playsinline="true" [src]="videoSrc" type="video/mp4"></video>
   <div class="flex flex-col w-full">
     <div class="basis-7/12 flex flex-col basis items-center gap-10 pt-20">
       <div class="font-bold text-4xl">PARTICIPA EN DIFERENTES</div>
