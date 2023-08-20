@@ -15,6 +15,7 @@ import { JoinInfoComponent } from './components/join-info/join-info.component';
 import { AuthCallbackComponent } from './components/auth-callback/auth-callback.component';
 import { LandingActivitiesComponent } from './components/landing-activities/landing-activities.component';
 import { LandingChronologyComponent } from './components/landing-chronology/landing-chronology.component';
+import { SvgComponent } from './components/svg/svg.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { LandingChronologyComponent } from './components/landing-chronology/land
     AuthCallbackComponent,
     LandingActivitiesComponent,
     LandingChronologyComponent,
+    SvgComponent,
   ],
   imports: [
     BrowserModule,
