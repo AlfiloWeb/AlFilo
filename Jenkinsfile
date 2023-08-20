@@ -22,12 +22,23 @@ pipeline {
     stages {
         stage('Clean Builders') {
             steps {
+                withCredentials([usernamePassword(credentialsId: 'creds2', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                    script {
+                        sshCommand remote: remote, command: "cd /home/alfilo/docker-compose/ && echo ${env.PASSWORD} | sudo -S docker builder prune --force"
+                        sshCommand remote: remote, command: "cd /home/alfilo/docker-compose/ && echo ${env.PASSWORD} | sudo -S docker-compose down"
+                        if (params.Port_checking) {
+                            sshCommand remote: remote, command: "cd  /home/alfilo && ./kill.sh"
+                        }
+                    }
+                }
+            }
+        }
+        stage('Build Web') {
+            steps {
                 withCredentials([usernamePassword(credentialsId: 'creds1', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     script {
-                        echo 'Hello develop'
-                        if (params.Port_checking) {
-                            sshCommand remote: remote, command: "echo uwu.param"
-                        }
+                        sshCommand remote: remote, command: "cd /home/alfilo/docker-compose/ && echo ${env.PASSWORD} | sudo -S docker-compose build  --no-cache --quiet"
+                        sshCommand remote: remote, command: "cd /home/alfilo/docker-compose/ && echo ${env.PASSWORD} | sudo -S docker-compose up -d"
                     }
                 }
             }
