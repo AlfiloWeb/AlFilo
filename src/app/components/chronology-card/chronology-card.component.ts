@@ -9,5 +9,5 @@ export class ChronologyCardComponent {
   @Input() title: string = '';
   @Input() body: string = '';
   @Input() srcImage: string = '';
-  @Input({ transform: booleanAttribute }) left: boolean;
+  @Input({ transform: booleanAttribute }) left: boolean = false;
 }
