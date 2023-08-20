@@ -11,7 +11,7 @@ def getRemoteConfig() {
 pipeline {
     agent any
     // trigger test
-  // trigger 2
+  // trigger 2 commit extra
     parameters {
         booleanParam(name: 'Port_checking', defaultValue: false, description: 'Set to true to execute the script on the remote server')
     }
