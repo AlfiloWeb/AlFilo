@@ -13,32 +13,35 @@
     <div class="basis-4/12 border-t-2 border-r-2 w-6/12 self-start rounded-tr-2xl flex flex-col items-end">
       <div class="-mt-[9rem] flex gap-10">
         <div class="activity-option flex flex-col items-center gap-3 text-white hover:text-[#8cb9ca]">
-          <img src="/assets/images/activity/combat.png" alt="" class="w-20 h-20">
+          <svg-icon src="/assets/images/activity/combat.svg" [stretch]="false"
+  [svgStyle]="{'width.px':175,'fill':'rgb(215,200,120)'}">
+</svg-icon>
+          <svg-icon src="/assets/images/activity/combat.svg" class="w-20 h-20"></svg-icon>
           <div class="font-bold text-lg">COMBATE</div>
           <input (click)="changeActivity('combat')" type="radio" class="radio radio-info bg-white" name="activityOption" aria-label="" checked/>
         </div>
         <div class="activity-option flex flex-col items-center gap-3 text-white hover:text-[#8cb9ca]">
-          <img src="/assets/images/activity/transport.svg" alt="" class="w-20 h-20">
+          <svg-icon src="/assets/images/activity/transport.svg" class="w-20 h-20"></svg-icon>
           <div class="font-bold text-lg">TRANSPORTE</div>
           <input (click)="changeActivity('transport')" type="radio" class="radio radio-info bg-white hover:text-[#8cb9ca] checked:bg-[#0394cc]" name="activityOption" aria-label=""/>
         </div>
         <div class="activity-option flex flex-col items-center gap-3 text-white hover:text-[#8cb9ca]">
-          <img src="/assets/images/activity/exploration.png" alt="" class="w-20 h-20">
+          <svg-icon src="/assets/images/activity/exploration.svg" class="w-20 h-20"></svg-icon>
           <div class="font-bold text-lg">EXPLORACIÓN</div>
           <input (click)="changeActivity('exploration')" type="radio" class="radio radio-info bg-white hover:text-[#8cb9ca] checked:bg-[#0394cc]" name="activityOption" aria-label=""/>
         </div>
         <div class="activity-option flex flex-col items-center gap-3 text-white hover:text-[#8cb9ca]">
-          <img src="/assets/images/activity/industrial.png" alt="" class="w-20 h-20">
+          <svg-icon src="/assets/images/activity/industrial.svg" class="w-20 h-20"></svg-icon>
           <div class="font-bold text-lg">INDUSTRIA</div>
           <input (click)="changeActivity('industrial')" type="radio" class="radio radio-info bg-white hover:text-[#8cb9ca] checked:bg-[#0394cc]" name="activityOption" aria-label=""/>
         </div>
         <div class="activity-option flex flex-col items-center gap-3 text-white hover:text-[#8cb9ca]">
-          <img src="/assets/images/activity/support.png" alt="" class="w-20 h-20">
+          <svg-icon src="/assets/images/activity/support.svg" class="w-20 h-20"></svg-icon>
           <div class="font-bold text-lg">APOYO</div>
           <input (click)="changeActivity('support')" type="radio" class="radio radio-info bg-white hover:text-[#8cb9ca] checked:bg-[#0394cc]" name="activityOption" aria-label=""/>
         </div>
         <div class="activity-option flex flex-col items-center gap-3 text-white hover:text-[#8cb9ca]">
-          <img src="/assets/images/activity/competition_dark_blue.png" alt="" class="w-20 h-20">
+          <svg-icon src="/assets/images/activity/competition.svg" class="w-20 h-20"></svg-icon>
           <div class="lala font-bold text-lg">COMPETICIÓN</div>
           <input (click)="changeActivity('competition')" type="radio" class="radio radio-info bg-white hover:text-[#8cb9ca] checked:bg-[#0394cc]" name="activityOption" aria-label=""/>
         </div>
