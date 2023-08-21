@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-landing-activities',
@@ -7,64 +7,85 @@ import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 })
 export class LandingActivitiesComponent implements AfterViewInit {
 
-  combatSelected: boolean = true;
-  transportSelected: boolean = false;
-  explorationSelected: boolean = false;
-  industrialSelected: boolean = false;
-  supportSelected: boolean = false;
-  competitionSelected: boolean = false;
-  videoSrc: string = '/assets/videos/landing_activities_combat.mp4'
+  combat: string = 'combat';
+  transport: string = 'transport';
+  exploration: string = 'exploration';
+  industrial: string = 'industrial';
+  support: string = 'support';
+  competition: string = 'competition';
+
+  activities: activity[] = [
+    {
+      name: this.combat,
+      title: 'combate',
+      videoSrc: '/assets/videos/activity/'+ this.combat +'.mp4',
+      svgSrc: 'assets/images/activity/'+ this.combat +'.svg',
+      imageCardSrc: 'activity-card/'+ this.combat +'.png',
+      bodyCardSrc: 'Adrenalina, táctica, fuerza y valor.'
+    },
+    {
+      name: this.transport,
+      title: 'transporte',
+      videoSrc: '/assets/videos/activity/'+ this.transport +'.mp4',
+      svgSrc: 'assets/images/activity/'+ this.transport +'.svg',
+      imageCardSrc: 'activity-card/'+ this.transport +'.png',
+      bodyCardSrc: 'Pasajeros, Datos, Cargamento valioso o tu ruta favorita.'
+    },
+    {
+      name: this.exploration,
+      title: 'exploración',
+      videoSrc: '/assets/videos/activity/'+ this.exploration +'.mp4',
+      svgSrc: 'assets/images/activity/'+ this.exploration +'.svg',
+      imageCardSrc: 'activity-card/'+ this.exploration +'.png',
+      bodyCardSrc: 'Misterio, aventura, descubrimientos, ciencia y navegar por los confines del espacio.'
+    },
+    {
+      name: this.industrial,
+      title: 'industria',
+      videoSrc: '/assets/videos/activity/'+ this.industrial +'.mp4',
+      svgSrc: 'assets/images/activity/'+ this.industrial +'.svg',
+      imageCardSrc: 'activity-card/'+ this.industrial +'.png',
+      bodyCardSrc: 'Recursos, pequeñas aventuras y la maquinaria mas pesada.'
+    },
+    {
+      name: this.support,
+      title: 'apoyo',
+      videoSrc: '/assets/videos/activity/'+ this.support +'.mp4',
+      svgSrc: 'assets/images/activity/'+ this.support +'.svg',
+      imageCardSrc: 'activity-card/'+ this.support +'.png',
+      bodyCardSrc: 'Rescates, reabastecimiento y la medicina mas moderna.'
+    },
+    {
+      name: this.competition,
+      title: 'competición',
+      videoSrc: '/assets/videos/activity/'+ this.competition +'.mp4',
+      svgSrc: 'assets/images/activity/'+ this.competition +'.svg',
+      imageCardSrc: 'activity-card/'+ this.competition +'.png',
+      bodyCardSrc: 'Prepárate para superar tus limites.'
+    },
+  ];
+  currentActivitiy: activity = this.activities[0];
 
   @ViewChild('myVideo') videoElement!: ElementRef;
-
   ngAfterViewInit() {
-
     this.videoElement.nativeElement.muted = true;
-
   }
 
-  resetActivity(){
-    this.combatSelected = false;
-    this.transportSelected = false;
-    this.explorationSelected = false;
-    this.industrialSelected = false;
-    this.supportSelected = false;
-    this.competitionSelected = false;
+  changeCurrentActivity(activityName: string) {
+    let activityFinded = this.activities.find((activity) => activity.name === activityName);
+    if (activityFinded !== undefined) {
+      this.currentActivitiy = activityFinded;
+    } else {
+      activityFinded = this.activities[0];
+    }
   }
+}
 
-  changeActivity(activity: string) {
-    this.resetActivity()
-    switch(activity) {
-      case 'transport': {
-        this.transportSelected = true;
-        this.videoSrc = '/assets/videos/landing_activities_transport.mp4';
-        break;
-      }
-      case 'exploration': {
-        this.explorationSelected = true;
-        this.videoSrc = '/assets/videos/landing_activities_exploration.mp4';
-        break;
-      }
-      case 'industrial': {
-        this.industrialSelected = true;
-        this.videoSrc = '/assets/videos/landing_activities_industrial.mp4';
-        break;
-      }
-      case 'support': {
-        this.supportSelected = true;
-        this.videoSrc = '/assets/videos/landing_activities_support.mp4';
-        break;
-      }
-      case 'competition': {
-        this.competitionSelected = true;
-        this.videoSrc = '/assets/videos/landing_activities_competition.mp4';
-        break;
-      }
-      default: {
-        this.combatSelected = true;
-        this.videoSrc = '/assets/videos/landing_activities_combat.mp4'
-        break;
-      }
-   }
-  }
+interface activity {
+  name: string,
+  title: string,
+  videoSrc: string,
+  svgSrc: string,
+  imageCardSrc: string,
+  bodyCardSrc: string,
 }
