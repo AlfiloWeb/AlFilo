@@ -5,6 +5,11 @@
     height: calc(100vh - 66px);
   }
 
+  .subtitle,
+  .title {
+    font-family: 'Capital Daren Italic';
+  }
+
   .activity-option {
     .svg-activity {
       background-color: white;
