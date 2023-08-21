@@ -7,8 +7,8 @@ module.exports = {
       maxWidth: {
         '2k': '2560px',
       },
-      }
-    },
+    }
+  },
   plugins: [require("daisyui")],
   daisyui: {
     themes: [

@@ -2,3 +2,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Capital Daren";
+  src: url("assets/fonts/Capital-daren-regular.ttf") format('truetype');
+}
+@font-face {
+  font-family: "Capital Daren Italic";
+  src: url("assets/fonts/Capital-daren-italic.ttf") format('truetype');
+}
