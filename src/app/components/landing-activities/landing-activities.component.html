@@ -1,5 +1,5 @@
 <div class="landing-activities max-w-2k mx-auto flex justify-center">
-  <video #myVideo class="background-video absolute max-w-2k w-full object-cover -z-10" autoplay loop muted playsinline="true" webkit-playsinline="true" [src]="videoSrc" type="video/mp4"></video>
+  <video #myVideo class="background-video absolute max-w-2k w-full object-cover -z-10" autoplay loop muted playsinline="true" webkit-playsinline="true" [src]="currentActivitiy.videoSrc" type="video/mp4"></video>
   <div class="flex flex-col w-full">
     <div class="basis-8/12 flex flex-col basis items-center gap-10 pt-20">
       <div class="font-bold text-4xl">PARTICIPA EN DIFERENTES</div>
@@ -12,44 +12,18 @@
     </div>
     <div class="basis-4/12 border-t-2 border-r-2 w-6/12 self-start rounded-tr-2xl flex flex-col items-end">
       <div class="-mt-[9rem] flex gap-10">
-        <div class="activity-option flex flex-col items-center gap-3 text-white hover:text-[#8cb9ca]">
-          <img src="/assets/images/activity/combat.png" alt="" class="w-20 h-20">
-          <div class="font-bold text-lg">COMBATE</div>
-          <input (click)="changeActivity('combat')" type="radio" class="radio radio-info bg-white" name="activityOption" aria-label="" checked/>
-        </div>
-        <div class="activity-option flex flex-col items-center gap-3 text-white hover:text-[#8cb9ca]">
-          <img src="/assets/images/activity/transport.svg" alt="" class="w-20 h-20">
-          <div class="font-bold text-lg">TRANSPORTE</div>
-          <input (click)="changeActivity('transport')" type="radio" class="radio radio-info bg-white hover:text-[#8cb9ca] checked:bg-[#0394cc]" name="activityOption" aria-label=""/>
-        </div>
-        <div class="activity-option flex flex-col items-center gap-3 text-white hover:text-[#8cb9ca]">
-          <img src="/assets/images/activity/exploration.png" alt="" class="w-20 h-20">
-          <div class="font-bold text-lg">EXPLORACIÓN</div>
-          <input (click)="changeActivity('exploration')" type="radio" class="radio radio-info bg-white hover:text-[#8cb9ca] checked:bg-[#0394cc]" name="activityOption" aria-label=""/>
-        </div>
-        <div class="activity-option flex flex-col items-center gap-3 text-white hover:text-[#8cb9ca]">
-          <img src="/assets/images/activity/industrial.png" alt="" class="w-20 h-20">
-          <div class="font-bold text-lg">INDUSTRIA</div>
-          <input (click)="changeActivity('industrial')" type="radio" class="radio radio-info bg-white hover:text-[#8cb9ca] checked:bg-[#0394cc]" name="activityOption" aria-label=""/>
-        </div>
-        <div class="activity-option flex flex-col items-center gap-3 text-white hover:text-[#8cb9ca]">
-          <img src="/assets/images/activity/support.png" alt="" class="w-20 h-20">
-          <div class="font-bold text-lg">APOYO</div>
-          <input (click)="changeActivity('support')" type="radio" class="radio radio-info bg-white hover:text-[#8cb9ca] checked:bg-[#0394cc]" name="activityOption" aria-label=""/>
-        </div>
-        <div class="activity-option flex flex-col items-center gap-3 text-white hover:text-[#8cb9ca]">
-          <img src="/assets/images/activity/competition_dark_blue.png" alt="" class="w-20 h-20">
-          <div class="lala font-bold text-lg">COMPETICIÓN</div>
-          <input (click)="changeActivity('competition')" type="radio" class="radio radio-info bg-white hover:text-[#8cb9ca] checked:bg-[#0394cc]" name="activityOption" aria-label=""/>
-        </div>
+        <ng-template ngFor let-activity [ngForOf]="activities" let-i="index">
+          <div (click)="changeCurrentActivity(activity.name)" [class.selected] = "currentActivitiy['name'] === activity.name" class="activity-option flex flex-col items-center gap-3 text-white hover:text-[#8cb9ca]">
+            <app-svg-icon class="svg-activity" [path]="'assets/images/activity/' + activity.name + '.svg'"></app-svg-icon>
+            <div class="title-activity font-bold text-lg uppercase">{{activity.title}}</div>
+            <div class="radio radio-info bg-white" name="activityOption" aria-label=""></div>
+          </div>
+        </ng-template>
       </div>
       <div class="m-10">
-        <app-basic-card *ngIf="combatSelected" srcImage="activity_combat.png" title="COMBATE" body='Adrenalina, táctica, fuerza y valor.'></app-basic-card>
-        <app-basic-card *ngIf="transportSelected" srcImage="activity_transport.png" title="TRANSPORTE" body='Pasajeros, Datos, Cargamento valioso o tu ruta favorita.'></app-basic-card>
-        <app-basic-card *ngIf="explorationSelected" srcImage="activity_exploration.png" title="EXPLORACIÓN" body='Misterio, aventura, descubrimientos, ciencia y navegar por los confines del espacio.'></app-basic-card>
-        <app-basic-card *ngIf="industrialSelected" srcImage="activity_industrial.png" title="INDUSTRIA" body='Recursos, pequeñas aventuras y la maquinaria mas pesada.'></app-basic-card>
-        <app-basic-card *ngIf="supportSelected" srcImage="activity_support.png" title="APOYO" body='Rescates, reabastecimiento y la medicina mas moderna.'></app-basic-card>
-        <app-basic-card *ngIf="competitionSelected" srcImage="activity_competition.png" title="COMPETICIÓN" body='Prepárate para superar tus limites.'></app-basic-card>
+        <ng-template ngFor let-activity [ngForOf]="activities" let-i="index">
+          <app-basic-card *ngIf="currentActivitiy.name === activity.name" srcImage={{activity.imageCardSrc}} title={{activity.title}} body={{activity.bodyCardSrc}}></app-basic-card>
+        </ng-template>
       </div>
     </div>
   </div>
