@@ -16,6 +16,7 @@ import { AuthCallbackComponent } from './components/auth-callback/auth-callback.
 import { LandingActivitiesComponent } from './components/landing-activities/landing-activities.component';
 import { LandingChronologyComponent } from './components/landing-chronology/landing-chronology.component';
 import { ChronologyCardComponent } from './components/chronology-card/chronology-card.component';
+import { SvgIconComponent } from './components/svg-icon/svg-icon.component';
 
 @NgModule({
   declarations: [
@@ -32,12 +33,13 @@ import { ChronologyCardComponent } from './components/chronology-card/chronology
     LandingActivitiesComponent,
     LandingChronologyComponent,
     ChronologyCardComponent,
+    SvgIconComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

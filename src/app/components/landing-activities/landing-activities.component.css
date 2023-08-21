@@ -5,11 +5,43 @@
     height: calc(100vh - 66px);
   }
 
-  .activity-option:hover .radio-info {
-    background-color: #8cb9ca;
+  .activity-option {
+    .svg-activity {
+      background-color: white;
+      width: 5rem;
+      height: 5rem;
+
+      &.checked {
+        background-color: #0394cc;
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      .radio,
+      .svg-activity {
+        background-color: #8cb9ca;
+      }
+    }
+
+    &.selected,
+    &.selected:hover {
+      .svg-activity {
+        background-color: #0394cc;
+      }
+
+      .radio {
+        --tw-bg-opacity: 1;
+        background-color: #0394cc;
+        animation: radiomark var(--animation-input, 0.2s) ease-in-out;
+        box-shadow: 0 0 0 4px hsl(var(--b1)) inset, 0 0 0 4px hsl(var(--b1)) inset;
+      }
+
+      .title-activity {
+        color: #0394cc;
+      }
+    }
   }
 
-  .activity-option:hover .radio-info:checked {
-    background-color: #0394cc;
-  }
 }
