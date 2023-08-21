@@ -15,7 +15,7 @@ import { JoinInfoComponent } from './components/join-info/join-info.component';
 import { AuthCallbackComponent } from './components/auth-callback/auth-callback.component';
 import { LandingActivitiesComponent } from './components/landing-activities/landing-activities.component';
 import { LandingChronologyComponent } from './components/landing-chronology/landing-chronology.component';
-import { AngularSvgIconModule } from 'angular-svg-icon';
+import { SvgIconComponent } from './components/svg-icon/svg-icon.component';
 
 @NgModule({
   declarations: [
@@ -31,13 +31,13 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
     AuthCallbackComponent,
     LandingActivitiesComponent,
     LandingChronologyComponent,
+    SvgIconComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    AngularSvgIconModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

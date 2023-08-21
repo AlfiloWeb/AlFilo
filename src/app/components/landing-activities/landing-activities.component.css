@@ -12,4 +12,15 @@
   .activity-option:hover .radio-info:checked {
     background-color: #0394cc;
   }
+
+  .svg-activity {
+    background-color: white;
+    width: 5rem;
+    height: 5rem;
+
+    &.checked {
+      background-color: #0394cc;
+    }
+  }
+
 }
