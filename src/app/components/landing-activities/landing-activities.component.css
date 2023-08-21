@@ -25,7 +25,8 @@
       }
     }
 
-    &.selected {
+    &.selected,
+    &.selected:hover {
       .svg-activity {
         background-color: #0394cc;
       }
