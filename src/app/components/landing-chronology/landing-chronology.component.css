@@ -15,4 +15,13 @@
       background-color: #8cb9ca;
     }
   }
+
+  .event-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .event-list {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }

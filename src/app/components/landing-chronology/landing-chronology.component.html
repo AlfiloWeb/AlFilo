@@ -1,12 +1,8 @@
-<div class="landing-chronology bg-[url('/assets/images/background-landing-chronology.jpg')] bg-cover max-w-2k mx-auto flex">
-  <div class="border-r-2 border-b-2 basis-6/12 rounded-br-2xl h-[88vh] flex flex-col items-end justify-between pb-[2rem]">
-    <div class="title text-[6rem] self-center">CRONOLOGÍA</div>
+<div class="landing-chronology bg-[url('/assets/images/background-landing-chronology.jpg')] bg-cover max-w-2k mx-auto flex flex-col">
+  <div class="title text-[6rem]">CRONOLOGÍA</div>
+  <div class="flex flex-col justify-center overflow-x-hidden event-list">
     <ng-template ngFor let-event [ngForOf]="events" let-i="index">
-      <app-chronology-card *ngIf="isInView(event.position)" class="w-[80%] relative" [ngStyle]="{'margin-top.rem': -5}" [ngClass]="{'left-[80.15%]': event.position % 2 !== 0}" cssClassSide={{event.side}} srcImage={{event.image}} title={{event.position}} body={{event.body}}></app-chronology-card>
+      <app-chronology-card srcImage={{event.image}} title={{event.position}} body={{event.body}}></app-chronology-card>
     </ng-template>
-  </div>
-  <div class="basis-6/12 flex flex-col" [ngClass]="{'justify-end': currentEvent.position === 1, 'justify-between': currentEvent.position > 1}">
-    <app-svg-icon *ngIf="currentEvent.position > 1" (click)="previousPage()" class="svg-arrow ml-[10rem]"  [path]="'assets/images/arrow.svg'"></app-svg-icon>
-    <app-svg-icon *ngIf="(currentEvent.position + 3) <= maxEvent" (click)="nextPage()" class="svg-arrow origin-center rotate-180 ml-[10rem]" [path]="'assets/images/arrow.svg'"></app-svg-icon>
   </div>
 </div>

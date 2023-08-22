@@ -92,40 +92,6 @@ export class LandingChronologyComponent {
       side: 'right',
     },
   ];
-  currentEvent: event =  this.events[0];
-  maxEvent: number = this.events.length;
-
-  previousPage(){
-    if(this.currentEvent.position === 1){
-      return;
-    }
-
-    let eventFinded = this.events.find((event) => event.position === this.currentEvent.position-1);
-    if (eventFinded !== undefined) {
-      this.currentEvent = eventFinded;
-    } else {
-      this.currentEvent = this.currentEvent;
-    }
-  }
-
-  nextPage(){
-    if(this.currentEvent.position + 3  === this.maxEvent){
-      return;
-    }
-
-    let eventFinded = this.events.find((event) => event.position === this.currentEvent.position+1);
-    if (eventFinded !== undefined) {
-      this.currentEvent = eventFinded;
-    }
-  }
-
-  isInView(position: number){
-    if( position === this.currentEvent.position ||
-      (position > this.currentEvent.position && position <= this.currentEvent.position+3)){
-      return true;
-    }
-    return false;
-  }
 }
 
 interface event {
