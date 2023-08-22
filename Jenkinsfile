@@ -23,11 +23,11 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'creds2', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     script {
-                        sshCommand remote: remote, command: "cd /home/alfilo/docker-compose/ && echo ${env.PASSWORD} | sudo -S docker builder prune --force"
+                        sshCommand remote: getRemoteConfig(), command: "cd /home/alfilo/docker-compose/ && echo ${env.PASSWORD} | sudo -S docker builder prune --force"
                         if (params.ExecutionMode == 'Verbose') {
-                            sshCommand remote: remote, command: "cd  /home/alfilo && echo UWU"
+                            sshCommand remote: getRemoteConfig(), command: "cd  /home/alfilo && echo UWU"
                         } else if (params.ExecutionMode == 'Quiet') {
-                            sshCommand remote: remote, command: "cd  /home/alfilo && echo UWU QUIET"
+                            sshCommand remote: getRemoteConfig(), command: "cd  /home/alfilo && echo UWU QUIET"
                         }
                     }
                 }
@@ -38,12 +38,12 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'creds1', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     script {
                         if (params.ExecutionMode == 'Verbose') {
-                           sshCommand remote: remote, command: "cd /home/alfilo/docker-compose/ && echo ${env.PASSWORD} | sudo -S docker-compose build --no-cache"
-                           sshCommand remote: remote, command: "cd /home/alfilo/docker-compose/ && echo ${env.PASSWORD} | sudo -S docker-compose up -d"
+                           sshCommand remote: getRemoteConfig(), command: "cd /home/alfilo/docker-compose/ && echo ${env.PASSWORD} | sudo -S docker-compose build --no-cache"
+                           sshCommand remote: getRemoteConfig(), command: "cd /home/alfilo/docker-compose/ && echo ${env.PASSWORD} | sudo -S docker-compose up -d"
                           
                         } else if (params.ExecutionMode == 'Quiet') {
-                            sshCommand remote: remote, command: "cd /home/alfilo/docker-compose/ && echo ${env.PASSWORD} | sudo -S docker-compose build --no-cache --quiet"
-                            sshCommand remote: remote, command: "cd /home/alfilo/docker-compose/ && echo ${env.PASSWORD} | sudo -S docker-compose up -d"
+                            sshCommand remote: getRemoteConfig(), command: "cd /home/alfilo/docker-compose/ && echo ${env.PASSWORD} | sudo -S docker-compose build --no-cache --quiet"
+                            sshCommand remote: getRemoteConfig(), command: "cd /home/alfilo/docker-compose/ && echo ${env.PASSWORD} | sudo -S docker-compose up -d"
                         }
                     }
                 }
