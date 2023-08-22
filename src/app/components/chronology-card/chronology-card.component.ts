@@ -9,7 +9,7 @@ export class ChronologyCardComponent {
   @Input() title: string = '';
   @Input() body: string = '';
   @Input() srcImage: string = '';
-  @Input({ transform: booleanAttribute }) left: boolean = false;
+  @Input() cssClassSide: string = '';
   active: boolean = true;
 
   toggleActive() {
