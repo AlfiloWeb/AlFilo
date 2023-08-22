@@ -1,14 +1,20 @@
 <div [@fadeInOut]="isVisible ? 'visible' : 'hidden'">
-  <div class="card w-[32rem] bg-black shadow-xl bg-opacity-75 ">
+  <div class=" card w-[32rem] bg-black bg-opacity-0 ">
     <figure class="px-32 pt-5">
       <img src="/assets/images/logo.svg" alt="Logo" class="w-40"/>
     </figure>
     <div class="card-body pt-5 items-center text-center ">
-      <p class="pb-5 text-xl text-base">La aventura te espera</p>
-      <div class="card-actions">
-        <a href="https://discord.com/invite/ADgezdG" target="_blank" class="btn text-black ring-2 ring-white rounded-2xl font-black">Únete
-          a AlFilo</a>
+      <p class="pb-5 text-xl">La aventura te espera</p>
+      <div>
+        <a href="https://discord.com/invite/ADgezdG" target="_blank"
+           class="btn w-20 discord-anim rounded-full hover:bg-black bg-black border-0 border-white ">
+          <img class="w-10 h-10 svg-move absolute z-10" alt="Discord Logo" src="assets/images/discord.svg">
+          <p class="absolute text-anim z-0">Únete a AlFilo</p>
+        </a>
       </div>
+
     </div>
   </div>
 </div>
+
+
