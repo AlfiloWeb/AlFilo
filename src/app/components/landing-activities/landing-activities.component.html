@@ -11,12 +11,13 @@
       </div>
     </div>
     <div class="basis-4/12 border-t-2 border-r-2 w-6/12 self-start rounded-tr-2xl flex flex-col items-end">
-      <div class="-mt-[9rem] flex gap-10">
+      <div class="-mt-[9.3rem] flex gap-10">
         <ng-template ngFor let-activity [ngForOf]="activities" let-i="index">
           <div (click)="changeCurrentActivity(activity.name)" [class.selected] = "currentActivitiy['name'] === activity.name" class="activity-option flex flex-col items-center gap-3 text-white hover:text-[#8cb9ca]">
             <app-svg-icon class="svg-activity" [path]="'assets/images/activity/' + activity.name + '.svg'"></app-svg-icon>
             <div class="title-activity font-bold text-lg uppercase">{{activity.title}}</div>
-            <div class="radio radio-info bg-white" name="activityOption" aria-label=""></div>
+            <app-svg-icon *ngIf="currentActivitiy.name !== activity.name" class="svg-circle" [path]="'assets/images/circle.svg'"></app-svg-icon>
+            <app-svg-icon *ngIf="currentActivitiy.name === activity.name" class="svg-circle" [path]="'assets/images/circle-hoop.svg'"></app-svg-icon>
           </div>
         </ng-template>
       </div>
