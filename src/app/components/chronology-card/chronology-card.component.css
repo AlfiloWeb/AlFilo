@@ -1,32 +1,17 @@
 .chronology-card {
-  .radio,
-  .info-wrapper {
-    cursor: pointer;
-  }
-
-  .radio {
+  .svg-circle {
+    width: 1rem;
+    height: 1rem;
     background-color: white;
-    &:hover {
-      background-color: #8cb9ca;
+    margin-top: 8rem;
+
+    &.left {
+      margin-left: -0.5rem;
     }
-  }
 
-  .radio-selected {
-    --tw-bg-opacity: 1;
-    background-color: #0394cc;
-    animation: radiomark var(--animation-input, 0.2s) ease-in-out;
-    box-shadow: 0 0 0 4px hsl(var(--b1)) inset, 0 0 0 4px hsl(var(--b1)) inset;
-    &:hover {
-      background-color: #0394cc;
+    &.right {
+      margin-right: -0.5rem;
+      order: 2;
     }
-  }
-
-  .left {
-    margin-left: -0.8rem;
-  }
-
-  .right {
-    margin-right: -0.8rem;
-    order: 2;
   }
 }
