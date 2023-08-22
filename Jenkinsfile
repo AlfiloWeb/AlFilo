@@ -14,6 +14,7 @@ pipeline {
   // trigger 2 commit extra
     parameters {
         booleanParam(name: 'Port_checking', defaultValue: false, description: 'Set to true to execute the script on the remote server')
+        booleanParam(name: 'Verbose', defaultValue: false, description: 'Set to true to verbose')
     }
 
     environment {
@@ -38,8 +39,12 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'creds1', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     script {
+                        if (params.Verbose) {
+                            sshCommand remote: remote, command: "cd  /home/alfilo && ./kill.sh"
+                        } else {
                         sshCommand remote: remote, command: "cd /home/alfilo/docker-compose/ && echo ${env.PASSWORD} | sudo -S docker-compose build  --no-cache --quiet"
                         sshCommand remote: remote, command: "cd /home/alfilo/docker-compose/ && echo ${env.PASSWORD} | sudo -S docker-compose up -d"
+                        }
                     }
                 }
             }
