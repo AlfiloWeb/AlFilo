@@ -10,4 +10,9 @@ export class ChronologyCardComponent {
   @Input() body: string = '';
   @Input() srcImage: string = '';
   @Input({ transform: booleanAttribute }) left: boolean = false;
+  active: boolean = true;
+
+  toggleActive() {
+    this.active = !this.active;
+  }
 }

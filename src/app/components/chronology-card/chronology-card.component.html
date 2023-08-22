@@ -1,13 +1,14 @@
-<div class="flex gap-5">
-  <input *ngIf="left" [ngClass]="{'left': left}" type="radio" class="radio radio-info bg-white hover:text-[#8cb9ca] checked:bg-[#0394cc]" name="activityOption" aria-label=""/>
-  <div class="card border h-48 w-[32rem] bg-black shadow-xl bg-opacity-75">
-    <div class="flex h-full">
-      <img src="/assets/images/{{srcImage}}" alt="Logo" class="rounded-l-2xl w-5/12 object-cover" />
-      <div class="card-body">
-        <h2 class="card-title text-white">{{title}}</h2>
-        <p class="text-white">{{body}}</p>
+<div class="chronology-card flex gap-5">
+  <div [ngClass]="{'left': left, 'right': !left, 'radio-selected': active}" class="radio radio-info bg-white"></div>
+  <div class="info-wrapper flex">
+    <div class="card border h-52 w-[32rem] bg-black shadow-xl bg-opacity-75">
+      <div  class="flex h-full">
+        <img src="/assets/images/{{srcImage}}" alt="Logo" class="rounded-l-2xl w-5/12 object-cover" />
+        <div class="card-body">
+          <h2 class="card-title text-white">{{title}}</h2>
+          <p class="text-white">{{body}}</p>
+        </div>
       </div>
     </div>
   </div>
-  <input *ngIf="!left" [ngClass]="{'right': !left}" type="radio" class="radio radio-info bg-white hover:text-[#8cb9ca] checked:bg-[#0394cc]" name="activityOption" aria-label=""/>
 </div>
