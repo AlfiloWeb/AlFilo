@@ -15,6 +15,7 @@ import { JoinInfoComponent } from './components/join-info/join-info.component';
 import { AuthCallbackComponent } from './components/auth-callback/auth-callback.component';
 import { LandingActivitiesComponent } from './components/landing-activities/landing-activities.component';
 import { LandingChronologyComponent } from './components/landing-chronology/landing-chronology.component';
+import { ChronologyCardComponent } from './components/chronology-card/chronology-card.component';
 import { SvgIconComponent } from './components/svg-icon/svg-icon.component';
 
 @NgModule({
@@ -31,6 +32,7 @@ import { SvgIconComponent } from './components/svg-icon/svg-icon.component';
     AuthCallbackComponent,
     LandingActivitiesComponent,
     LandingChronologyComponent,
+    ChronologyCardComponent,
     SvgIconComponent,
     ChronologyCardComponent,
   ],
