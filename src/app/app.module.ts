@@ -37,7 +37,7 @@ import { SvgIconComponent } from './components/svg-icon/svg-icon.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

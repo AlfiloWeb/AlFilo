@@ -5,3 +5,36 @@
     height: calc(100vh - 66px);
   }
 }
+
+.parallelogram {
+
+  opacity: 0;
+
+  animation: slideIn 1s ease-out forwards;
+}
+
+.inverse-parallelogram{
+  transform: skewX(20deg);
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+  transform: translateX(-20%) translateY(150%) ;
+}
+
+.delay-400 {
+  animation-delay: 300ms;
+  transform: translateX(-20%) translateY(150%) ;
+}
+
+.delay-600 {
+  animation-delay: 400ms;
+  transform: translateX(-20%) translateY(150%) ;
+}
+
+@keyframes slideIn {
+  to {
+    transform: translateX(0) ;
+    opacity: 1;
+  }
+}

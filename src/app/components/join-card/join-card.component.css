@@ -1,0 +1,28 @@
+.discord-anim{
+  transition: width 0.5s ;
+}
+
+.discord-anim:hover{
+  width: 12rem;
+}
+
+.svg-move {
+  transition: transform 0.5s;
+}
+
+.discord-anim:hover .svg-move {
+  transform: translateX(-3.5rem) rotate(-360deg); /* Mueve y rota el elemento */
+}
+
+.text-anim {
+  transform: translateX(-5rem);
+  opacity: 0;
+  transition: transform 0.5s , opacity 0.2s ;
+}
+
+.discord-anim:hover .text-anim {
+  transform: translateX(1.5rem);
+  opacity: 1;
+  transition: transform 0.5s , opacity 0.5s ;
+}
+
