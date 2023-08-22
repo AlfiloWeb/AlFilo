@@ -15,7 +15,7 @@ pipeline {
     }
 
     environment {
-        REMOTE_HOST = credentials('staging.alfilo.org')
+        REMOTE_HOST = 'staging.alfilo.org'
     }
 
     stages {
