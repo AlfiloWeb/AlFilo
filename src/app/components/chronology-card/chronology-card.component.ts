@@ -1,4 +1,4 @@
-import { Component, Input, booleanAttribute } from '@angular/core';
+import { Component, Input, numberAttribute } from '@angular/core';
 
 @Component({
   selector: 'app-chronology-card',
@@ -9,7 +9,8 @@ export class ChronologyCardComponent {
   @Input() title: string = '';
   @Input() body: string = '';
   @Input() srcImage: string = '';
-  @Input() cssClassSide: string = '';
+  @Input({transform: numberAttribute}) position: number = 0;
+
   active: boolean = true;
 
   toggleActive() {

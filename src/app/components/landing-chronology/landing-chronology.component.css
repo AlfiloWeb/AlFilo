@@ -17,5 +17,9 @@
     &::-webkit-scrollbar {
       display: none;
     }
+
+    & app-chronology-card:nth-child(odd) {
+      grid-column-start: 2;
+    }
   }
 }
