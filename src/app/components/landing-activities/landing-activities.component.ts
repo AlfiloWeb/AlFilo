@@ -75,8 +75,6 @@ export class LandingActivitiesComponent implements AfterViewInit {
     let activityFinded = this.activities.find((activity) => activity.name === activityName);
     if (activityFinded !== undefined) {
       this.currentActivitiy = activityFinded;
-    } else {
-      activityFinded = this.activities[0];
     }
   }
 }
