@@ -17,7 +17,7 @@ export class LandingActivitiesComponent implements AfterViewInit {
   activities: activity[] = [
     {
       name: this.combat,
-      title: 'combate',
+      title: 'COMBATE',
       videoSrc: '/assets/videos/activity/'+ this.combat +'.mp4',
       svgSrc: 'assets/images/activity/'+ this.combat +'.svg',
       imageCardSrc: 'activity-card/'+ this.combat +'.png',
@@ -25,7 +25,7 @@ export class LandingActivitiesComponent implements AfterViewInit {
     },
     {
       name: this.transport,
-      title: 'transporte',
+      title: 'TRANSPORTE',
       videoSrc: '/assets/videos/activity/'+ this.transport +'.mp4',
       svgSrc: 'assets/images/activity/'+ this.transport +'.svg',
       imageCardSrc: 'activity-card/'+ this.transport +'.png',
@@ -33,7 +33,7 @@ export class LandingActivitiesComponent implements AfterViewInit {
     },
     {
       name: this.exploration,
-      title: 'exploración',
+      title: 'EXPLORACIÓN',
       videoSrc: '/assets/videos/activity/'+ this.exploration +'.mp4',
       svgSrc: 'assets/images/activity/'+ this.exploration +'.svg',
       imageCardSrc: 'activity-card/'+ this.exploration +'.png',
@@ -41,7 +41,7 @@ export class LandingActivitiesComponent implements AfterViewInit {
     },
     {
       name: this.industrial,
-      title: 'industria',
+      title: 'INDUSTRIA',
       videoSrc: '/assets/videos/activity/'+ this.industrial +'.mp4',
       svgSrc: 'assets/images/activity/'+ this.industrial +'.svg',
       imageCardSrc: 'activity-card/'+ this.industrial +'.png',
@@ -49,7 +49,7 @@ export class LandingActivitiesComponent implements AfterViewInit {
     },
     {
       name: this.support,
-      title: 'apoyo',
+      title: 'APOYO',
       videoSrc: '/assets/videos/activity/'+ this.support +'.mp4',
       svgSrc: 'assets/images/activity/'+ this.support +'.svg',
       imageCardSrc: 'activity-card/'+ this.support +'.png',
@@ -57,7 +57,7 @@ export class LandingActivitiesComponent implements AfterViewInit {
     },
     {
       name: this.competition,
-      title: 'competición',
+      title: 'COMPETICIÓN',
       videoSrc: '/assets/videos/activity/'+ this.competition +'.mp4',
       svgSrc: 'assets/images/activity/'+ this.competition +'.svg',
       imageCardSrc: 'activity-card/'+ this.competition +'.png',

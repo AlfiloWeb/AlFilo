@@ -1,14 +1,9 @@
-section{
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  scroll-snap-align: start;
-}
+
 app-landing-join,
 app-landing-creators,
 app-landing-activities,
-app-landing-chronology {
+app-landing-chronology,
+app-landing-contact-us{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,10 +11,17 @@ app-landing-chronology {
   scroll-snap-align: start;
 }
 
-.test{
+.snap-container{
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
-  height: 100vh;
+  height: calc(100vh - 66px);
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .footer-test{

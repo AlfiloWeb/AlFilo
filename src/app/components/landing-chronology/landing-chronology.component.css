@@ -2,15 +2,10 @@
   height: calc(100vh - 66px);
 
   .title {
-    font-family: 'Capital Daren Italic';
+    font-family: 'Capital Daren Italic', sans-serif;
   }
 
   .event-list {
-    background-image: linear-gradient(white, white);
-    background-size: 2px 100%;
-    background-repeat: no-repeat;
-    background-position: center center;
-
     -ms-overflow-style: none;
     scrollbar-width: none;
 
