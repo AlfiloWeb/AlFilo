@@ -1,11 +1,17 @@
 .chronology-card {
+  margin-left: -0.55rem;
+
   .svg-circle {
     width: 1rem;
     height: 1rem;
     background-color: white;
   }
 
-  .right {
-    order: 2;
+  &.right {
+    justify-content: end;
+    margin-right: -0.55rem;
+    .svg-circle {
+      order: 2;
+    }
   }
 }

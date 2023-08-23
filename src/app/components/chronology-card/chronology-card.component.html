@@ -1,5 +1,5 @@
-<div class="chronology-card flex gap-5">
-  <app-svg-icon class="svg-circle self-center" [ngClass]="{'right': position % 2 === 0}" [path]="'assets/images/circle.svg'"></app-svg-icon>
+<div class="chronology-card flex gap-5" [ngClass]="{'right': position % 2 === 0}">
+  <app-svg-icon class="svg-circle self-center" [path]="'assets/images/circle.svg'"></app-svg-icon>
   <div class="info-wrapper flex">
     <div class="card border w-[30vw] bg-black shadow-xl bg-opacity-75">
       <div  class="flex h-full">

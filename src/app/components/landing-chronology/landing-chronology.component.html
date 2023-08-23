@@ -3,9 +3,9 @@
     <div class="title text-[6rem] ">CRONOLOGÍA</div>
   </div>
   <div class="event-list-wrapper basis-[70%] w-[100%] flex justify-center">
-    <div class="event-list h-[70vh] w-[80%] grid grid-cols-2 gap-10 overflow-x-hidden">
+    <div class="event-list h-[70vh] w-[80%] grid grid-cols-2 gap-y-20 overflow-x-hidden">
       <ng-template ngFor let-event [ngForOf]="events" let-i="index">
-        <app-chronology-card [style.grid-row-start]="i+1" position={{event.position}} srcImage={{event.image}} title={{event.title}} body={{event.body}}></app-chronology-card>
+        <app-chronology-card [style.grid-row-start]="i+1" [style.grid-row-end]="i+3"class="self-end" position={{event.position}} srcImage={{event.image}} title={{event.title}} body={{event.body}}></app-chronology-card>
       </ng-template>
     </div>
   </div>
