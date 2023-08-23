@@ -26,9 +26,9 @@
   transition: transform 0.5s , opacity 0.5s ;
 }
 
-.discord-svg{
+.discord-svg {
   width: 2.5rem;
   height: 2.5rem;
-  background-color: #5865F2;
+  background-color: white;
 }
 

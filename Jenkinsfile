@@ -10,14 +10,12 @@ def getRemoteConfig() {
 
 pipeline {
     agent any
-    // trigger test
-  // trigger 2 commit extra
     parameters {
-        booleanParam(name: 'Port_checking', defaultValue: false, description: 'Set to true to execute the script on the remote server')
+        choice(name: 'ExecutionMode', choices: ['Verbose', 'Quiet'], description: 'Select the execution mode')
     }
 
     environment {
-        REMOTE_HOST = credentials('host-stg')
+        REMOTE_HOST = 'staging.alfilo.org'
     }
 
     stages {
@@ -25,10 +23,11 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'creds2', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     script {
-                        sshCommand remote: remote, command: "cd /home/alfilo/docker-compose/ && echo ${env.PASSWORD} | sudo -S docker builder prune --force"
-                        sshCommand remote: remote, command: "cd /home/alfilo/docker-compose/ && echo ${env.PASSWORD} | sudo -S docker-compose down"
-                        if (params.Port_checking) {
-                            sshCommand remote: remote, command: "cd  /home/alfilo && ./kill.sh"
+                        sshCommand remote: getRemoteConfig(), command: "cd /home/alfilo/docker-compose/ && echo ${env.PASSWORD} | sudo -S docker builder prune --force"
+                        if (params.ExecutionMode == 'Verbose') {
+                            sshCommand remote: getRemoteConfig(), command: "cd  /home/alfilo && echo UWU"
+                        } else if (params.ExecutionMode == 'Quiet') {
+                            sshCommand remote: getRemoteConfig(), command: "cd  /home/alfilo && echo UWU QUIET"
                         }
                     }
                 }
@@ -38,8 +37,14 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'creds1', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     script {
-                        sshCommand remote: remote, command: "cd /home/alfilo/docker-compose/ && echo ${env.PASSWORD} | sudo -S docker-compose build  --no-cache --quiet"
-                        sshCommand remote: remote, command: "cd /home/alfilo/docker-compose/ && echo ${env.PASSWORD} | sudo -S docker-compose up -d"
+                        if (params.ExecutionMode == 'Verbose') {
+                           sshCommand remote: getRemoteConfig(), command: "cd /home/alfilo/docker-compose/ && echo ${env.PASSWORD} | sudo -S docker-compose build --no-cache"
+                           sshCommand remote: getRemoteConfig(), command: "cd /home/alfilo/docker-compose/ && echo ${env.PASSWORD} | sudo -S docker-compose up -d"
+                          
+                        } else if (params.ExecutionMode == 'Quiet') {
+                            sshCommand remote: getRemoteConfig(), command: "cd /home/alfilo/docker-compose/ && echo ${env.PASSWORD} | sudo -S docker-compose build --no-cache --quiet"
+                            sshCommand remote: getRemoteConfig(), command: "cd /home/alfilo/docker-compose/ && echo ${env.PASSWORD} | sudo -S docker-compose up -d"
+                        }
                     }
                 }
             }
