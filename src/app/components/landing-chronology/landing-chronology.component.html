@@ -1,8 +1,15 @@
 <div class="landing-chronology bg-[url('/assets/images/background-landing-chronology.jpg')] bg-cover max-w-2k mx-auto flex flex-col">
-  <div class="title text-[6rem]">CRONOLOGÍA</div>
-  <div class="flex flex-col justify-center overflow-x-hidden event-list">
-    <ng-template ngFor let-event [ngForOf]="events" let-i="index">
-      <app-chronology-card srcImage={{event.image}} title={{event.position}} body={{event.body}}></app-chronology-card>
-    </ng-template>
+  <div class="basis-[20%] w-[50.07%] border-r-2 flex justify-center">
+    <div class="title text-[6rem] ">CRONOLOGÍA</div>
+  </div>
+  <div class="event-list-wrapper basis-[70%] w-[100%] flex justify-center">
+    <div class="event-list h-[70vh] w-[80%] flex flex-col justify-center overflow-x-hidden">
+      <ng-template ngFor let-event [ngForOf]="events" let-i="index">
+        <app-chronology-card srcImage={{event.image}} title={{event.title}} body={{event.body}}></app-chronology-card>
+      </ng-template>
+    </div>
+  </div>
+  <div class="basis-[10%]">
+    <div class="h-[50%] w-[50.07%] border-b-2 border-r-2 rounded-br-2xl"></div>
   </div>
 </div>

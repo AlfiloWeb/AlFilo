@@ -5,23 +5,17 @@
     font-family: 'Capital Daren Italic';
   }
 
-  .svg-arrow {
-    background-color: white;
-    width: 5rem;
-    height: 5rem;
-    cursor: pointer;
-
-    &:hover {
-      background-color: #8cb9ca;
-    }
-  }
-
-  .event-list::-webkit-scrollbar {
-    display: none;
-  }
-
   .event-list {
+    background-image: linear-gradient(white, white);
+    background-size: 2px 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+
     -ms-overflow-style: none;
     scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }
