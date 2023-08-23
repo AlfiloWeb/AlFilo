@@ -38,3 +38,9 @@
     opacity: 1;
   }
 }
+
+.background-test{
+  background-image: url("../../../assets/images/corsairAlFilo.png");
+  background-size: cover;
+}
+

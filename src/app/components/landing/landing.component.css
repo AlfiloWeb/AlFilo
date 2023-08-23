@@ -1,0 +1,33 @@
+section{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start;
+}
+app-landing-join,
+app-landing-creators,
+app-landing-activities,
+app-landing-chronology {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  scroll-snap-align: start;
+}
+
+.test{
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.footer-test{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: fit-content;
+  scroll-snap-align: start;
+}
+
