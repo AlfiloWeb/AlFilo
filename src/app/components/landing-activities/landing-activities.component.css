@@ -76,6 +76,15 @@
         height: 2rem;
       }
 
+      &:hover {
+        cursor: pointer;
+
+        .svg-circle,
+        .svg-activity {
+          background-color: #8cb9ca;
+        }
+      }
+
       &.selected,
       &.selected:hover {
         .svg-activity,
