@@ -1,4 +1,4 @@
-.landing-activities {
+/* .landing-activities {
   height: calc(100vh - 66px);
 
   .background-video {
@@ -49,5 +49,51 @@
       }
     }
   }
+
+} */
+
+.landing-activities {
+  .svg-activity,
+  .svg-circle {
+    background-color: white;
+  }
+
+  .activities-wrapper {
+    background: linear-gradient(180deg,
+    transparent calc(83% - 1px),
+    white calc(83%),
+    transparent calc(83% + 1px));
+
+    .activity {
+
+      .svg-activity {
+        width: 5rem;
+        height: 5rem;
+      }
+
+      .svg-circle {
+        width: 1rem;
+        height: 2rem;
+      }
+
+      &.selected,
+      &.selected:hover {
+        .svg-activity,
+        .svg-circle {
+          background-color: #0394cc;
+        }
+
+        .svg-circle {
+          width: 2rem;
+          height: 2rem;
+        }
+
+        .title-activity {
+          color: #0394cc;
+        }
+      }
+    }
+  }
+
 
 }
