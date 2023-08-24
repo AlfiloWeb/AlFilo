@@ -8,10 +8,9 @@
       <div class="title text-[9rem] leading-[10rem]">CONTENIDO</div>
     </div>
     <div class="p-20 h-fit snap-x snap-mandatory flex overflow-y-hidden gap-20 w-[100vw] max-w-2k hide-scrollbar">
-      <app-creator-card class="snap-center first:pl-20 last:pr-20"></app-creator-card>
-      <app-creator-card class="snap-center first:pl-20 last:pr-20"></app-creator-card>
-      <app-creator-card class="snap-center first:pl-20 last:pr-20"></app-creator-card>
-      <app-creator-card class="snap-center first:pl-20 last:pr-20"></app-creator-card>
+      <ng-template ngFor let-creator [ngForOf]="creators">
+        <app-creator-card class="snap-center" creatorLogo="{{creator.creatorLogo}}" creatorName="{{creator.creatorName}}" creatorDescription="{{creator.creatorDescription}}" creatorVideo="{{creator.creatorVideo}}" creatorTwitch="{{creator.creatorTwitch}}" creatorYoutube="{{creator.creatorYoutube}}" creatorX="{{creator.creatorX}}"></app-creator-card>
+      </ng-template>
     </div>
   </div>
 </div>
