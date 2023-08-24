@@ -21,7 +21,7 @@ export class LandingActivitiesComponent implements AfterViewInit {
       videoSrc: '/assets/videos/activity/'+ this.combat +'.mp4',
       svgSrc: 'assets/images/activity/'+ this.combat +'.svg',
       imageCardSrc: 'activity-card/'+ this.combat +'.png',
-      bodyCardSrc: 'Adrenalina, táctica, fuerza y valor.'
+      bodyCardSrc: 'Fomentamos el juego en equipo mediante estrategia y táctica.'
     },
     {
       name: this.transport,
@@ -29,7 +29,7 @@ export class LandingActivitiesComponent implements AfterViewInit {
       videoSrc: '/assets/videos/activity/'+ this.transport +'.mp4',
       svgSrc: 'assets/images/activity/'+ this.transport +'.svg',
       imageCardSrc: 'activity-card/'+ this.transport +'.png',
-      bodyCardSrc: 'Pasajeros, Datos, Cargamento valioso o tu ruta favorita.'
+      bodyCardSrc: 'Realizamos diversas actividades de mercancía incluyendo contrabando, pirateria y logistica.'
     },
     {
       name: this.exploration,
@@ -37,7 +37,7 @@ export class LandingActivitiesComponent implements AfterViewInit {
       videoSrc: '/assets/videos/activity/'+ this.exploration +'.mp4',
       svgSrc: 'assets/images/activity/'+ this.exploration +'.svg',
       imageCardSrc: 'activity-card/'+ this.exploration +'.png',
-      bodyCardSrc: 'Misterio, aventura, descubrimientos, ciencia y navegar por los confines del espacio.'
+      bodyCardSrc: 'Abarcamos todas las actividades relacionadas con encontrar recursos, ciencia y reconocimiento.'
     },
     {
       name: this.industrial,
@@ -45,7 +45,7 @@ export class LandingActivitiesComponent implements AfterViewInit {
       videoSrc: '/assets/videos/activity/'+ this.industrial +'.mp4',
       svgSrc: 'assets/images/activity/'+ this.industrial +'.svg',
       imageCardSrc: 'activity-card/'+ this.industrial +'.png',
-      bodyCardSrc: 'Recursos, pequeñas aventuras y la maquinaria mas pesada.'
+      bodyCardSrc: 'Gestión de recursos a todos los niveles de legalidad, procedencia y magnitud.'
     },
     {
       name: this.support,
@@ -53,7 +53,7 @@ export class LandingActivitiesComponent implements AfterViewInit {
       videoSrc: '/assets/videos/activity/'+ this.support +'.mp4',
       svgSrc: 'assets/images/activity/'+ this.support +'.svg',
       imageCardSrc: 'activity-card/'+ this.support +'.png',
-      bodyCardSrc: 'Rescates, reabastecimiento y la medicina mas moderna.'
+      bodyCardSrc: 'Operaciones de rescate, medicina, reabastecimiento y logistica.'
     },
     {
       name: this.competition,
@@ -61,7 +61,7 @@ export class LandingActivitiesComponent implements AfterViewInit {
       videoSrc: '/assets/videos/activity/'+ this.competition +'.mp4',
       svgSrc: 'assets/images/activity/'+ this.competition +'.svg',
       imageCardSrc: 'activity-card/'+ this.competition +'.png',
-      bodyCardSrc: 'Prepárate para superar tus limites.'
+      bodyCardSrc: 'Participamos de forma activa con la comunidad en diferentes eventos y torneos.'
     },
   ];
   currentActivitiy: activity = this.activities[0];
