@@ -1,4 +1,3 @@
-
 app-landing-join,
 app-landing-creators,
 app-landing-activities,
@@ -11,7 +10,7 @@ app-landing-contact-us{
   scroll-snap-align: start;
 }
 
-.snap-container{
+.snap-y-container{
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
   height: calc(100vh - 66px);

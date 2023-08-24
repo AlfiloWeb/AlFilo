@@ -1,4 +1,29 @@
 .subtitle,
 .title {
-  font-family: 'Capital Daren Italic';
+  font-family: 'Capital Daren Italic', sans-serif;
 }
+
+.hide-scrollbar{
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.landing-contact-us {
+  height: calc(100vh - 66px);
+
+  .subtitle,
+  .title {
+    font-family: 'Capital Daren Italic', sans-serif;
+  }
+
+  .discord-svg {
+    background-color: white;
+    height: 1.75rem;
+    width: 1.75rem;
+  }
+}
+

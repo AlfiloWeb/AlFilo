@@ -19,6 +19,7 @@ import {LandingCreatorsComponent} from "./components/landing-creators/landing-cr
 import { ChronologyCardComponent } from './components/chronology-card/chronology-card.component';
 import { SvgIconComponent } from './components/svg-icon/svg-icon.component';
 import { LandingContactUsComponent } from './components/landing-contact-us/landing-contact-us.component';
+import { CreatorCardComponent } from './components/creator-card/creator-card.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { LandingContactUsComponent } from './components/landing-contact-us/landi
     SvgIconComponent,
     LandingCreatorsComponent,
     LandingContactUsComponent,
+    CreatorCardComponent,
   ],
   imports: [
     BrowserModule,

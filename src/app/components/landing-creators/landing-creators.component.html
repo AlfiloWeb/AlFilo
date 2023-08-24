@@ -1,9 +1,17 @@
-<div class="bg-gray-900 h-screen flex flex-col section w-full border border-red-500">
-  <div class="flex flex-col items-center">
-    <div class="subtitle text-[3.5rem] pt-5  text-center leading-tight">
-      <p>CONOCE NUESTROS</p>
-      <p class="leading-8">CREADORES DE</p>
+<div class="landing-contact-us w-full bg-[url('/assets/images/bg-creators.jpg')] bg-cover max-w-2k mx-auto flex justify-center">
+  <div class="h-screen w-full items-center flex flex-col  section">
+    <div class="flex flex-col items-center">
+      <div class="subtitle text-[3.5rem] pt-5 text-center leading-tight">
+        <p>CONOCE NUESTROS</p>
+        <p class="leading-8">CREADORES DE</p>
+      </div>
+      <div class="title text-[9rem] leading-[10rem]">CONTENIDO</div>
     </div>
-    <div class="title text-[9rem] leading-[10rem]">CONTENIDO</div>
+    <div class="p-20 h-fit snap-x snap-mandatory flex overflow-y-hidden gap-20 w-[100vw] max-w-2k hide-scrollbar">
+      <app-creator-card class="snap-center first:pl-20 last:pr-20"></app-creator-card>
+      <app-creator-card class="snap-center first:pl-20 last:pr-20"></app-creator-card>
+      <app-creator-card class="snap-center first:pl-20 last:pr-20"></app-creator-card>
+      <app-creator-card class="snap-center first:pl-20 last:pr-20"></app-creator-card>
+    </div>
   </div>
 </div>
