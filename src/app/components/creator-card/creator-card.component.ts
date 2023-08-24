@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import {Component, ElementRef, Input, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-creator-card',
@@ -14,5 +14,10 @@ export class CreatorCardComponent {
   @Input() creatorTwitch: string = '';
   @Input() creatorYoutube: string = '';
   @Input() creatorX: string = '';
+
+  @ViewChild('myVideo') videoElement!: ElementRef;
+  ngAfterViewInit() {
+    this.videoElement.nativeElement.muted = true;
+  }
 
 }
