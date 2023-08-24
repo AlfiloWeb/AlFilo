@@ -11,3 +11,8 @@
   font-family: "Capital Daren Italic";
   src: url("assets/fonts/capital-daren-italic.ttf") format('truetype');
 }
+
+.font-capital-daren {
+  font-family: "Capital Daren";
+}
+
