@@ -9,7 +9,9 @@ def getRemoteConfig() {
 }
 
 pipeline {
-    agent any
+    agent {
+      label 'squaier'
+    }
     parameters {
         choice(name: 'ExecutionMode', choices: ['Verbose', 'Quiet'], description: 'Select the execution mode')
     }
