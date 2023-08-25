@@ -16,10 +16,11 @@
 
 *
 
-<div class="bg-[url('assets/images/corsairAlFilo.png')] bg-cover bg-center bg-no-repeat w-full flex flex-col items-center gap-80 ">
+<div class="w-full flex flex-col items-center gap-80 relative ">
+  <video #myVideo class="absolute w-full m-auto h-[85%] top-0 left-0 object-cover -z-10" autoplay loop muted playsinline src="assets/videos/video.mp4"></video>
   <img src="/assets/images/logo.svg" alt="Logo" class="w-40 pt-20"/>
   <div class="flex flex-col items-center gap-10">
-    <p class="font-capital-daren text-6xl md:text-7xl lg:text-8xl xl:text-9xl">LA AVENTURA TE ESPERA</p>
+    <p class="font-capital-daren text-5xl md:text-7xl lg:text-8xl xl:text-9xl">LA AVENTURA TE ESPERA</p>
     <a href="https://discord.com/invite/ADgezdG" target="_blank"
        class="btn text-black ring-2 ring-white rounded-2xl font-black lg:hidden">Únete
       a AlFilo</a>
@@ -31,13 +32,13 @@
         <p class="absolute text-anim z-0">Únete a AlFilo</p>
       </a>
     </div>
-    <div class="flex flex-wrap gap-10 justify-center">
-      <app-basic-card class="flex justify-stretch " srcImage="info_alfilo.png" title="AL FILO"
+    <div class="flex flex-wrap gap-10 justify-center px-10 pb-20 ">
+      <app-basic-card class="flex justify-stretch max-w-2xl h-72 " srcImage="info_alfilo.png" title="AL FILO"
                       body='Comunidad para disfrutar Star Citizen en compañia, con un ritmo sano.'></app-basic-card>
-      <app-basic-card class="flex justify-stretch  -400" srcImage="info_style.png"
+      <app-basic-card class="flex justify-stretch max-w-2xl h-72" srcImage="info_style.png"
                       title="Estilo de juego"
                       body="Somos Pro-Billete. Cumplimos los contratos. Realizamos todo tipo de actividades, un ataque a terceros debe tener un motivo económico."></app-basic-card>
-      <app-basic-card class="flex justify-stretch  " srcImage="info_join.png" title="Hazte DAGA"
+      <app-basic-card class="flex justify-stretch max-w-2xl h-72 " srcImage="info_join.png" title="Hazte DAGA"
                       body="Solicita tu rango de DAGA. Obtendrás acceso a Licencias, votaciones y creación de eventos."></app-basic-card>
     </div>
   </div>
