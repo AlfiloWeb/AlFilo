@@ -1,108 +1,63 @@
-/* .landing-activities {
-  height: calc(100vh - 66px);
-
-  .background-video {
-    height: calc(100vh - 66px);
-  }
-
-  .subtitle,
-  .title {
-    font-family: 'Capital Daren Italic';
-  }
-
-  .activity-option {
-    .svg-activity {
-      background-color: white;
-      width: 5rem;
-      height: 5rem;
-    }
-
-    .svg-circle {
-      width: 1rem;
-      height: 2rem;
-      background-color: white;
-    }
-
-    &:hover {
-      cursor: pointer;
-
-      .svg-circle,
-      .svg-activity {
-        background-color: #8cb9ca;
-      }
-    }
-
-    &.selected,
-    &.selected:hover {
-      .svg-activity,
-      .svg-circle {
-        background-color: #0394cc;
-      }
-
-      .svg-circle {
-        width: 2rem;
-        height: 2rem;
-      }
-
-      .title-activity {
-        color: #0394cc;
-      }
-    }
-  }
-
-} */
-
 .landing-activities {
-  .svg-activity,
-  .svg-circle {
-    background-color: white;
-  }
+  .activities-container {
+    background: linear-gradient(transparent, 15%, black);
 
-  .activities-wrapper {
-    background: linear-gradient(180deg,
-    transparent calc(83% - 1px),
-    white calc(83%),
-    transparent calc(83% + 1px));
+    @media (min-width: 1024px) {
+      background: none;
+    }
 
-    .activity {
+    .activities-wrapper {
+      background: linear-gradient(180deg,
+      transparent calc(83% - 1px),
+      white calc(83%),
+      transparent calc(83% + 1px));
 
-      .svg-activity {
-        width: 5rem;
-        height: 5rem;
+      @media (min-width: 1024px) {
+        background: none;
       }
 
-      .svg-circle {
-        width: 1rem;
-        height: 2rem;
-      }
-
-      &:hover {
-        cursor: pointer;
-
-        .svg-circle,
-        .svg-activity {
-          background-color: #8cb9ca;
-        }
-      }
-
-      &.selected,
-      &.selected:hover {
+      .activity {
         .svg-activity,
         .svg-circle {
-          background-color: #0394cc;
+          background-color: white;
+        }
+
+        .svg-activity {
+          width: 5rem;
+          height: 5rem;
         }
 
         .svg-circle {
-          width: 2rem;
+          width: 1rem;
           height: 2rem;
         }
 
-        .title-activity {
-          color: #0394cc;
+        &:hover {
+          cursor: pointer;
+
+          .svg-circle,
+          .svg-activity {
+            background-color: #8cb9ca;
+          }
+        }
+
+        &.selected,
+        &.selected:hover {
+          .svg-activity,
+          .svg-circle {
+            background-color: #0394cc;
+          }
+
+          .svg-circle {
+            width: 2rem;
+            height: 2rem;
+          }
+
+          .title-activity {
+            color: #0394cc;
+          }
         }
       }
     }
   }
-
-
 }
