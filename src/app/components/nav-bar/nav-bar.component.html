@@ -1,118 +1,88 @@
-<!--<div class="navbar bg-base-100 sticky top-0 z-50">-->
-<!--  <div class="navbar-start">-->
-<!--    <div class="dropdown">-->
-<!--      <label tabindex="0" class="btn btn-ghost lg:hidden">-->
-<!--        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">-->
-<!--          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"/>-->
-<!--        </svg>-->
-<!--      </label>-->
-<!--      <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-200 rounded-box w-52">-->
-<!--        &lt;!&ndash; TODO personalizar activeTab &ndash;&gt;-->
-<!--        <li *ngFor="let item of navItems"><a routerLink="{{item.path}}"-->
-<!--                                             [ngClass]="{'text-accent' : item.active, 'text-base' : !item.active}">{{item.name}}</a>-->
-<!--        </li>-->
-<!--      </ul>-->
-<!--    </div>-->
-<!--    <a href="/" class="absolute top-0 left-0 h-[7rem] w-[7rem] ml-[8vw]">-->
-<!--      <img src="/assets/images/logo.svg" class="h-full w-full"/>-->
-<!--    </a>-->
-<!--  </div>-->
-
-<!--  <div class="navbar-end">-->
-<!--    <div class="w-5/6 flex justify-end">-->
-<!--      <div class="tabs hidden lg:inline-flex">-->
-<!--        <a *ngFor="let item of navItems" routerLink="{{item.path}}" class="tab hover:bg-secondary rounded-lg "-->
-<!--           [ngClass]="{'text-accent' : item.active, 'text-base-content' : !item.active}">{{item.name}}</a>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class="w-1/6 flex justify-end">-->
-<!--      <div class="dropdown dropdown-end">-->
-<!--        <label *ngIf="!loggedIn" for="my-drawer-4" tabindex="0" class="btn btn-ghost btn-circle avatar">-->
-<!--          <div class="w-10 rounded-full">-->
-<!--            <img src="/assets/images/unknownUser.png" alt="UserNotLogged"/>-->
-<!--          </div>-->
-<!--        </label>-->
-
-<!--        <label *ngIf="loggedIn" tabindex="0" class="btn btn-ghost btn-circle avatar">-->
-<!--          <div class="w-10 rounded-full">-->
-<!--            <img src="/assets/images/logo.png" alt="LoggedUser"/>-->
-<!--          </div>-->
-<!--        </label>-->
-
-<!--        <ul *ngIf="loggedIn" tabindex="0"-->
-<!--            class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">-->
-<!--          <li>-->
-<!--            <a class="justify-between">-->
-<!--              Profile-->
-<!--              <span class="badge">New</span>-->
-<!--            </a>-->
-<!--          </li>-->
-<!--          <li><a>Settings</a></li>-->
-<!--          <li><a (click)="logout()">Logout</a></li>-->
-<!--        </ul>-->
-<!--      </div>-->
-<!--    </div>-->
-
-
-<!--  </div>-->
-<!--</div>-->
-
-
-<!--<div class="drawer drawer-end ">-->
-
-<!--  <input id="my-drawer-4" type="checkbox" class="drawer-toggle"/>-->
-<!--  <div class="drawer-content">-->
-<!--    <div class="w-full h-full bg-no-repeat bg-cover bg-fixed">-->
-<!--      <router-outlet></router-outlet>-->
-<!--    </div>-->
-
-<!--  </div>-->
-
-
-<!--  <div class="drawer-side ">-->
-<!--    <label for="my-drawer-4" class="drawer-overlay "></label>-->
-<!--    <ul class="menu w-1/3 p-0">-->
-<!--      &lt;!&ndash; Sidebar content here &ndash;&gt;-->
-<!--      <section class="bg-secondary ">-->
-<!--        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">-->
-<!--          <div class="w-full rounded-tr-3xl rounded-3xl shadow-2xl border md:mt-0 sm:max-w-md xl:p-0 ">-->
-<!--            <div class="p-6 space-y-4 md:space-y-6 sm:p-8 rounded-tr-3xl rounded-3xl">-->
-<!--              <h1 class="text-xl font-bold leading-tight tracking-tight md:text-2xl text-white">-->
-<!--                {{loginTitle}}-->
-<!--              </h1>-->
-<!--              <div class="flex flex-col gap-4">-->
-<!--                <button class="btn btn-primary btn-discord" *ngIf="!isLogin" (click)="login()">Login</button>-->
-<!--                <button class="btn btn-primary btn-discord" disabled *ngIf="isLogin" (click)="logout()">Logout</button>-->
-<!--                <div *ngIf="isLogin" class="flex flex-col gap-4">-->
-<!--                  <h2 class="text-xl font-bold leading-tight tracking-tight  md:text-2xl text-white">-->
-<!--                    ¿Cuál es tu rol más alto?-->
-<!--                  </h2>-->
-<!--                  <input type="radio" class="btn" (click)="loginTestAlfilo()" name="button" aria-label="Afiliado"/>-->
-<!--                  <input type="radio" class="btn" (click)="loginTestCadete()" name="button" aria-label="Cadete"/>-->
-<!--                  <input type="radio" class="btn" (click)="loginTestDaga()" name="button" aria-label="Daga"/>-->
-<!--                  <input type="radio" class="btn" (click)="loginEspada()" name="button" aria-label="Espada"/>-->
-<!--                  <input type="radio" class="btn" (click)="loginAdmin()" name="button" aria-label="Admin"/>-->
-<!--                  <h2 class="text-xl font-bold leading-tight tracking-tight  md:text-2xl text-white">{{textResult}}</h2>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </section>-->
-<!--    </ul>-->
-<!--  </div>-->
-<!--</div>-->
-
-<div class="navbar bg-secondary h-10 sticky top-0 z-50">
-  <div class="navbar-start">
-
-  </div>
+<div class="navbar bg-base-100 sticky h-10 top-0 z-50">
+  <div class="navbar-start"></div>
   <div class="navbar-center h-full ">
-    <img src="assets/images/logo.svg" class="h-full">
+    <img src="assets/images/logo.svg" alt="AlFilo Logo" class="h-full">
   </div>
   <div class="navbar-end">
-    <app-svg-icon path="assets/images/hamburger.svg" class="hamburger-svg"></app-svg-icon>
+    <div class="w-5/6 flex justify-end">
+      <div class="tabs hidden lg:inline-flex">
+        <a *ngFor="let item of navItems" routerLink="{{item.path}}" class="tab hover:bg-secondary rounded-lg "
+           [ngClass]="{'text-accent' : item.active, 'text-base-content' : !item.active}">{{item.name}}</a>
+      </div>
+    </div>
+    <div class="w-1/6 flex justify-end">
+      <div class="dropdown dropdown-end">
+        <label *ngIf="!loggedIn" for="my-drawer-4" tabindex="0" class="btn btn-ghost btn-circle avatar">
+          <app-svg-icon path="assets/images/hamburger.svg" class="hamburger-svg"></app-svg-icon>
+        </label>
+        <label *ngIf="loggedIn" tabindex="0" class="btn btn-ghost btn-circle avatar">
+          <div class="w-10 rounded-full">
+            <img src="/assets/images/logo.png" alt="LoggedUser"/>
+          </div>
+        </label>
+        <ul *ngIf="loggedIn" tabindex="0"
+            class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+          <li>
+            <a class="justify-between">
+              Profile
+              <span class="badge">New</span>
+            </a>
+          </li>
+          <li><a>Settings</a></li>
+          <li><a (click)="logout()">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+
+
   </div>
 </div>
 
-<router-outlet></router-outlet>
+
+<div class="drawer drawer-end ">
+
+  <input id="my-drawer-4" type="checkbox" class="drawer-toggle"/>
+  <div class="drawer-content">
+    <div class="w-full h-full bg-no-repeat bg-cover bg-fixed">
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
+  <div class="drawer-side ">
+    <label for="my-drawer-4" class="drawer-overlay "></label>
+    <ul class="menu w-2/3 lg:w-1/3 h-full p-0">
+      <!-- Sidebar content here -->
+      <section class="bg-secondary w-full h-full ">
+        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen ">
+          <div class="w-full rounded-tr-3xl rounded-3xl shadow-2xl border mt-0 max-w-md xl:p-0 ">
+            <div class="p-6 space-y-4   rounded-tr-3xl rounded-3xl">
+              <h1 class="text-xl font-bold leading-tight tracking-tight text-white">
+                {{loginTitle}}
+              </h1>
+              <div class="flex flex-col gap-4">
+                <button class="btn btn-primary btn-discord" *ngIf="!isLogin" (click)="login()">Login</button>
+                <h1 class="text-xl">- Por qué sólo puedo hacer login con discord?</h1>
+                <p>
+                  En Al Filo no queremos almacenar nunguno de tus datos personales, es por ello que delegamos la gestión
+                  del login a Discord.
+                </p>
+                <button class="btn btn-primary btn-discord" disabled *ngIf="isLogin" (click)="logout()">Logout</button>
+                <div *ngIf="isLogin" class="flex flex-col gap-4">
+                  <h2 class="text-xl font-bold leading-tight tracking-tight text-white">
+                    ¿Cuál es tu rol más alto?
+                  </h2>
+                  <input type="radio" class="btn" (click)="loginTestAlfilo()" name="button" aria-label="Afiliado"/>
+                  <input type="radio" class="btn" (click)="loginTestCadete()" name="button" aria-label="Cadete"/>
+                  <input type="radio" class="btn" (click)="loginTestDaga()" name="button" aria-label="Daga"/>
+                  <input type="radio" class="btn" (click)="loginEspada()" name="button" aria-label="Espada"/>
+                  <input type="radio" class="btn" (click)="loginAdmin()" name="button" aria-label="Admin"/>
+                  <h2 class="text-xl font-bold leading-tight tracking-tight  text-white">{{textResult}}</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </ul>
+  </div>
+</div>
