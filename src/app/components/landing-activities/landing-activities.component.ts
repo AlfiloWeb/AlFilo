@@ -1,3 +1,4 @@
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, AfterViewInit, ElementRef, ViewChild} from '@angular/core';
 
 @Component({
@@ -76,6 +77,10 @@ export class LandingActivitiesComponent implements AfterViewInit {
     if (activityFinded !== undefined) {
       this.currentActivitiy = activityFinded;
     }
+  }
+
+  isCurrentActivity(activityName: string): boolean {
+    return this.currentActivitiy.name === activityName ? true : false;
   }
 }
 
