@@ -18,3 +18,11 @@
 .font-capital-daren-italic {
   font-family: "Capital Daren Italic", sans-serif;
 }
+.custom-corusel {
+  .flickity-page-dot {
+    background: #8cb9ca;
+    &.is-selected {
+      background: #0394cc;
+    }
+  }
+}
