@@ -4,6 +4,7 @@
       height: 15rem;
     }
   }
+
   .event-list-lg {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -11,10 +12,5 @@
     &::-webkit-scrollbar {
       display: none;
     }
-
-    /* & app-chronology-card:nth-child(odd) {
-      grid-column-start: 2;
-    }*/
   }
-
 }
