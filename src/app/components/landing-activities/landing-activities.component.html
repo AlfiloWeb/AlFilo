@@ -10,13 +10,13 @@
   </div>
   <div class="activities-container flex">
     <div class="flex flex-col lg:min-w-[754px] lg:items-end lg:basis-6/12 lg:rounded-tr-2xl lg:border-t-2 lg:border-r-2 lg:mt-[8.7rem]">
-      <div class="activities-wrapper md:bg-line-bottom lg:bg-none grid grid-cols-3 grid-flow-row w-fit m-auto lg:flex lg:justify-between py-3 px-10 gap-y-5 gap-x-10 lg:max-w-[47rem] lg:-mt-[8.7rem]">
+      <div class="activities-wrapper bg-line-bottom lg:bg-none grid grid-cols-3 grid-flow-row w-fit m-auto xs:flex xs:justify-between py-3 px-10 gap-y-5 gap-x-10 xs:gap-5 lg:max-w-[47rem] lg:-mt-[8.7rem]">
         <ng-template ngFor let-activity [ngForOf]="activities" let-i="index">
-          <div (click)="changeCurrentActivity(activity.name)" [class.selected] = "currentActivitiy['name'] === activity.name" class="activity flex flex-col items-center text-white hover:text-alfilo-blue">
+          <div (click)="changeCurrentActivity(activity.name)" [class.selected] = "currentActivitiy['name'] === activity.name" class="activity flex flex-col items-center text-white hover:text-alfilo-blue xs:gap-2 md:gap-0">
             <app-svg-icon class="svg-activity" [path]="'assets/images/activity/' + activity.name + '.svg'"></app-svg-icon>
-            <div class="title-activity hidden md:block text-[10w] font-bold text-lg uppercase">{{activity.title}}</div>
-            <app-svg-icon [hidden]="isCurrentActivity(activity.name)" class="svg-circle hidden" [path]="'assets/images/circle.svg'"></app-svg-icon>
-            <app-svg-icon [hidden]="!isCurrentActivity(activity.name)" class="svg-circle hidden" [path]="'assets/images/circle-hoop.svg'"></app-svg-icon>
+            <div class="title-activity hidden xs:block text-[10w] font-bold text-lg uppercase">{{activity.title}}</div>
+            <app-svg-icon [ngClass]="{'custom-hidden': isCurrentActivity(activity.name)}" class="svg-circle hidden xs:block" [path]="'assets/images/circle.svg'"></app-svg-icon>
+            <app-svg-icon [ngClass]="{'custom-hidden': !isCurrentActivity(activity.name)}" class="svg-circle hidden xs:block" [path]="'assets/images/circle-hoop.svg'"></app-svg-icon>
           </div>
         </ng-template>
       </div>

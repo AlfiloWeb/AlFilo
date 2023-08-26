@@ -2,8 +2,8 @@
   .activities-container {
     background: linear-gradient(transparent, 15%, black);
 
-    .md\:bg-line-bottom {
-      @media (min-width: 768px) and (max-width: 1024px) {
+    .bg-line-bottom {
+      @media (min-width: 431px) and (max-width: 1024px) {
         background-image: linear-gradient(180deg,
         transparent calc(83% - 1px),
         white calc(83%),
@@ -12,6 +12,10 @@
     }
 
     .activities-wrapper {
+      .custom-hidden {
+        display: none;
+      }
+
       .activity {
         .svg-activity,
         .svg-circle {

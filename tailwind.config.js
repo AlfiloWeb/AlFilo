@@ -6,8 +6,8 @@ module.exports = {
     extend: {
       screens: {
         "xxxs": "320px",
-        "xxs": "375px",
-        "xs": "430px",
+        "xxs": "376px",
+        "xs": "431px",
       },
       colors: {
         "alfilo-gray": '#262626',
