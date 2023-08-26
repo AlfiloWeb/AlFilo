@@ -1,4 +1,3 @@
-import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, AfterViewInit, ElementRef, ViewChild} from '@angular/core';
 
 @Component({

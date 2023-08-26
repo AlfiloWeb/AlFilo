@@ -1,20 +1,18 @@
 .landing-chronology {
-  height: calc(100vh - 66px);
-
-  .title {
-    font-family: 'Capital Daren Italic', sans-serif;
-  }
-
   .event-list {
-    -ms-overflow-style: none;
+    /* -ms-overflow-style: none;
     scrollbar-width: none;
 
     &::-webkit-scrollbar {
       display: none;
-    }
+    } */
 
-    & app-chronology-card:nth-child(odd) {
+    /* & app-chronology-card:nth-child(odd) {
       grid-column-start: 2;
+    } */
+
+    .flickity-viewport {
+      height: 21rem;
     }
   }
 }
