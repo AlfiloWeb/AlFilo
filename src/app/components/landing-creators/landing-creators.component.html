@@ -1,16 +1,12 @@
-<div class="landing-contact-us w-full bg-[url('/assets/images/bg-creators.jpg')] bg-cover max-w-2k mx-auto flex justify-center">
-  <div class="h-screen w-full items-center flex flex-col  section">
-    <div class="flex flex-col items-center">
-      <div class="subtitle text-[3.5rem] pt-5 text-center leading-tight">
-        <p>CONOCE NUESTROS</p>
-        <p class="leading-8">CREADORES DE</p>
-      </div>
-      <div class="title text-[9rem] leading-[10rem]">CONTENIDO</div>
-    </div>
-    <div class="p-20 h-fit snap-x snap-mandatory flex overflow-y-hidden gap-20 w-[100vw] max-w-2k hide-scrollbar">
-      <ng-template ngFor let-creator [ngForOf]="creators">
-        <app-creator-card class="snap-center" creatorLogo="{{creator.creatorLogo}}" creatorName="{{creator.creatorName}}" creatorDescription="{{creator.creatorDescription}}" creatorVideo="{{creator.creatorVideo}}" creatorTwitch="{{creator.creatorTwitch}}" creatorYoutube="{{creator.creatorYoutube}}" creatorX="{{creator.creatorX}}"></app-creator-card>
-      </ng-template>
-    </div>
+<div class="landing-contact-us w-full bg-[url('/assets/images/bg-content-creators.jpg')] bg-cover bg-center pt-10 pb-28">
+  <div class="flex flex-col items-center">
+    <p class="font-capital-daren-italic text-[10vw] lg:text-[5.5rem] lg:leading-[5rem]">CONOCE NUESTROS</p>
+    <p class="font-capital-daren-italic text-[10vw] lg:text-[4.5rem] lg:leading-[4rem]">CREADORES DE</p>
+    <p class="font-capital-daren-italic text-[10vw] lg:text-[10rem]  lg:leading-[11rem]">CONTENIDO</p>
+  </div>
+  <div #creatorsCarousel class="custom-corusel w-full mt-16">
+    <ng-template ngFor let-creator [ngForOf]="creators">
+      <app-creator-card class="carousel-cell xxs:w-[50rem] mx-10" creatorLogo="{{creator.creatorLogo}}" creatorName="{{creator.creatorName}}" creatorDescription="{{creator.creatorDescription}}" creatorVideo="{{creator.creatorVideo}}" creatorTwitch="{{creator.creatorTwitch}}" creatorYoutube="{{creator.creatorYoutube}}" creatorX="{{creator.creatorX}}"></app-creator-card>
+    </ng-template>
   </div>
 </div>

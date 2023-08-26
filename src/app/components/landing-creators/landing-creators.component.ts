@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import Flickity from 'flickity';
 
 @Component({
   selector: 'app-landing-creators',
@@ -53,8 +54,16 @@ export class LandingCreatorsComponent {
       creatorYoutube: 'https://www.youtube.com/@HErBiZiDA/featured',
       creatorX: 'https://twitter.com/HErBiZiDA_',
     },
-
   ];
+
+  @ViewChild('creatorsCarousel') carousel!: ElementRef;
+  ngAfterViewInit() {
+    new Flickity(
+      this.carousel.nativeElement,{
+        wrapAround: true,
+        autoPlay: 5000,
+    });
+  }
 
 }
 

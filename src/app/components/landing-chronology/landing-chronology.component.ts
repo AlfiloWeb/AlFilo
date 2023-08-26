@@ -54,7 +54,7 @@ export class LandingChronologyComponent {
 
   @ViewChild('myVideo') videoElement!: ElementRef;
 
-  @ViewChild('carousel') carousel!: ElementRef;
+  @ViewChild('carouselChronology') carousel!: ElementRef;
   ngAfterViewInit() {
     new Flickity(
       this.carousel.nativeElement,{
