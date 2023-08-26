@@ -5,7 +5,7 @@ pipeline {
     environment {
         SSH_USER_PASS = credentials('sshcreds')
         HOST = credentials('host-stg')
-        DOCKER_COMPOSE_DIR = '/home/alfilo/staging/GuildManagerSC/' // Chose for what you need
+        DOCKER_COMPOSE_DIR = '/home/alfilo/docker-compose/' // Chose for what you need
     }
     parameters {
         choice(name: 'ExecutionMode', choices: ['Verbose', 'Quiet'], description: 'Select the execution mode')
