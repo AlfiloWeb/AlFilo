@@ -1,46 +1,46 @@
-def getRemoteConfig() {
-    return [
-        name: 'test',
-        host: env.REMOTE_HOST,
-        user: env.USERNAME,
-        password: env.PASSWORD,
-        allowAnyHosts: true
-    ]
-}
-
 pipeline {
     agent {
-      label 'squaier'
+        label 'squaier'
+    }
+    environment {
+        SSH_USER_PASS = credentials('sshcreds')
+        HOST = credentials('host-stg')
+        DOCKER_COMPOSE_DIR = '/home/alfilo/staging/GuildManagerSC/' // Chose for what you need
     }
     parameters {
         choice(name: 'ExecutionMode', choices: ['Verbose', 'Quiet'], description: 'Select the execution mode')
     }
-
-    environment {
-        REMOTE_HOST = 'staging.alfilo.org'
-    }
-
     stages {
-        stage('Clean Builders') {
+        stage('Prepare SSH') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'creds2', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    script {
-                        sshCommand remote: getRemoteConfig(), command: "cd /home/alfilo/docker-compose/ && echo ${env.PASSWORD} | sudo -S docker-compose down"
+                script {
+                    sh 'pwd'
+                    sh "mkdir ~/.ssh"
+                    sh "echo 'Host *' >> ~/.ssh/config"
+                    sh "echo '   StrictHostKeyChecking no' >> ~/.ssh/config"
+                    sh "echo '   LogLevel ERROR' >> ~/.ssh/config"
+                }
+            }
+        }
+        
+        stage('Stopping Container') {
+            steps {
+                script {
+                    sshagent(credentials: ['jenkins2']) {
+                        sh 'ssh $SSH_USER_PASS@$HOST "cd $DOCKER_COMPOSE_DIR && docker-compose down "'
                     }
                 }
             }
         }
-        stage('Build Web') {
+        
+        stage('Build Container') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'creds1', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    script {
+                script {
+                    sshagent(credentials: ['jenkins2']) {
                         if (params.ExecutionMode == 'Verbose') {
-                           sshCommand remote: getRemoteConfig(), command: "cd /home/alfilo/docker-compose/ && echo ${env.PASSWORD} | sudo -S docker-compose build --no-cache"
-                           sshCommand remote: getRemoteConfig(), command: "cd /home/alfilo/docker-compose/ && echo ${env.PASSWORD} | sudo -S docker-compose up -d"
-                          
-                        } else if (params.ExecutionMode == 'Quiet') {
-                            sshCommand remote: getRemoteConfig(), command: "cd /home/alfilo/docker-compose/ && echo ${env.PASSWORD} | sudo -S docker-compose build --no-cache --quiet"
-                            sshCommand remote: getRemoteConfig(), command: "cd /home/alfilo/docker-compose/ && echo ${env.PASSWORD} | sudo -S docker-compose up -d"
+                            sh 'ssh  $SSH_USER_PASS@$HOST "cd $DOCKER_COMPOSE_DIR && docker-compose build --no-cache && docker-compose up -d"'
+                        } else if (params.ExecutionMode == 'Quiet'){
+                            sh 'ssh  $SSH_USER_PASS@$HOST "cd $DOCKER_COMPOSE_DIR && docker-compose build --no-cache --quiet && docker-compose up -d"'
                         }
                     }
                 }
