@@ -1,4 +1,4 @@
-<div
+<!-- <div
   class="landing-contact-us w-full bg-[url('/assets/images/bg-contact-us.jpg')] bg-cover max-w-2k mx-auto flex justify-center">
   <div class="flex flex-col w-full">
     <div class="basis-8/12 flex flex-col basis items-center gap-2">
@@ -38,6 +38,56 @@
           </a>
           <a href="https://robertsspaceindustries.com" target="_blank"
              class="btn text-lg border-1 border-white text-black justify-center content-center">juega star citizen</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="landing-contact-us w-full bg-[url('/assets/images/bg-contact-us.jpg')] bg-cover py-20">
+  <div class="flex flex-col justify-center gap-10">
+    <div>
+      <p class="font-capital-daren-italic text-[3.5rem] leading-[2rem] text-center">contacta con</p>
+      <p class="font-capital-daren-italic text-[9rem] leading-[11rem] text-center">al filo</p>
+    </div>
+    <div class="flex justify-center flex-wrap gap-10">
+      <div class="bg-alfilo-gray text-center p-10 rounded-2xl max-w-[21rem] w-full flex flex-col gap-10 border-2 border-white">
+        <div>
+          <p class="font-capital-daren text-[2.3rem] leading-[2.2rem]">contrata nuestros</p>
+          <p class="font-capital-daren text-[2.3rem] leading-[2.2rem]">servicios</p>
+        </div>
+        <div>
+          <ng-template ngFor let-service [ngForOf]="services">
+            <p class="text-2xl">- {{service}}</p>
+          </ng-template>
+        </div>
+        <div>
+          <a href="https://discord.com/invite/ADgezdG" target="_blank" class="btn font-normal text-[2rem] bg-discord border-1 border-white">
+            <app-svg-icon class="discord-svg" path="assets/images/discord.svg"></app-svg-icon>
+            <span class="font-capital-daren">contacta</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="bg-alfilo-gray p-10 rounded-2xl max-w-[21rem] w-full flex flex-col gap-10 text-center border-2 border-white">
+        <div>
+          <p class="font-capital-daren text-[2.3rem] leading-[2.2rem]">nuestras</p>
+          <p class="font-capital-daren text-[2.3rem] leading-[2.2rem]">redes</p>
+        </div>
+        <div>
+          <a href="https://discord.com/invite/ADgezdG" target="_blank" class="btn font-normal text-[2rem] bg-discord border-1 border-white justify-center content-center">
+            <app-svg-icon class="discord-svg" path="assets/images/discord.svg"></app-svg-icon>
+            <span class="font-capital-daren">discord</span>
+          </a>
+        </div>
+        <div>
+          <a href="https://robertsspaceindustries.com/spectrum/community/ALFILO" target="_blank" class="btn font-normal text-[2rem] bg-black border-1 border-white justify-center content-center">
+            <img src="assets/images/logo.svg" class="h-full p-1" alt="">
+            <span class="font-capital-daren">spectrum</span>
+          </a>
+        </div>
+        <div>
+          <a href="https://robertsspaceindustries.com" target="_blank" class="btn font-normal text-[2rem] font-capital-daren border-1 border-white text-black justify-center content-center">juega star citizen</a>
         </div>
       </div>
     </div>

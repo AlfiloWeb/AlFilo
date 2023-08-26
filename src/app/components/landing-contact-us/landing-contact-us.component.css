@@ -1,11 +1,4 @@
 .landing-contact-us {
-  height: calc(100vh - 66px);
-
-  .subtitle,
-  .title {
-    font-family: 'Capital Daren Italic';
-  }
-
   .discord-svg {
     background-color: white;
     height: 1.75rem;

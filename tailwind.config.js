@@ -7,6 +7,12 @@ module.exports = {
       maxWidth: {
         '2k': '2560px',
       },
+      colors: {
+        "alfilo-gray": '#262626',
+        "alfilo-blue": '#8cb9ca',
+        "alfilo-dark-blue": '#0394cc',
+        "discord": '#7289da',
+      }
     }
   },
   plugins: [require("daisyui")],
