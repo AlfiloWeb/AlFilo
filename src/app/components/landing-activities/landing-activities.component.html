@@ -9,7 +9,7 @@
     </div>
   </div>
   <div class="activities-container flex lg:w-screen">
-    <div class="flex flex-col md:w-screen lg:items-end lg:basis-6/12 lg:rounded-tr-2xl lg:border-t-2 lg:border-r-2 lg:mt-[8.7rem]">
+    <div class="flex flex-col min-w-[754px] md:w-screen lg:items-end lg:basis-6/12 lg:rounded-tr-2xl lg:border-t-2 lg:border-r-2 lg:mt-[8.7rem]">
       <div class="activities-wrapper flex justify-between py-3 px-10 gap-5 lg:max-w-[47rem] lg:-mt-[8.7rem]">
         <ng-template ngFor let-activity [ngForOf]="activities" let-i="index">
           <div (click)="changeCurrentActivity(activity.name)" [class.selected] = "currentActivitiy['name'] === activity.name" class="activity flex flex-col items-center text-white hover:text-base-300">
