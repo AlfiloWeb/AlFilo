@@ -16,7 +16,6 @@ import { AuthCallbackComponent } from './components/auth-callback/auth-callback.
 import { LandingActivitiesComponent } from './components/landing-activities/landing-activities.component';
 import { LandingChronologyComponent } from './components/landing-chronology/landing-chronology.component';
 import {LandingCreatorsComponent} from "./components/landing-creators/landing-creators.component";
-import { ChronologyCardComponent } from './components/chronology-card/chronology-card.component';
 import { SvgIconComponent } from './components/svg-icon/svg-icon.component';
 import { LandingContactUsComponent } from './components/landing-contact-us/landing-contact-us.component';
 import { CreatorCardComponent } from './components/creator-card/creator-card.component';
@@ -35,7 +34,6 @@ import { CreatorCardComponent } from './components/creator-card/creator-card.com
     AuthCallbackComponent,
     LandingActivitiesComponent,
     LandingChronologyComponent,
-    ChronologyCardComponent,
     SvgIconComponent,
     LandingCreatorsComponent,
     LandingContactUsComponent,
