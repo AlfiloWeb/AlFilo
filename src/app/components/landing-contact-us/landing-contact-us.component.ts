@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./landing-contact-us.component.css']
 })
 export class LandingContactUsComponent {
-
+  services: string[] = [
+    'Escolta',
+    'Rescate',
+    'Cazarecompensas',
+    'Inteligencia',
+    'Suministros',
+  ];
 }
