@@ -22,9 +22,9 @@
 <div class="landing-chronology w-full bg-[url('/assets/images/background-landing-chronology.jpg')] bg-cover pb-20">
   <div></div>
   <div class="text-[9rem] text-center font-capital-daren-italic">cronología</div>
-  <div #carousel class="event-list">
-    <ng-template ngFor let-event [ngForOf]="events" let-i="index">
-      <app-basic-card class="carousel-cell w-[50rem] mr-10" srcImage={{event.image}} title={{event.title}} body={{event.body}}></app-basic-card>
-    </ng-template>
-  </div>
+    <div #carousel class="event-list">
+      <ng-template ngFor let-event [ngForOf]="events" let-i="index">
+        <app-basic-card class="carousel-cell w-[35rem] mr-10" srcImage={{event.image}} title={{event.title}} body={{event.body}}></app-basic-card>
+      </ng-template>
+    </div>
 </div>
