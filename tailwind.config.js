@@ -5,8 +5,9 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        "xxs": "320px",
-        "xs": "430px",
+        "xxxs": "320px",
+        "xxs": "376px",
+        "xs": "431px",
       },
       colors: {
         "alfilo-gray": '#262626',

@@ -1,26 +1,26 @@
-<div class="landing-activities relative flex flex-col w-full gap-40 pt-20">
-  <video #myVideo class="absolute w-full m-auto h-[85%] top-0 left-0 object-cover -z-10" autoplay loop muted playsinline [src]="currentActivitiy.videoSrc"></video>
+<div class="landing-activities relative flex flex-col w-full gap-5 lg:gap-40 pt-5 sm:pt-20">
+  <video #myVideo class="absolute w-full m-auto h-[85%] top-0 left-0 object-cover bg-center -z-10" autoplay loop muted playsinline [src]="currentActivitiy.videoSrc"></video>
   <div>
-    <p class="font-capital-daren-italic text-[3.5rem] leading-[2rem] text-center">participa en diferentes</p>
-    <p class="font-capital-daren-italic text-[9rem] leading-[11rem] text-center">actividades</p>
-    <div class="flex justify-center gap-16">
-      <button class="btn text-[2.5rem] h-auto py-3 px-8 text-black font-normal font-capital-daren border-1 border-white">únete al filo</button>
-      <button class="btn bg-alfilo-blue text-[2.5rem] h-auto py-3 px-8 text-black font-normal font-capital-daren border-1 border-white">juega star citizen</button>
+    <p class="font-capital-daren-italic text-[3rem] leading-[2.5rem] lg:text-[3.5rem] lg:leading-[2rem] text-center">participa en diferentes</p>
+    <p class="font-capital-daren-italic text-[4rem] leading-[6rem] mb-3 lg:text-[9rem] lg:leading-[11rem] text-center">actividades</p>
+    <div class="flex flex-wrap justify-center gap-5 lg:gap-16">
+      <button class="btn text-[2rem] lg:text-[2.5rem] h-auto py-3 px-8 text-black font-normal font-capital-daren border-1 border-white">únete al filo</button>
+      <button class="btn bg-alfilo-blue text-[2rem] lg:text-[2.5rem] h-auto py-3 px-8 text-black font-normal font-capital-daren border-1 border-white">juega star citizen</button>
     </div>
   </div>
-  <div class="activities-container flex ">
-    <div class="flex flex-col min-w-[754px] lg:items-end lg:basis-6/12 lg:rounded-tr-2xl lg:border-t-2 lg:border-r-2 lg:mt-[8.7rem]">
-      <div class="activities-wrapper flex justify-between py-3 px-10 gap-5 lg:max-w-[47rem] lg:-mt-[8.7rem]">
+  <div class="activities-container flex">
+    <div class="flex flex-col lg:min-w-[754px] lg:items-end lg:basis-6/12 lg:rounded-tr-2xl lg:border-t-2 lg:border-r-2 lg:mt-[8.7rem]">
+      <div class="activities-wrapper bg-line-bottom lg:bg-none grid grid-cols-3 grid-flow-row w-fit m-auto xs:flex xs:justify-between py-3 px-10 gap-y-5 gap-x-10 xs:gap-5 lg:max-w-[47rem] lg:-mt-[8.7rem]">
         <ng-template ngFor let-activity [ngForOf]="activities" let-i="index">
-          <div (click)="changeCurrentActivity(activity.name)" [class.selected] = "currentActivitiy['name'] === activity.name" class="activity flex flex-col items-center text-white hover:text-alfilo-blue">
+          <div (click)="changeCurrentActivity(activity.name)" [class.selected] = "currentActivitiy['name'] === activity.name" class="activity flex flex-col items-center text-white hover:text-alfilo-blue xs:gap-2 md:gap-0">
             <app-svg-icon class="svg-activity" [path]="'assets/images/activity/' + activity.name + '.svg'"></app-svg-icon>
-            <div class="title-activity font-bold text-lg uppercase">{{activity.title}}</div>
-            <app-svg-icon [hidden]="isCurrentActivity(activity.name)" class="svg-circle" [path]="'assets/images/circle.svg'"></app-svg-icon>
-            <app-svg-icon [hidden]="!isCurrentActivity(activity.name)" class="svg-circle" [path]="'assets/images/circle-hoop.svg'"></app-svg-icon>
+            <div class="title-activity hidden xs:block text-[10w] font-bold text-lg uppercase">{{activity.title}}</div>
+            <app-svg-icon [ngClass]="{'custom-hidden': isCurrentActivity(activity.name)}" class="svg-circle hidden xs:block" [path]="'assets/images/circle.svg'"></app-svg-icon>
+            <app-svg-icon [ngClass]="{'custom-hidden': !isCurrentActivity(activity.name)}" class="svg-circle hidden xs:block" [path]="'assets/images/circle-hoop.svg'"></app-svg-icon>
           </div>
         </ng-template>
       </div>
-      <div class="p-10 lg:max-w-[45rem]">
+      <div class="p-2 lg:p-10 lg:max-w-[45rem]">
         <ng-template ngFor let-activity [ngForOf]="activities" let-i="index">
           <app-basic-card [hidden]="!isCurrentActivity(activity.name)" srcImage={{activity.imageCardSrc}} title={{activity.title}} body={{activity.bodyCardSrc}}></app-basic-card>
         </ng-template>

@@ -2,18 +2,18 @@
   .activities-container {
     background: linear-gradient(transparent, 15%, black);
 
-    @media (min-width: 1024px) {
-      background: none;
+    .bg-line-bottom {
+      @media (min-width: 431px) and (max-width: 1024px) {
+        background-image: linear-gradient(180deg,
+        transparent calc(83% - 1px),
+        white calc(83%),
+        transparent calc(83% + 1px));
+      }
     }
 
     .activities-wrapper {
-      background: linear-gradient(180deg,
-      transparent calc(83% - 1px),
-      white calc(83%),
-      transparent calc(83% + 1px));
-
-      @media (min-width: 1024px) {
-        background: none;
+      .custom-hidden {
+        display: none;
       }
 
       .activity {
@@ -23,8 +23,8 @@
         }
 
         .svg-activity {
-          width: 5rem;
-          height: 5rem;
+          width: 10vw;
+          height: 10vw;
         }
 
         .svg-circle {
