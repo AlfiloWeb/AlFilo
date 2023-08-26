@@ -19,6 +19,7 @@ import {LandingCreatorsComponent} from "./components/landing-creators/landing-cr
 import { SvgIconComponent } from './components/svg-icon/svg-icon.component';
 import { LandingContactUsComponent } from './components/landing-contact-us/landing-contact-us.component';
 import { CreatorCardComponent } from './components/creator-card/creator-card.component';
+import { ObserveVisibilityDirective } from './directives/observe-visibility.directive';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { CreatorCardComponent } from './components/creator-card/creator-card.com
     LandingCreatorsComponent,
     LandingContactUsComponent,
     CreatorCardComponent,
+    ObserveVisibilityDirective,
   ],
   imports: [
     BrowserModule,
