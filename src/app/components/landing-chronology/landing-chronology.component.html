@@ -1,11 +1,10 @@
 <div class="landing-chronology w-full bg-[url('/assets/images/background-landing-chronology.jpg')]
-bg-cover bg-center sm:pb-20 relative flex flex-col">
-  <div class="absolute h-[95%] top-0 left-0 border-b-2 border-b-2 border-r-2 rounded-br-2xl sm:w-0
-  lg:w-[50%] lg:min-w-[754px]"></div>
-  <div class="text-[9rem] text-center font-capital-daren-italic lg:w-[50%] lg:min-w-[754px]">cronología</div>
+bg-cover bg-center sm:pb-20 relative flex flex-col pt-12 lg:pt-5 pb-28">
+  <div class="hidden lg:block absolute h-[95%] top-0 left-0 border-b-2 border-r-2 rounded-br-2xl sm:w-0 lg:w-[50%] lg:min-w-[754px]"></div>
+    <div class="text-[4rem] xxs:text-[5rem] xs:text-[6rem] md:text-[9rem] text-center font-capital-daren-italic lg:w-[50%] lg:min-w-[754px] text-shadow">cronología</div>
     <div #carouselChronology class="custom-corusel lg:hidden">
       <ng-template ngFor let-event [ngForOf]="events" let-i="index">
-        <app-basic-card class="carousel-cell w-[35rem] mr-10" srcImage={{event.image}} title={{event.title}} body={{event.body}}></app-basic-card>
+        <app-basic-card class="carousel-cell mr-10 w-[95%]" srcImage={{event.image}} title={{event.title}} body={{event.body}}></app-basic-card>
       </ng-template>
     </div>
     <div class="event-list-lg h-[40rem] gap-x-10 gap-y-20 overflow-x-hidden grid-cols-2
@@ -14,7 +13,7 @@ bg-cover bg-center sm:pb-20 relative flex flex-col">
       <ng-template ngFor let-event [ngForOf]="events" let-i="index">
         <app-basic-card class="event-card flex items-center lg:max-w-[43.4rem]
         sm:before:content-none xl:before:content-[''] before:w-[1rem] before:h-[1rem] before:rounded-full before:bg-white before:-ml-[1.8rem] before:mr-[1.8rem]
-        sm:after:content-none md:after:content-[''] after:w-[1rem] after:h-[1rem] after:rounded-full after:bg-white after:-mr-[1.68rem] after:ml-[1.68rem]" [ngClass]="{'xl:before:content-none' : (i+1) % 2 !== 0, 'xl:after:content-none' : (i+1) % 2 === 0}"[style.grid-row-start]="i+1" [style.grid-row-end]="i+3" srcImage={{event.image}} title={{event.title}} body={{event.body}}></app-basic-card>
+        sm:after:content-none md:after:content-[''] after:w-[1rem] after:h-[1rem] after:rounded-full after:bg-white after:-mr-[1.68rem] after:ml-[1.68rem]" [ngClass]="{'xl:before:content-none' : (i+1) % 2 !== 0, 'xl:after:content-none' : (i+1) % 2 === 0}" [style.grid-row-start]="i+1" [style.grid-row-end]="i+3" srcImage={{event.image}} title={{event.title}} body={{event.body}}></app-basic-card>
       </ng-template>
     </div>
 </div>

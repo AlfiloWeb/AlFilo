@@ -1,8 +1,10 @@
-.hide-scrollbar{
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+.landing-contact-us {
+  .hide-scrollbar{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 
-  &::-webkit-scrollbar {
-    display: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }
