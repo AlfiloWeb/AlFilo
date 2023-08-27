@@ -1,7 +1,11 @@
 .landing-chronology {
-  .event-list-carousel {
+  .custom-corusel {
     .flickity-viewport {
-      height: 15rem;
+      height: 22rem;
+    }
+    .carousel-cell {
+      width: 95%;
+      height: 22rem;
     }
   }
 

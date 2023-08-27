@@ -1,12 +1,12 @@
 <div class="landing-contact-us w-full bg-[url('/assets/images/bg-content-creators.jpg')] bg-cover bg-center pt-10 pb-28">
   <div class="flex flex-col items-center">
-    <p class="font-capital-daren-italic text-[10vw] lg:text-[5.5rem] lg:leading-[5rem] text-shadow">CONOCE NUESTROS</p>
-    <p class="font-capital-daren-italic text-[10vw] lg:text-[4.5rem] lg:leading-[4rem] text-shadow">CREADORES DE</p>
-    <p class="font-capital-daren-italic text-[10vw] lg:text-[10rem]  lg:leading-[11rem] text-shadow">CONTENIDO</p>
+    <p class="font-capital-daren-italic text-[2.5rem] leading-[2.5rem] xxs:text-[3rem] xxs:leading-[3rem] xs:text-[3.5rem] xs:leading-[3.5rem] md:text-[5.5rem] md:leading-[5rem] text-shadow">CONOCE NUESTROS</p>
+    <p class="font-capital-daren-italic text-[2.5rem] leading-[2.5rem] xxs:text-[3rem] xxs:leading-[3rem] xs:text-[3.5rem] xs:leading-[3.5rem] md:text-[4.5rem] md:leading-[4rem] text-shadow">CREADORES DE</p>
+    <p class="font-capital-daren-italic text-[4.5rem] lg:text-[10rem]  xxs:text-[5rem] xxs:leading-[6rem] xs:text-[6rem] xs:leading-[7rem] md:leading-[11rem] text-shadow">CONTENIDO</p>
   </div>
-  <div #creatorsCarousel class="custom-corusel w-full mt-16">
+  <div #creatorsCarousel class="custom-corusel w-full mt-8 lg:mt-16">
     <ng-template ngFor let-creator [ngForOf]="creators">
-      <app-creator-card class="carousel-cell xxs:w-[50rem] mx-10" creatorLogo="{{creator.creatorLogo}}" creatorName="{{creator.creatorName}}" creatorDescription="{{creator.creatorDescription}}" creatorVideo="{{creator.creatorVideo}}" creatorTwitch="{{creator.creatorTwitch}}" creatorYoutube="{{creator.creatorYoutube}}" creatorX="{{creator.creatorX}}"></app-creator-card>
+      <app-creator-card class="carousel-cell xxs:w-[95%] mx-10" creatorLogo="{{creator.creatorLogo}}" creatorName="{{creator.creatorName}}" creatorDescription="{{creator.creatorDescription}}" creatorVideo="{{creator.creatorVideo}}" creatorTwitch="{{creator.creatorTwitch}}" creatorYoutube="{{creator.creatorYoutube}}" creatorX="{{creator.creatorX}}"></app-creator-card>
     </ng-template>
   </div>
 </div>
