@@ -18,6 +18,9 @@
 .font-capital-daren-italic {
   font-family: "Capital Daren Italic", sans-serif;
 }
+.text-shadow {
+  text-shadow: 2px 2px black;
+}
 .custom-corusel {
   .flickity-page-dot {
     background: #8cb9ca;
