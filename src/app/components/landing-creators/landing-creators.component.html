@@ -6,7 +6,7 @@
   </div>
   <div #creatorsCarousel class="custom-corusel w-full mt-8 lg:mt-16">
     <ng-template ngFor let-creator [ngForOf]="creators">
-      <app-creator-card class="carousel-cell xxs:w-[95%] mx-10" creatorLogo="{{creator.creatorLogo}}" creatorName="{{creator.creatorName}}" creatorDescription="{{creator.creatorDescription}}" creatorVideo="{{creator.creatorVideo}}" creatorTwitch="{{creator.creatorTwitch}}" creatorYoutube="{{creator.creatorYoutube}}" creatorX="{{creator.creatorX}}"></app-creator-card>
+      <app-creator-card class="carousel-cell w-[95%] lg:w-[50%] mx-10" creatorLogo="{{creator.creatorLogo}}" creatorName="{{creator.creatorName}}" creatorDescription="{{creator.creatorDescription}}" creatorVideo="{{creator.creatorVideo}}" creatorTwitch="{{creator.creatorTwitch}}" creatorYoutube="{{creator.creatorYoutube}}" creatorX="{{creator.creatorX}}"></app-creator-card>
     </ng-template>
   </div>
 </div>
