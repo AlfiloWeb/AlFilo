@@ -14,7 +14,6 @@ pipeline {
         stage('Prepare SSH') {
             steps {
                 script {
-                    sh 'pwd'
                     sh "mkdir ~/.ssh"
                     sh "echo 'Host *' >> ~/.ssh/config"
                     sh "echo '   StrictHostKeyChecking no' >> ~/.ssh/config"
@@ -37,10 +36,11 @@ pipeline {
             steps {
                 script {
                     sshagent(credentials: ['jenkins2']) {
+                        sh 'ssh  $SSH_USER_PASS@$HOST "cd $DOCKER_COMPOSE_DIR && cd front/ && docker build -t my-build-stage -f docker-helper --no-cache ."'
                         if (params.ExecutionMode == 'Verbose') {
-                            sh 'ssh  $SSH_USER_PASS@$HOST "cd $DOCKER_COMPOSE_DIR && docker-compose build --no-cache && docker-compose up -d"'
+                            sh 'ssh  $SSH_USER_PASS@$HOST "cd $DOCKER_COMPOSE_DIR && docker-compose build && docker-compose up -d"'
                         } else if (params.ExecutionMode == 'Quiet'){
-                            sh 'ssh  $SSH_USER_PASS@$HOST "cd $DOCKER_COMPOSE_DIR && docker-compose build --no-cache --quiet && docker-compose up -d"'
+                            sh 'ssh  $SSH_USER_PASS@$HOST "cd $DOCKER_COMPOSE_DIR && docker-compose build --quiet && docker-compose up -d"'
                         }
                     }
                 }
