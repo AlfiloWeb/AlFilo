@@ -1,14 +1,14 @@
-.custom-corusel-chronology {
+.landing-chronology {
+
   .flickity-viewport {
     height: 22rem;
   }
+
   .carousel-cell {
     width: 95%;
     height: 22rem;
   }
-}
 
-.landing-chronology {
   .event-list-lg {
     -ms-overflow-style: none;
     scrollbar-width: none;
