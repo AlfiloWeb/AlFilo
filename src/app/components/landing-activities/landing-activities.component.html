@@ -13,8 +13,8 @@
     </div>
   </div>
   <div class="activities-container flex">
-    <div class="flex flex-col md:w-full lg:min-w-[754px] lg:items-end lg:basis-6/12 lg:rounded-tr-2xl lg:border-t-2 lg:border-r-2 lg:mt-[8.7rem]">
-      <div class="activities-wrapper bg-line-bottom lg:bg-none grid grid-cols-3 grid-flow-row xxxs:w-fit xxxs:m-auto md:flex md:justify-between md:w-full py-3 px-10 gap-y-5 gap-x-10 xs:gap-5 lg:max-w-[47rem] lg:-mt-[8.7rem]">
+    <div class="flex flex-col md:w-full lg:min-w-[754px] lg:items-end lg:basis-6/12 lg:rounded-tr-2xl lg:border-t-2 lg:border-r-2 lg:mt-[7.6rem]">
+      <div class="activities-wrapper bg-line-bottom lg:bg-none grid grid-cols-3 grid-flow-row xxxs:w-fit xxxs:m-auto md:flex md:justify-between md:w-full py-3 px-10 gap-y-5 gap-x-10 xs:gap-5 lg:max-w-[47rem] lg:-mt-[7.6rem]">
         <ng-template ngFor let-activity [ngForOf]="activities" let-i="index">
           <div (click)="changeCurrentActivity(activity.name)" [class.selected] = "currentActivitiy['name'] === activity.name" class="activity flex flex-col items-center text-white hover:text-alfilo-blue xs:gap-2 md:gap-0">
             <app-svg-icon class="svg-activity w-[10w]" [path]="'assets/images/activity/' + activity.name + '.svg'"></app-svg-icon>
