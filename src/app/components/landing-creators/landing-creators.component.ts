@@ -35,31 +35,14 @@ export class LandingCreatorsComponent {
       creatorTwitch: 'https://www.twitch.tv/herbizida',
       creatorYoutube: 'https://www.youtube.com/@HErBiZiDA/featured',
       creatorX: 'https://twitter.com/HErBiZiDA_',
-    },
-    {
-      creatorLogo: 'logoHerbi.png',
-      creatorName: 'HErBiZiDA',
-      creatorDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc accumsan lobortis massa. Maecenas ultrices sapien nec quam consequat, non elementum odio hendrerit.',
-      creatorVideo: 'video.mp4',
-      creatorTwitch: 'https://www.twitch.tv/herbizida',
-      creatorYoutube: 'https://www.youtube.com/@HErBiZiDA/featured',
-      creatorX: 'https://twitter.com/HErBiZiDA_',
-    },
-    {
-      creatorLogo: 'logoHerbi.png',
-      creatorName: 'HErBiZiDA',
-      creatorDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc accumsan lobortis massa. Maecenas ultrices sapien nec quam consequat, non elementum odio hendrerit.',
-      creatorVideo: 'video.mp4',
-      creatorTwitch: 'https://www.twitch.tv/herbizida',
-      creatorYoutube: 'https://www.youtube.com/@HErBiZiDA/featured',
-      creatorX: 'https://twitter.com/HErBiZiDA_',
-    },
+    }
   ];
 
   @ViewChild('creatorsCarousel') carousel!: ElementRef;
   ngAfterViewInit() {
     new Flickity(
       this.carousel.nativeElement,{
+        prevNextButtons: false,
         wrapAround: true,
         autoPlay: 5000,
     });

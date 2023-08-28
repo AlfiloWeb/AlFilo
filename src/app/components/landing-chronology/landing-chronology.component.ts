@@ -51,7 +51,6 @@ export class LandingChronologyComponent {
   ngAfterViewInit() {
     new Flickity(
       this.carousel.nativeElement,{
-        setGallerySize: false,
         prevNextButtons: false,
     });
   }
