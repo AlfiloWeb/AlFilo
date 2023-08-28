@@ -1,6 +1,8 @@
 pipeline {
     agent {
-        label 'squaier'
+        docker{
+            image 'agent:1.0'
+        }
     }
     environment {
         SSH_USER_PASS = credentials('sshcreds')
