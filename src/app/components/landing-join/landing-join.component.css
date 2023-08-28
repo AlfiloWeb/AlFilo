@@ -31,11 +31,6 @@
   }
 }
 
-.background-test{
-  background-image: url("../../../assets/images/corsairAlFilo.png");
-  background-size: cover;
-}
-
 .discord-anim{
   transition: width 0.5s ;
 }
