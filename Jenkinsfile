@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker{
-            image 'agent:1.0'
+            image 'agent:1.0' // donot touch
         }
     }
     environment {
@@ -54,6 +54,10 @@ pipeline {
             // Clean workdir or perform other cleanup tasks
             sh 'rm -rf *'
             sh 'ls -l'
+        }
+        always {
+            // Trigger a new build of the same job
+            build job: "Maintenance/STG/cleaner-layers-docker", propagate: true, wait: false
         }
     }
 }
