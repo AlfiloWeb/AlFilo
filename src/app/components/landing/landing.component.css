@@ -22,13 +22,3 @@ app-landing-contact-us{
     display: none;
   }
 }
-
-.footer-test{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: fit-content;
-  scroll-snap-align: start;
-}
-

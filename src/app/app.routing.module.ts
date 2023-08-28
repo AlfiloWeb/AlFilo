@@ -9,7 +9,6 @@ const routes: Routes = [
   {path: '',component: LandingComponent},
   {path: 'wiki', component: WikiComponent},
   {path: 'auth/callback', component: AuthCallbackComponent},
-
 ]
 
 @NgModule({

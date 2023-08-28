@@ -11,11 +11,10 @@ import { FooterComponent } from './components/footer/footer.component';
 import { JoinCardComponent } from './components/join-card/join-card.component';
 import { BasicCardComponent } from './components/basic-card/basic-card.component';
 import { LandingJoinComponent } from './components/landing-join/landing-join.component';
-import { JoinInfoComponent } from './components/join-info/join-info.component';
 import { AuthCallbackComponent } from './components/auth-callback/auth-callback.component';
 import { LandingActivitiesComponent } from './components/landing-activities/landing-activities.component';
 import { LandingChronologyComponent } from './components/landing-chronology/landing-chronology.component';
-import {LandingCreatorsComponent} from "./components/landing-creators/landing-creators.component";
+import { LandingCreatorsComponent } from "./components/landing-creators/landing-creators.component";
 import { SvgIconComponent } from './components/svg-icon/svg-icon.component';
 import { LandingContactUsComponent } from './components/landing-contact-us/landing-contact-us.component';
 import { CreatorCardComponent } from './components/creator-card/creator-card.component';
@@ -31,7 +30,6 @@ import { ObserveVisibilityDirective } from './directives/observe-visibility.dire
     JoinCardComponent,
     BasicCardComponent,
     LandingJoinComponent,
-    JoinInfoComponent,
     AuthCallbackComponent,
     LandingActivitiesComponent,
     LandingChronologyComponent,
