@@ -54,9 +54,7 @@ pipeline {
             // Clean workdir or perform other cleanup tasks
             sh 'rm -rf *'
             sh 'ls -l'
-        }
-        always {
-            // Trigger a new build of the same job
+           // Trigger a new build of the same job
             build job: "Maintenance/STG/cleaner-layers-docker", propagate: true, wait: false
         }
     }
