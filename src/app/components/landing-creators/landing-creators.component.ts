@@ -10,7 +10,7 @@ export class LandingCreatorsComponent {
 
   creators: creator[] = [
     {
-      creatorLogo: 'logoHerbi.png',
+      creatorLogo: 'herbizida/logo.png',
       creatorName: 'HErBiZiDA',
       creatorDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc accumsan lobortis massa. Maecenas ultrices sapien nec quam consequat, non elementum odio hendrerit.',
       creatorVideo: 'video.mp4',
@@ -19,7 +19,7 @@ export class LandingCreatorsComponent {
       creatorX: 'https://twitter.com/HErBiZiDA_',
     },
     {
-      creatorLogo: 'logoHerbi.png',
+      creatorLogo: 'herbizida/logo.png',
       creatorName: 'HErBiZiDA',
       creatorDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc accumsan lobortis massa. Maecenas ultrices sapien nec quam consequat, non elementum odio hendrerit.',
       creatorVideo: 'video.mp4',
@@ -28,7 +28,7 @@ export class LandingCreatorsComponent {
       creatorX: 'https://twitter.com/HErBiZiDA_',
     },
     {
-      creatorLogo: 'logoHerbi.png',
+      creatorLogo: 'herbizida/logo.png',
       creatorName: 'HErBiZiDA',
       creatorDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc accumsan lobortis massa. Maecenas ultrices sapien nec quam consequat, non elementum odio hendrerit.',
       creatorVideo: 'video.mp4',
