@@ -1,16 +1,14 @@
-import {AfterViewInit, Directive, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
-import {delay, filter, Subject} from "rxjs";
+import { AfterViewInit, Directive, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { delay, filter, Subject } from "rxjs";
 
 @Directive({
   selector: '[appObserveVisibility]'
 })
-export class ObserveVisibilityDirective
-  implements OnDestroy, OnInit, AfterViewInit {
+export class ObserveVisibilityDirective implements OnDestroy, OnInit, AfterViewInit {
   @Input() debounceTime = 0;
-  @Input() threshold = 1;
+  @Input() threshold = 0.5;
 
-  @Output() visible = new EventEmitter<HTMLElement>();
-  @Output() hidden = new EventEmitter<HTMLElement>();
+  @Output() visible = new EventEmitter<number>(); // Cambiado a number para emitir el valor en porcentaje
 
   private observer: IntersectionObserver | undefined;
   private subject$ = new Subject<{
@@ -34,20 +32,20 @@ export class ObserveVisibilityDirective
       this.observer = undefined;
     }
 
-
     this.subject$.complete();
   }
 
-  private isVisible(element: HTMLElement) {
+  private isVisible(element: HTMLElement): Promise<number> {
     return new Promise(resolve => {
       const observer = new IntersectionObserver(([entry]) => {
-        resolve(entry.intersectionRatio === 1);
+        resolve(entry.intersectionRatio);
         observer.disconnect();
       });
 
       observer.observe(element);
     });
   }
+
 
   private createObserver() {
     const options = {
@@ -78,14 +76,10 @@ export class ObserveVisibilityDirective
       .pipe(delay(this.debounceTime), filter(Boolean))
       .subscribe(async ({ entry, observer }) => {
         const target = entry.target as HTMLElement;
-        const isStillVisible = await this.isVisible(target);
+        //const visibilityPercentage = await this.isVisible(target) * 100;
 
-        if (isStillVisible) {
-          this.visible.emit(target);
-        } else {
-          this.hidden.emit(target);
-        }
+        //this.visible.emit(visibilityPercentage);
+        this.visible.emit();
       });
-
   }
 }
