@@ -7,4 +7,9 @@
       display: none;
     }
   }
+  .lala {
+    background-image: url('/assets/images/content-creator/herbizida/fondo-herbi.webp');
+    background-position: bottom left;
+    background-size: cover;
+  }
 }
