@@ -26,6 +26,7 @@ export class NavBarComponent {
   activeTab!: string;
   subscription!: Subscription;
   loginTitle: string = "Login con Discord";
+  currentSectionSelected = 'clan';
 
   constructor(
     private navigationService: NavigationService,
@@ -161,5 +162,9 @@ export class NavBarComponent {
           this.textResult = 'Este no es tu rol más alto, prueba con otro';
         },
       });
+  }
+
+  toggleSectionSelected(sectionName: string){
+    this.currentSectionSelected = sectionName;
   }
 }
