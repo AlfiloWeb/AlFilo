@@ -1,6 +1,6 @@
 .landing-activities {
   .activities-container {
-    /* background: linear-gradient(transparent, 15%, black); */
+    background: linear-gradient(transparent, 15%, black);
 
     .activities-wrapper {
       .custom-hidden {
