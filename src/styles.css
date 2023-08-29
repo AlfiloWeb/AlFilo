@@ -23,9 +23,10 @@
 }
 .custom-corusel {
   .flickity-page-dot {
-    background: #8cb9ca;
+    background: transparent;
+    border: 1px solid white;
     &.is-selected {
-      background: #0394cc;
+      background: white;
     }
   }
 }
