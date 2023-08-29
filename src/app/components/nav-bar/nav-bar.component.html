@@ -6,11 +6,11 @@
   <div class="navbar-end">
     <div class="w-5/6 hidden lg:flex justify-center">
       <div class="tabs lg:inline-flex">
-        <a href="#clan" (click)="toggleSectionSelected('clan')" [ngClass]="{'!text-alfilo-dark-blue': currentSectionSelected === 'clan'}" class="tab font-capital-daren text-[1rem] xl:text-[1.4rem] leading-[1rem] text-white hover:bg-secondary rounded-lg">Clan</a>
-        <a href="#actividades" (click)="toggleSectionSelected('actividades')" [ngClass]="{'!text-alfilo-dark-blue': currentSectionSelected === 'actividades'}" class="tab font-capital-daren text-[1rem] xl:text-[1.4rem] leading-[1rem] text-white hover:bg-secondary rounded-lg">Actividades</a>
-        <a href="#cronologia" (click)="toggleSectionSelected('cronologia')" [ngClass]="{'!text-alfilo-dark-blue': currentSectionSelected === 'cronologia'}" class="tab font-capital-daren text-[1rem] xl:text-[1.4rem] leading-[1rem] text-white hover:bg-secondary rounded-lg">Cronología</a>
-        <a href="#creadores" (click)="toggleSectionSelected('creadores')" [ngClass]="{'!text-alfilo-dark-blue': currentSectionSelected === 'creadores'}" class="tab font-capital-daren text-[1rem] xl:text-[1.4rem] leading-[1rem] text-white hover:bg-secondary rounded-lg">Creadores</a>
-        <a href="#contacto" (click)="toggleSectionSelected('contacto')" [ngClass]="{'!text-alfilo-dark-blue': currentSectionSelected === 'contacto'}" class="tab font-capital-daren text-[1rem] xl:text-[1.4rem] leading-[1rem] text-white hover:bg-secondary rounded-lg">Contacto</a>
+        <a href="#clan" (click)="toggleSectionSelected('clan')" [ngClass]="{'!text-alfilo-dark-blue': currentSectionSelected === 'clan'}" class="tab font-capital-daren text-[1rem] xl:text-[1.4rem] leading-[1.5rem] text-white hover:text-alfilo-blue rounded-lg">Clan</a>
+        <a href="#actividades" (click)="toggleSectionSelected('actividades')" [ngClass]="{'!text-alfilo-dark-blue': currentSectionSelected === 'actividades'}" class="tab font-capital-daren text-[1rem] xl:text-[1.4rem] leading-[1rem] text-white hover:text-alfilo-blue rounded-lg">Actividades</a>
+        <a href="#cronologia" (click)="toggleSectionSelected('cronologia')" [ngClass]="{'!text-alfilo-dark-blue': currentSectionSelected === 'cronologia'}" class="tab font-capital-daren text-[1rem] xl:text-[1.4rem] leading-[1rem] text-white hover:text-alfilo-blue rounded-lg">Cronología</a>
+        <a href="#creadores" (click)="toggleSectionSelected('creadores')" [ngClass]="{'!text-alfilo-dark-blue': currentSectionSelected === 'creadores'}" class="tab font-capital-daren text-[1rem] xl:text-[1.4rem] leading-[1rem] text-white hover:text-alfilo-blue rounded-lg">Creadores</a>
+        <a href="#contacto" (click)="toggleSectionSelected('contacto')" [ngClass]="{'!text-alfilo-dark-blue': currentSectionSelected === 'contacto'}" class="tab font-capital-daren text-[1rem] xl:text-[1.4rem] leading-[1rem] text-white hover:text-alfilo-blue rounded-lg">Contacto</a>
         <!-- <a *ngFor="let item of navItems" routerLink="{{item.path}}" class="tab hover:bg-secondary rounded-lg "
            [ngClass]="{'text-accent' : item.active, 'text-base-content' : !item.active}">{{item.name}}</a> -->
       </div>
@@ -20,12 +20,12 @@
         <label tabindex="0" class="btn btn-ghost">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
         </label>
-        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 absolute -left-[10rem]">
-          <li><a href="#clan" (click)="toggleSectionSelected('clan')" [ngClass]="{'!text-alfilo-dark-blue': currentSectionSelected === 'clan'}" class="tab font-capital-daren text-[1.5rem] leading-[1rem] text-white hover:bg-secondary rounded-lg">Clan</a></li>
-          <li><a href="#actividades" (click)="toggleSectionSelected('actividades')" [ngClass]="{'!text-alfilo-dark-blue': currentSectionSelected === 'actividades'}" class="tab font-capital-daren text-[1.5rem] leading-[1rem] text-white hover:bg-secondary rounded-lg">Actividades</a></li>
-          <li><a href="#cronologia" (click)="toggleSectionSelected('cronologia')" [ngClass]="{'!text-alfilo-dark-blue': currentSectionSelected === 'cronologia'}" class="tab font-capital-daren text-[1.5rem] leading-[1rem] text-white hover:bg-secondary rounded-lg">Cronología</a></li>
-          <li><a href="#creadores" (click)="toggleSectionSelected('creadores')" [ngClass]="{'!text-alfilo-dark-blue': currentSectionSelected === 'creadores'}" class="tab font-capital-daren text-[1.5rem] leading-[1rem] text-white hover:bg-secondary rounded-lg">Creadores</a></li>
-          <li><a href="#contacto" (click)="toggleSectionSelected('contacto')" [ngClass]="{'!text-alfilo-dark-blue': currentSectionSelected === 'contacto'}" class="tab font-capital-daren text-[1.5rem] leading-[1rem] text-white hover:bg-secondary rounded-lg">Contacto</a></li>
+        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-alfilo-gray rounded-box w-52 absolute -left-[10rem]">
+          <li><a href="#clan" (click)="toggleSectionSelected('clan')" [ngClass]="{'!text-alfilo-dark-blue': currentSectionSelected === 'clan'}" class="tab font-capital-daren text-[1.5rem] leading-[1rem] text-white hover:text-alfilo-blue hover:!bg-transparent rounded-lg">Clan</a></li>
+          <li><a href="#actividades" (click)="toggleSectionSelected('actividades')" [ngClass]="{'!text-alfilo-dark-blue': currentSectionSelected === 'actividades'}" class="tab font-capital-daren text-[1.5rem] leading-[1rem] text-white hover:text-alfilo-blue hover:!bg-transparent rounded-lg">Actividades</a></li>
+          <li><a href="#cronologia" (click)="toggleSectionSelected('cronologia')" [ngClass]="{'!text-alfilo-dark-blue': currentSectionSelected === 'cronologia'}" class="tab font-capital-daren text-[1.5rem] leading-[1rem] text-white hover:text-alfilo-blue hover:!bg-transparent rounded-lg">Cronología</a></li>
+          <li><a href="#creadores" (click)="toggleSectionSelected('creadores')" [ngClass]="{'!text-alfilo-dark-blue': currentSectionSelected === 'creadores'}" class="tab font-capital-daren text-[1.5rem] leading-[1rem] text-white hover:text-alfilo-blue hover:!bg-transparent rounded-lg">Creadores</a></li>
+          <li><a href="#contacto" (click)="toggleSectionSelected('contacto')" [ngClass]="{'!text-alfilo-dark-blue': currentSectionSelected === 'contacto'}" class="tab font-capital-daren text-[1.5rem] leading-[1rem] text-white hover:text-alfilo-blue hover:!bg-transparent rounded-lg">Contacto</a></li>
         </ul>
       </div>
       <!-- <div class="dropdown dropdown-end">
