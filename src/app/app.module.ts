@@ -20,6 +20,7 @@ import { LandingContactUsComponent } from './components/landing-contact-us/landi
 import { CreatorCardComponent } from './components/creator-card/creator-card.component';
 import { ObserveVisibilityDirective } from './directives/observe-visibility.directive';
 
+
 @NgModule({
   declarations: [
     AppComponent,
