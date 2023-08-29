@@ -8,6 +8,7 @@ module.exports = {
         "xxxs": "320px",
         "xxs": "376px",
         "xs": "431px",
+        "lg+": "1527px"
       },
       colors: {
         "alfilo-gray": '#262626',
@@ -33,4 +34,3 @@ module.exports = {
     ],
   },
 }
-
