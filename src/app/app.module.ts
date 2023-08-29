@@ -8,7 +8,6 @@ import { LandingComponent } from './components/landing/landing.component';
 import { WikiComponent } from './components/wiki/wiki.component';
 import { AppRoutingModule } from './app.routing.module';
 import { FooterComponent } from './components/footer/footer.component';
-import { JoinCardComponent } from './components/join-card/join-card.component';
 import { BasicCardComponent } from './components/basic-card/basic-card.component';
 import { LandingJoinComponent } from './components/landing-join/landing-join.component';
 import { AuthCallbackComponent } from './components/auth-callback/auth-callback.component';
@@ -20,7 +19,6 @@ import { LandingContactUsComponent } from './components/landing-contact-us/landi
 import { CreatorCardComponent } from './components/creator-card/creator-card.component';
 import { ObserveVisibilityDirective } from './directives/observe-visibility.directive';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +26,6 @@ import { ObserveVisibilityDirective } from './directives/observe-visibility.dire
     LandingComponent,
     WikiComponent,
     FooterComponent,
-    JoinCardComponent,
     BasicCardComponent,
     LandingJoinComponent,
     AuthCallbackComponent,
@@ -38,13 +35,13 @@ import { ObserveVisibilityDirective } from './directives/observe-visibility.dire
     LandingCreatorsComponent,
     LandingContactUsComponent,
     CreatorCardComponent,
-    ObserveVisibilityDirective,
+    ObserveVisibilityDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

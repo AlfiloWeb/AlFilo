@@ -1,4 +1,4 @@
-import {Component, AfterViewInit, ElementRef, ViewChild, ChangeDetectorRef} from '@angular/core';
+import {Component, AfterViewInit, ElementRef, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-landing-join',

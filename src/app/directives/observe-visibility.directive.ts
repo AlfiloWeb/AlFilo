@@ -80,6 +80,7 @@ export class ObserveVisibilityDirective implements OnDestroy, OnInit, AfterViewI
 
         //this.visible.emit(visibilityPercentage);
         this.visible.emit();
+        observer.unobserve(target);
       });
   }
 }

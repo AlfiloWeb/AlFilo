@@ -1,4 +1,4 @@
-<div class="card border w-full bg-black shadow-xl h-full " >
+<div class="card border w-full bg-black shadow-xl h-full" appObserveVisibility (visible)="activateAnimation()" [@fadeIn]="isVisible ? 'visible' : 'hidden'">
   <div class="flex h-full">
     <img src="/assets/images/{{srcImage}}" alt="Logo" class="hidden xxs:block rounded-l-2xl w-4/12 sm:w-4/12 object-cover" />
     <div class="card-body w-8/12 sm:w-8/12">
