@@ -14,6 +14,7 @@ module.exports = {
         "alfilo-gray": '#262626',
         "alfilo-blue": '#8cb9ca',
         "alfilo-dark-blue": '#0394cc',
+        "alfilo-bg-blue": "#0379a7",
         "discord": '#7289da',
       },
     }
