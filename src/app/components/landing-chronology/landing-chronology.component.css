@@ -4,11 +4,6 @@
     height: 22rem;
   }
 
-  .carousel-cell {
-    width: 95%;
-    height: 22rem;
-  }
-
   .event-list-lg {
     -ms-overflow-style: none;
     scrollbar-width: none;
