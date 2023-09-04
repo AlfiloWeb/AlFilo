@@ -6,30 +6,31 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
   styleUrls: ['./landing-creators.component.css']
 })
 export class LandingCreatorsComponent {
+  actualBgImage: string = ''
   creators: creator[] = [
     {
-      bgImage: "xxs:bg-[url('/assets/images/content-creator/fondo-herbizida.webp')]",
+      bgImage: "url('/assets/images/content-creator/fondo-herbizida.webp')",
       logo: 'logo-herbizida.png',
       name: 'HErBiZiDA',
-      description: 'Streamer de Twich con más de 9200 horas de juego emitidas. Cuenta con una gran experiencia de vuelo, combate y amplios conocimientos de las mecánicas sobre Star Citizen, configuraciones de naves y perifericos.<br/>Sigue el desarrollo de Star Citizen muy de cerca emitiendo en directo todos los this week, ISC y SC Live.<br/>Si quieres conocer el proyecto y recibir los mejores consejors, es el tipo indicado.',
+      description: 'Volar desde un caza hasta un ladrillo. La aventura de Star Citizen.',
       twitch: 'https://www.twitch.tv/herbizida',
       youtube: 'https://www.youtube.com/@HErBiZiDA/featured',
       x: 'https://twitter.com/HErBiZiDA_',
     },
     {
-      bgImage: "xxs:bg-[url('/assets/images/content-creator/fondo-senor.webp')]",
+      bgImage: "url('/assets/images/content-creator/fondo-senor.webp')",
       logo: 'logo-senor.webp',
       name: 'Senor55',
-      description: 'En temas industriales no tiene rival. Cuenta con una gran experiencia de vuelo, combate y amplios conocimientos de las mecánicas sobre Star Citizen, configuraciones de naves y perifericos.<br/>Sigue el desarrollo de Star Citizen muy de cerca emitiendo en directo todos los this week, ISC y SC Live.<br/>Si quieres conocer el proyecto y recibir los mejores consejors, es el tipo indicado.',
+      description: 'Industria y planificación. La verdad que se esconde trás los números.',
       twitch: 'https://www.twitch.tv/herbizida',
       youtube: 'https://www.youtube.com/@HErBiZiDA/featured',
       x: 'https://twitter.com/HErBiZiDA_',
     },
     {
-      bgImage: "xxs:bg-[url('/assets/images/content-creator/fondo-raylker.webp')]",
+      bgImage: "url('/assets/images/content-creator/fondo-raylker.webp')",
       logo: 'logo-raylker.webp',
       name: 'Raylker',
-      description: 'La voz del verso. Cuenta con una gran experiencia de vuelo, combate y amplios conocimientos de las mecánicas sobre Star Citizen, configuraciones de naves y perifericos.<br/>Sigue el desarrollo de Star Citizen muy de cerca emitiendo en directo todos los this week, ISC y SC Live.<br/>Si quieres conocer el proyecto y recibir los mejores consejors, es el tipo indicado.',
+      description: 'Lore y juego en compañía. Mi gato necesita una base.',
       twitch: 'https://www.twitch.tv/herbizida',
       youtube: 'https://www.youtube.com/@HErBiZiDA/featured',
       x: 'https://twitter.com/HErBiZiDA_',
@@ -37,15 +38,18 @@ export class LandingCreatorsComponent {
   ];
 
   @ViewChild('creatorsCarousel') carousel!: ElementRef;
+  @ViewChild('creatorsCarouselBgImage') carouselBgImage!: ElementRef;
+
   ngAfterViewInit() {
     Object.assign(this.carousel.nativeElement, {
-      loop: true,
       speed: 1000,
-      autoplay: {
-        delay: 5000,
-      },
     });
+
+    this.actualBgImage = this.creators[0].bgImage;
     this.carousel.nativeElement.initialize();
+    this.carousel.nativeElement.swiper.on('slideChange',  (slide: any) => {
+      this.actualBgImage = this.creators[slide.activeIndex].bgImage;
+    });
   }
 
   goToSlide(index: number){
