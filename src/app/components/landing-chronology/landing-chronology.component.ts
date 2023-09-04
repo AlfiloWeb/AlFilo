@@ -54,6 +54,8 @@ export class LandingChronologyComponent {
       pagination: {
         type: "progressbar",
       },
+      navigation: {
+      }
     });
 
     this.carousel.nativeElement.initialize();

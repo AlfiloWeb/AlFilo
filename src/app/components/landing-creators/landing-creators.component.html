@@ -12,9 +12,9 @@
         </swiper-slide>
       </ng-template>
     </swiper-container>
-    <div #creatorsCarouselBgImage [ngStyle]="{'background-image': actualBgImage}" class="bg-[length:50%_auto] lg:bg-[length:50%_auto] xl:bg-[length:40%_auto] 2xl:bg-[length:30%_auto] bg-left-bottom bg-no-repeat w-[100vw] h-[100%] absolute top-0 left-0"></div>
+    <div #creatorsCarouselBgImage [ngStyle]="{'background-image': actualBgImage}" class="bg-[length:50%_auto] lg:bg-[length:50%_auto] xl:bg-[length:40%_auto] 2xl:bg-[length:35rem_auto] xl:max-w-[2550px] xl:left-[25%] bg-left-bottom bg-no-repeat w-[100vw] h-[100%] absolute top-0 left-0"></div>
   </div>
-  <div class="nav-creators bg-gradient-to-r from-alfilo-dark-blue via-black to-alfilo-dark-blue backdrop-blur-lg flex justify-between items-center h-[80px]">
+  <div class="nav-creators bg-gradient-to-r from-alfilo-dark-blue via-black to-alfilo-dark-blue backdrop-blur-lg flex justify-between md:justify-center md:gap-10 items-center h-[80px]">
     <app-svg-icon class="arrow-svg arrow-left" (click)="slidePrev()" path="assets/images/arrow.svg"></app-svg-icon>
     <ng-template ngFor let-creator [ngForOf]="creators" let-i="index">
         <img src="/assets/images/content-creator/{{creator.logo}}" (click)="goToSlide(i)" class="logo-creator rounded-full w-[64px] hover:cursor-pointer hover:shadow-lg hover:shadow-white" alt="creatorLogo"/>
