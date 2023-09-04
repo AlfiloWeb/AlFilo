@@ -21,15 +21,6 @@
 .text-shadow {
   text-shadow: 2px 2px black;
 }
-.custom-corusel {
-  .flickity-page-dot {
-    background: transparent;
-    border: 1px solid white;
-    &.is-selected {
-      background: white;
-    }
-  }
-}
 
 @keyframes fadeIn {
   from {
@@ -45,4 +36,3 @@
 .animate-fade-in {
   animation: fadeIn 0.5s ease-out;
 }
-

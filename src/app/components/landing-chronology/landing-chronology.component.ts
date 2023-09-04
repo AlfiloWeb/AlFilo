@@ -1,5 +1,4 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import Flickity from 'flickity';
 
 @Component({
   selector: 'app-landing-chronology',
@@ -49,10 +48,15 @@ export class LandingChronologyComponent {
 
   @ViewChild('carouselChronology') carousel!: ElementRef;
   ngAfterViewInit() {
-    new Flickity(
-      this.carousel.nativeElement,{
-        prevNextButtons: false,
+    Object.assign(this.carousel.nativeElement, {
+      grabCursor: true,
+      speed: 1000,
+      scrollbar: {
+        draggable: true,
+      },
     });
+
+    this.carousel.nativeElement.initialize();
   }
 
 }

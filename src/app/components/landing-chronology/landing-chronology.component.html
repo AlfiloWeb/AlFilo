@@ -2,11 +2,18 @@
 bg-cover bg-center sm:pb-20 relative flex flex-col pt-12 lg:pt-15 pb-28">
   <div class="hidden lg:block absolute h-[95%] top-0 left-0 border-b-2 border-r-2 rounded-br-2xl sm:w-0 lg:w-[50%] lg:min-w-[754px] "></div>
     <div class="text-[4rem] xxs:text-[5rem] xs:text-[6rem] md:text-[9rem] text-center font-capital-daren-italic lg:w-[50%] lg:min-w-[754px] text-shadow">cronología</div>
-    <div #carouselChronology class="custom-corusel lg:hidden">
+    <swiper-container #carouselChronology init="false" class="w-[100vw] h-fit lg:hidden">
+      <ng-template ngFor let-event [ngForOf]="events" let-i="index">
+        <swiper-slide>
+          <app-basic-card class="carousel-cell mr-10 w-[95%] xxxs:h-[15rem] xxs:h-[18rem]" srcImage={{event.image}} title={{event.title}} body={{event.body}}></app-basic-card>
+        </swiper-slide>
+      </ng-template>
+    </swiper-container>
+    <!-- <div #carouselChronology class="custom-corusel lg:hidden">
       <ng-template ngFor let-event [ngForOf]="events" let-i="index">
         <app-basic-card class="carousel-cell mr-10 w-[95%] xxxs:h-[15rem] xxs:h-[18rem]" srcImage={{event.image}} title={{event.title}} body={{event.body}}></app-basic-card>
       </ng-template>
-    </div>
+    </div> -->
     <div class="event-list-lg h-[40rem] gap-x-10 gap-y-20 py-10 overflow-x-hidden grid-cols-2
     hidden sm:self-center md:w-full lg:flex lg:flex-col lg:self-start lg:h-[51rem] xl:self-center
     lg:px-10 lg+:w-[80%] lg+:grid lg+:min-w-[754px] lg+:max-w-[90rem] z-10">

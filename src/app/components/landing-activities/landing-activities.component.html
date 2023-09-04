@@ -29,7 +29,7 @@
           </div>
         </ng-template>
       </div>
-      <div class="p-2 lg:p-10 lg:max-w-[45rem] h-[14rem] xs:h-[18rem] md:h-auto">
+      <div class="lg:p-10 lg:max-w-[45rem] h-[14rem] xs:h-[18rem] md:h-auto">
         <ng-template ngFor let-activity [ngForOf]="activities" let-i="index">
           <app-basic-card [hidden]="!isCurrentActivity(activity.name)" srcImage={{activity.imageCardSrc}} title={{activity.title}} body={{activity.bodyCardSrc}}></app-basic-card>
         </ng-template>

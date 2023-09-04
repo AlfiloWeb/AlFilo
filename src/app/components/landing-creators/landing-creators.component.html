@@ -1,12 +1,21 @@
-<div class="landing-contact-us w-full bg-cover bg-center pt-20 pb-28">
+<div class="landing-contact-us w-full pt-20 pb-28">
   <div class="flex flex-col items-center">
     <p class="font-capital-daren-italic text-[2.5rem] leading-[2.5rem] xxs:text-[3rem] xxs:leading-[3rem] xs:text-[3.5rem] xs:leading-[3.5rem] md:text-[5.5rem] md:leading-[5rem] text-shadow">CONOCE NUESTROS</p>
     <p class="font-capital-daren-italic text-[2.5rem] leading-[2.5rem] xxs:text-[3rem] xxs:leading-[3rem] xs:text-[3.5rem] xs:leading-[3.5rem] md:text-[4.5rem] md:leading-[4rem] text-shadow">CREADORES DE</p>
     <p class="font-capital-daren-italic text-[4.5rem] lg:text-[10rem] xxs:text-[5rem] xxs:leading-[6rem] xs:text-[6rem] xs:leading-[7rem] md:leading-[11rem] text-shadow">CONTENIDO</p>
   </div>
-  <div #creatorsCarousel class="custom-corusel w-full lg:px-0">
+  <swiper-container #creatorsCarousel init="false" class="w-[100vw] h-fit">
     <ng-template ngFor let-creator [ngForOf]="creators">
-      <app-creator-card class="lala carousel-cell mr-10 w-full" creatorLogo="{{creator.creatorLogo}}" creatorName="{{creator.creatorName}}" creatorDescription="{{creator.creatorDescription}}" creatorVideo="{{creator.creatorVideo}}" creatorTwitch="{{creator.creatorTwitch}}" creatorYoutube="{{creator.creatorYoutube}}" creatorX="{{creator.creatorX}}"></app-creator-card>
+      <swiper-slide class="bg-[length:50%_auto] md:bg-contain bg-left-bottom bg-no-repeat" [ngClass]="creator.bgImage">
+        <app-creator-card class="swiper-slide mr-10 h-full w-full" logo="{{creator.logo}}" name="{{creator.name}}" description="{{creator.description}}" twitch="{{creator.twitch}}" youtube="{{creator.youtube}}" x="{{creator.x}}"></app-creator-card>
+      </swiper-slide>
     </ng-template>
+  </swiper-container>
+  <div class="nav-creators bg-gradient-to-r from-alfilo-dark-blue via-black to-alfilo-dark-blue backdrop-blur-lg flex justify-between items-center h-[80px]">
+    <app-svg-icon class="arrow-svg arrow-left" (click)="slidePrev()" path="assets/images/arrow.svg"></app-svg-icon>
+    <ng-template ngFor let-creator [ngForOf]="creators" let-i="index">
+        <img src="/assets/images/content-creator/{{creator.logo}}" (click)="goToSlide(i)" class="logo-creator rounded-full w-[64px] hover:cursor-pointer hover:shadow-lg hover:shadow-white" alt="creatorLogo"/>
+    </ng-template>
+    <app-svg-icon class="arrow-svg arrow-right" (click)="slideNext()" path="assets/images/arrow.svg"></app-svg-icon>
   </div>
 </div>

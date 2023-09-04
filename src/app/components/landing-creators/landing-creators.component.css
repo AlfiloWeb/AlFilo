@@ -7,10 +7,23 @@
       display: none;
     }
   }
-  .lala {
-    background-image: url('/assets/images/content-creator/herbizida/fondo-herbi.webp');
-    background-position: bottom center;
-    background-size: contain;
-    background-repeat: no-repeat;
+
+  .nav-creators {
+    .arrow-svg {
+      background-color: white;
+      width: 64px;
+      height: 64px;
+
+      &.arrow-left {
+        transform: rotate(270deg);
+      }
+      &.arrow-right {
+        transform: rotate(90deg);
+      }
+      &:hover {
+        cursor: pointer;
+        background-color: black;
+      }
+    }
   }
 }
