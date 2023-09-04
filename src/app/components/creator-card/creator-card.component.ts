@@ -7,13 +7,14 @@ import {Component, ElementRef, Input, ViewChild} from '@angular/core';
 })
 export class CreatorCardComponent {
 
-  @Input() creatorLogo: string = '';
-  @Input() creatorName: string = '';
-  @Input() creatorDescription: string = '';
-  @Input() creatorVideo: string = '';
-  @Input() creatorTwitch: string = '';
-  @Input() creatorYoutube: string = '';
-  @Input() creatorX: string = '';
+
+  @Input() bgImage: string = '';
+  @Input() logo: string = '';
+  @Input() name: string = '';
+  @Input() description: string = '';
+  @Input() twitch: string = '';
+  @Input() youtube: string = '';
+  @Input() x: string = '';
 
   @ViewChild('myVideo') videoElement!: ElementRef;
   ngAfterViewInit() {

@@ -1,5 +1,4 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import Flickity from 'flickity';
 
 @Component({
   selector: 'app-landing-creators',
@@ -7,55 +6,71 @@ import Flickity from 'flickity';
   styleUrls: ['./landing-creators.component.css']
 })
 export class LandingCreatorsComponent {
-
+  actualBgImage: string = ''
   creators: creator[] = [
     {
-      creatorLogo: 'herbizida/logo.png',
-      creatorName: 'HErBiZiDA',
-      creatorDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc accumsan lobortis massa. Maecenas ultrices sapien nec quam consequat, non elementum odio hendrerit.',
-      creatorVideo: 'video.mp4',
-      creatorTwitch: 'https://www.twitch.tv/herbizida',
-      creatorYoutube: 'https://www.youtube.com/@HErBiZiDA/featured',
-      creatorX: 'https://twitter.com/HErBiZiDA_',
+      bgImage: "url('/assets/images/content-creator/fondo-herbizida.webp')",
+      logo: 'logo-herbizida.png',
+      name: 'HErBiZiDA',
+      description: 'Volar desde un caza hasta un ladrillo. La aventura de Star Citizen.',
+      twitch: 'https://www.twitch.tv/herbizida',
+      youtube: 'https://www.youtube.com/@HErBiZiDA/featured',
+      x: 'https://twitter.com/HErBiZiDA_',
     },
     {
-      creatorLogo: 'herbizida/logo.png',
-      creatorName: 'HErBiZiDA',
-      creatorDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc accumsan lobortis massa. Maecenas ultrices sapien nec quam consequat, non elementum odio hendrerit.',
-      creatorVideo: 'video.mp4',
-      creatorTwitch: 'https://www.twitch.tv/herbizida',
-      creatorYoutube: 'https://www.youtube.com/@HErBiZiDA/featured',
-      creatorX: 'https://twitter.com/HErBiZiDA_',
+      bgImage: "url('/assets/images/content-creator/fondo-senor.webp')",
+      logo: 'logo-senor.webp',
+      name: 'Senor55',
+      description: 'Industria y planificación. La verdad que se esconde trás los números.',
+      twitch: 'https://www.twitch.tv/herbizida',
+      youtube: 'https://www.youtube.com/@HErBiZiDA/featured',
+      x: 'https://twitter.com/HErBiZiDA_',
     },
     {
-      creatorLogo: 'herbizida/logo.png',
-      creatorName: 'HErBiZiDA',
-      creatorDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc accumsan lobortis massa. Maecenas ultrices sapien nec quam consequat, non elementum odio hendrerit.',
-      creatorVideo: 'video.mp4',
-      creatorTwitch: 'https://www.twitch.tv/herbizida',
-      creatorYoutube: 'https://www.youtube.com/@HErBiZiDA/featured',
-      creatorX: 'https://twitter.com/HErBiZiDA_',
+      bgImage: "url('/assets/images/content-creator/fondo-raylker.webp')",
+      logo: 'logo-raylker.webp',
+      name: 'Raylker',
+      description: 'Lore y juego en compañía. Mi gato necesita una base.',
+      twitch: 'https://www.twitch.tv/herbizida',
+      youtube: 'https://www.youtube.com/@HErBiZiDA/featured',
+      x: 'https://twitter.com/HErBiZiDA_',
     }
   ];
 
   @ViewChild('creatorsCarousel') carousel!: ElementRef;
+  @ViewChild('creatorsCarouselBgImage') carouselBgImage!: ElementRef;
+
   ngAfterViewInit() {
-    new Flickity(
-      this.carousel.nativeElement,{
-        prevNextButtons: false,
-        wrapAround: true,
-        autoPlay: 5000,
+    Object.assign(this.carousel.nativeElement, {
+      speed: 1000,
+    });
+
+    this.actualBgImage = this.creators[0].bgImage;
+    this.carousel.nativeElement.initialize();
+    this.carousel.nativeElement.swiper.on('slideChange',  (slide: any) => {
+      this.actualBgImage = this.creators[slide.activeIndex].bgImage;
     });
   }
 
+  goToSlide(index: number){
+    this.carousel.nativeElement.swiper.slideTo(index, 500);
+  }
+
+  slidePrev(){
+    this.carousel.nativeElement.swiper.slidePrev(500);
+  }
+
+  slideNext(){
+    this.carousel.nativeElement.swiper.slideNext(500);
+  }
 }
 
 interface creator {
-  creatorLogo: string;
-  creatorName: string;
-  creatorDescription: string;
-  creatorVideo: string;
-  creatorTwitch: string;
-  creatorYoutube: string;
-  creatorX: string;
+  bgImage: string;
+  logo: string;
+  name: string;
+  description: string;
+  twitch: string;
+  youtube: string;
+  x: string;
 }

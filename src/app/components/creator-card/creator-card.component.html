@@ -1,67 +1,27 @@
-<!-- <div class="p-3 h-[40rem] sm:p-10">
-  <div class="flex flex-col gap-4 gap-y-10">
-    <div class="flex flex-col sm:flex-row gap-5">
-      <div class="flex flex-col items-center gap-4 sm:w-1/3">
-        <div class="flex gap-4 self-start w-full items-center">
-          <div class="w-28 rounded-full">
-            <img src="/assets/images/content-creator/{{creatorLogo}}" class="rounded-full" style="" alt="creatorLogo"/>
-          </div>
-          <p class="w-full text-center md:text-left md:text-5xl font-medium ">{{creatorName}}</p>
-        </div>
-        <div class="w-full h-full">
-          {{creatorDescription}}
-        </div>
-      </div>
-      <div class="order-1 md:w-2/3">
-        <video #myVideo class="object-cover w-full border-2 rounded-2xl" autoplay loop muted playsinline
-               src="assets/videos/{{creatorVideo}}"></video>
-      </div>
+<div class="h-full xs:min-h-[25rem] sm:min-h-[26rem] md:min-h-[30rem] lg:min-h-[35rem] md:flex md:flex-col mt-[4rem]">
+  <div class="flex h-full md:w-[50%] md:gap-5 self-end">
+    <div class="w-[40%] md:w-auto flex justify-center items-center">
+      <img src="/assets/images/content-creator/{{logo}}" class="rounded-full w-[5rem]" alt="creatorLogo"/>
     </div>
-    <div class="w-full flex justify-center">
-      <div class=" flex gap-3 xxs:gap-10 sm:gap-x-20">
-        <a href="{{creatorTwitch}}" target="_blank"
-          class="btn card bg-[#6441a5] w-14 h-14 xxs:w-16 xxs:h-16 border-2 border-white p-2 flex place-content-center place-items-center">
-          <img src="/assets/images/twitch.svg" alt="Logo" class="w-8"/>
-        </a>
-        <a href="{{creatorYoutube}}" target="_blank"
-          class="btn card bg-black w-14 h-14 xxs:w-16 xxs:h-16 border-2 border-white p-2 flex place-content-center place-items-center">
-          <img src="/assets/images/youtube.svg" alt="Logo" class="w-10"/>
-        </a>
-        <a href="{{creatorX}}" target="_blank"
-          class="btn card bg-black w-14 h-14 xxs:w-16 xxs:h-16 border-2 border-white p-2 flex place-content-center place-items-center">
-          <app-svg-icon class="x-svg" path="assets/images/x.svg"></app-svg-icon>
-        </a>
-      </div>
+    <div class="w-[60%] flex justify-start items-center">
+      <p class="text-center text-[2rem] md:text-left md:text-5xl font-medium">{{name}}</p>
     </div>
   </div>
-</div> -->
-
-<div class="p-3 h-[40rem] sm:p-10">
-  <div class="flex flex-col gap-4 gap-y-10">
-    <div class="flex justify-center items-end sm:flex-row gap-5">
-      <div class="flex flex-col items-center gap-4 md:w-[25rem]">
-        <div class="flex gap-4 self-end w-full items-center">
-          <div class="w-28 rounded-full">
-            <img src="/assets/images/content-creator/{{creatorLogo}}" class="rounded-full" alt="creatorLogo"/>
-          </div>
-          <p class="w-full text-center md:text-left md:text-5xl font-medium ">{{creatorName}}</p>
-        </div>
-        <div class="w-full h-full">
-          {{creatorDescription}}
-        </div>
-      </div>
+  <div class="p-5 flex md:w-[50%] flex-col self-end">
+    <div class="flex justify-end">
+      <p class="p-2 w-[50%] md:w-full" [innerHtml]="description"></p>
     </div>
-    <div class="w-full flex justify-center">
-      <div class=" flex gap-3 xxs:gap-10 sm:gap-x-20">
-        <a href="{{creatorTwitch}}" target="_blank"
+    <div class="w-full flex justify-center mt-5">
+      <div class="flex gap-3 xxs:gap-10 sm:gap-x-20">
+        <a href="{{twitch}}" target="_blank"
           class="btn card bg-[#6441a5] w-14 h-14 xxs:w-16 xxs:h-16 border-2 border-white p-2 flex place-content-center place-items-center">
           <img src="/assets/images/twitch.svg" alt="Logo" class="w-8"/>
         </a>
-        <a href="{{creatorYoutube}}" target="_blank"
+        <a href="{{youtube}}" target="_blank"
           class="btn card bg-black w-14 h-14 xxs:w-16 xxs:h-16 border-2 border-white p-2 flex place-content-center place-items-center">
           <img src="/assets/images/youtube.svg" alt="Logo" class="w-10"/>
         </a>
-        <a href="{{creatorX}}" target="_blank"
+        <a href="{{x}}" target="_blank"
           class="btn card bg-black w-14 h-14 xxs:w-16 xxs:h-16 border-2 border-white p-2 flex place-content-center place-items-center">
           <app-svg-icon class="x-svg" path="assets/images/x.svg"></app-svg-icon>
         </a>

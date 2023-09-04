@@ -1,8 +1,7 @@
 .landing-chronology {
-
-  .flickity-viewport {
-    height: 22rem;
-  }
+  --swiper-scrollbar-bg-color: white;
+  --swiper-scrollbar-drag-bg-color: #0394cc;
+  --swiper-scrollbar-size: 8px;
 
   .event-list-lg {
     -ms-overflow-style: none;
@@ -12,4 +11,8 @@
       display: none;
     }
   }
+}
+
+.swiper-pagination-bullet-custom {
+  border: 1px solid white;
 }

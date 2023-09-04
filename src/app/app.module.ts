@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HttpClientModule } from "@angular/common/http";
@@ -18,6 +18,8 @@ import { SvgIconComponent } from './components/svg-icon/svg-icon.component';
 import { LandingContactUsComponent } from './components/landing-contact-us/landing-contact-us.component';
 import { CreatorCardComponent } from './components/creator-card/creator-card.component';
 import { ObserveVisibilityDirective } from './directives/observe-visibility.directive';
+import { register } from 'swiper/element/bundle';
+register();
 
 @NgModule({
   declarations: [
@@ -35,7 +37,7 @@ import { ObserveVisibilityDirective } from './directives/observe-visibility.dire
     LandingCreatorsComponent,
     LandingContactUsComponent,
     CreatorCardComponent,
-    ObserveVisibilityDirective
+    ObserveVisibilityDirective,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +46,7 @@ import { ObserveVisibilityDirective } from './directives/observe-visibility.dire
     HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppModule { }
+export class AppModule {}
