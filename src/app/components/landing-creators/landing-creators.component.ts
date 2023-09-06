@@ -38,7 +38,6 @@ export class LandingCreatorsComponent {
   ];
 
   @ViewChild('creatorsCarousel') carousel!: ElementRef;
-  @ViewChild('creatorsCarouselBgImage') carouselBgImage!: ElementRef;
 
   ngAfterViewInit() {
     Object.assign(this.carousel.nativeElement, {
