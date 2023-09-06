@@ -10,19 +10,15 @@
 
   .nav-creators {
     .arrow-svg {
-      background-color: white;
       width: 64px;
       height: 64px;
 
-      &.arrow-left {
-        transform: rotate(270deg);
-      }
-      &.arrow-right {
-        transform: rotate(90deg);
-      }
       &:hover {
         cursor: pointer;
-        background-color: black;
+
+        & > svg > path {
+          fill: black;
+        }
       }
     }
   }
