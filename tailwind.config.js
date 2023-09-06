@@ -4,6 +4,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundColor: {
+        'dots': 'radial-gradient(circle, #000 1px, transparent 1px)',
+      },
       screens: {
         "xxxs": "320px",
         "xxs": "376px",

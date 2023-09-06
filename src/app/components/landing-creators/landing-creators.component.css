@@ -27,3 +27,67 @@
     }
   }
 }
+
+
+.halftone {
+  --mask: linear-gradient(rgb(0 0 0), rgb(0 0 0 / 0.5));
+  --stop1: 0.06rem;
+  --stop2: 0.40rem;
+  --invert: 0;
+  --dotColor: black;
+  --bgColor: white;
+  --dottedBackground: radial-gradient(circle at center, var(--dotColor) var(--stop1), transparent var(--stop2)),radial-gradient(circle at center, var(--dotColor) var(--stop1), transparent var(--stop2));
+  --bgSize: 1.35rem;
+  --bgPosition: calc(var(--bgSize) / 2);
+
+  aspect-ratio: 1;
+  position: relative;
+  background: var(--bgColor);
+  filter: contrast(50) invert(var(--invert, 0));
+  mix-blend-mode: multiply;
+  isolation: isolate;
+}
+
+.halftone::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--dottedBackground);
+  background-size: var(--bgSize) var(--bgSize);
+  background-position: 0 0, var(--bgPosition) var(--bgPosition);
+  background-repeat: round;
+  mask-image: var(--mask);
+}
+
+.halftone-inverted {
+  --mask: linear-gradient(rgb(0 0 0/0.5), rgb(0 0 0 ));
+  --stop1: 0.06rem;
+  --stop2: 0.40rem;
+  --invert: 0;
+  --dotColor: black;
+  --bgColor: white;
+  --dottedBackground: radial-gradient(circle at center, var(--dotColor) var(--stop1), transparent var(--stop2)),radial-gradient(circle at center, var(--dotColor) var(--stop1), transparent var(--stop2));
+  --bgSize: 1.35rem;
+  --bgPosition: calc(var(--bgSize) / 2);
+
+  aspect-ratio: 1;
+  position: relative;
+  background: var(--bgColor);
+  filter: contrast(50) invert(var(--invert, 0));
+  mix-blend-mode: multiply;
+  isolation: isolate;
+}
+
+.halftone-inverted::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--dottedBackground);
+  background-size: var(--bgSize) var(--bgSize);
+  background-position: 0 0, var(--bgPosition) var(--bgPosition);
+  background-repeat: round;
+  mask-image: var(--mask);
+}
+
+
+

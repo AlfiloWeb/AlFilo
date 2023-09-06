@@ -5,6 +5,9 @@
     <p class="font-capital-daren-italic text-[4.5rem] lg:text-[10rem] xxs:text-[5rem] xxs:leading-[6rem] xs:text-[6rem] xs:leading-[7rem] md:leading-[11rem] text-shadow">CONTENIDO</p>
   </div>
   <div class="relative h-auto">
+    <div class="w-full h-40 absolute bottom-0 ">
+      <div class="w-full h-full halftone-inverted"></div>
+    </div>
     <swiper-container #creatorsCarousel init="false" class="w-[100vw] h-fit">
       <ng-template ngFor let-creator [ngForOf]="creators">
         <swiper-slide class="bg-[length:50%_auto] md:bg-contain bg-left-bottom bg-no-repeat">
@@ -12,7 +15,7 @@
         </swiper-slide>
       </ng-template>
     </swiper-container>
-    <div #creatorsCarouselBgImage [ngStyle]="{'background-image': actualBgImage}" class="bg-[length:50%_auto] lg:bg-[length:50%_auto] xl:bg-[length:40%_auto] 2xl:bg-[length:35rem_auto] xl:max-w-[2550px] xl:left-[25%] bg-left-bottom bg-no-repeat w-[100vw] h-[100%] absolute top-0 left-0"></div>
+    <div #creatorsCarouselBgImage [ngStyle]="{'background-image': actualBgImage}" class=" bg-[length:50%_auto] lg:bg-[length:50%_auto] xl:bg-[length:40%_auto] 2xl:bg-[length:35rem_auto] xl:max-w-[2550px] xl:left-[25%] bg-left-bottom bg-no-repeat w-[100vw] h-[100%] absolute top-0 left-0"></div>
   </div>
   <div class="nav-creators bg-gradient-to-r from-alfilo-dark-blue via-black to-alfilo-dark-blue backdrop-blur-lg flex justify-between md:justify-center md:gap-10 items-center h-[80px]">
     <app-svg-icon class="arrow-svg arrow-left" (click)="slidePrev()" path="assets/images/arrow.svg"></app-svg-icon>
@@ -21,4 +24,5 @@
     </ng-template>
     <app-svg-icon class="arrow-svg arrow-right" (click)="slideNext()" path="assets/images/arrow.svg"></app-svg-icon>
   </div>
+  <div class="w-full h-40 halftone"></div>
 </div>
