@@ -4,7 +4,7 @@ bg-cover bg-center sm:pb-10 relative flex flex-col pt-12 lg:pt-15 pb-10">
     <div class="text-[4rem] xxs:text-[5rem] xs:text-[6rem] md:text-[9rem] text-center font-capital-daren-italic lg:w-[50%] lg:min-w-[754px] text-shadow">cronología</div>
     <swiper-container #carouselChronology init="false" class="w-[100vw] h-fit lg:hidden">
       <ng-template ngFor let-event [ngForOf]="events" let-i="index">
-        <swiper-slide class="xxxs:h-[15rem] xxs:h-[18rem]">
+        <swiper-slide class="mt-5 px-5 xxxs:h-[15rem] xxs:h-[18rem]">
           <app-basic-card class="mb-5 xxxs:h-[15rem] xxs:h-[18rem]" srcImage={{event.image}} title={{event.title}} body={{event.body}}></app-basic-card>
         </swiper-slide>
       </ng-template>

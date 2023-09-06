@@ -2,6 +2,9 @@
   --swiper-scrollbar-bg-color: white;
   --swiper-scrollbar-drag-bg-color: #0394cc;
   --swiper-scrollbar-size: 8px;
+  --swiper-pagination-progressbar-bg-color: white;
+  --swiper-pagination-progressbar-bg-color: white;
+  --swiper-navigation-color: white;
 
   .event-list-lg {
     -ms-overflow-style: none;
