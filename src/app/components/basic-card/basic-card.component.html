@@ -1,6 +1,6 @@
-<div class="lg:card border-y-[1px]  lg:border w-full bg-black shadow-xl h-full" appObserveVisibility (visible)="activateAnimation()" [@fadeIn]="isVisible ? 'visible' : 'hidden'">
+<div class="card border w-full bg-black shadow-xl h-full" appObserveVisibility (visible)="activateAnimation()" [@fadeIn]="isVisible ? 'visible' : 'hidden'">
   <div class="flex h-full">
-    <img src="/assets/images/{{srcImage}}" alt="Logo" class="hidden xxs:block lg:rounded-l-2xl w-4/12 sm:w-4/12 object-cover" />
+    <img src="/assets/images/{{srcImage}}" alt="Logo" class="hidden xxs:block rounded-l-2xl w-4/12 sm:w-4/12 object-cover"/>
     <div class="card-body w-8/12 sm:w-8/12">
       <h2 class="card-title font-capital-daren font-normal text-white text-[2rem] lg:text-3xl" [innerHtml]="title"></h2>
       <p class="text-white md:text-lg lg:text-xl" [innerHtml]="body"></p>
