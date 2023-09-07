@@ -1,4 +1,4 @@
-<div class="landing-activities relative flex flex-col w-full gap-5 xs:gap-20 md:gap-40 pt-10 xs:pt-0 sm:pt-20">
+<div class="landing-activities relative flex flex-col w-full gap-5 xs:gap-20 md:gap-40 pt-10 xs:pt-0 sm:pt-20" appObserveVisibility [stopObserving]="false"  (visible)="activateNavigation('Actividades')">
   <video #myVideo class="absolute w-full m-auto h-[85%] top-0 left-0 object-cover bg-center -z-10" autoplay loop muted playsinline [src]="currentActivitiy.videoSrc"></video>
   <div class="absolute w-full h-[85%] bg-gradient-to-b top-0 from-black to-35% -z-10"></div>
   <div>
@@ -11,7 +11,7 @@
     xxs:text-[5.8rem] xxs:leading-[6rem]
     xs:text-[7rem] xs:leading-[4rem] xs:mb-8
     sm:text-[9rem] sm:leading-[10rem]
-    md:text-[9rem] md:leading-[9rem] lg:text-[9rem] lg:leading-[11rem] text-center text-shadow" appObserveVisibility [stopObserving]="false"  (visible)="activateNavigation('Actividades')" >actividades</p>
+    md:text-[9rem] md:leading-[9rem] lg:text-[9rem] lg:leading-[11rem] text-center text-shadow"  >actividades</p>
     <div class="flex flex-wrap xxs:flex-nowrap justify-center gap-5 md:gap-16">
       <button class="btn text-[2rem] xxs:text-[1.3rem] xs:w-[13.2rem] md:w-[19.5rem] md:text-[2.5rem] lg:text-[2.5rem] h-auto py-3 px-8 text-black font-normal font-capital-daren border-1 border-white hover:bg-white">únete al filo</button>
       <button class="btn bg-alfilo-blue text-[2rem] xs:w-[13.2rem] md:w-[19.5rem] xxs:text-[1.3rem] md:text-[2.5rem] lg:text-[2.5rem] h-auto py-3 px-8 text-black font-normal font-capital-daren border-1 border-white hover:bg-white">juega star citizen</button>

@@ -1,11 +1,11 @@
-<div class="landing-chronology w-full bg-cover bg-center sm:pb-10 relative flex flex-col pt-12 lg:pt-15 lg:pb-16">
+<div class="landing-chronology w-full bg-cover bg-center sm:pb-10 relative flex flex-col pt-12 lg:pt-15 lg:pb-16"             appObserveVisibility [stopObserving]="false"  (visible)="activateNavigation('Cronología')">
   <div
     class="hidden lg:block absolute h-[95%] top-0 left-0 border-b-2 border-r-2 rounded-br-2xl sm:w-0 lg:w-[50%] lg:min-w-[754px] "></div>
 
   <div appObserveVisibility (visible)="activateAnimation()" [@dashLeft]="isVisible ? 'visible' : 'hidden'">
     <div
             class="text-[4rem] xxs:text-[5rem] xs:text-[6rem] md:text-[9rem] text-center font-capital-daren-italic lg:w-[50%] lg:min-w-[754px] text-shadow"
-            appObserveVisibility [stopObserving]="false"  (visible)="activateNavigation('Cronología')"
+
             >cronología
     </div>
   </div>

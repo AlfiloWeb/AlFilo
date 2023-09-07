@@ -1,9 +1,9 @@
-<div class="w-full flex flex-col items-center gap-16 xxs:gap-20 xs:gap-40 sm:gap-40 2xl:gap-20 relative "  >
+<div class="w-full flex flex-col items-center gap-16 xxs:gap-20 xs:gap-40 sm:gap-40 2xl:gap-20 relative " appObserveVisibility [stopObserving]="false"  (visible)="activateNavigation('Clan')" >
   <video #myVideo class="absolute w-full m-auto h-[85%] top-0 left-0 object-cover -z-10" autoplay loop muted playsinline src="assets/videos/video.mp4"></video>
   <div class="absolute w-full h-[85%] -z-10  bg-gradient-to-t from-black to-30%" ></div>
   <img src="/assets/images/logo_sin_borde.png" alt="Logo" class="xxxs:w-60 xs:w-80 sm:w-[30rem] w-80 xs:mt-32 mt-10"/>
   <div class="flex flex-col items-center gap-10">
-    <p class="font-capital-daren text-shadow text-5xl xs:text-[4.2rem] sm:text-[4.5rem] md:text-[5rem] md:text-7xl lg:text-8xl xl:text-9xl text-center" appObserveVisibility [stopObserving]="false"  (visible)="activateNavigation('Clan')" >LA AVENTURA TE ESPERA</p>
+    <p class="font-capital-daren text-shadow text-5xl xs:text-[4.2rem] sm:text-[4.5rem] md:text-[5rem] md:text-7xl lg:text-8xl xl:text-9xl text-center"  >LA AVENTURA TE ESPERA</p>
     <a href="https://discord.com/invite/ADgezdG" target="_blank"
        class="btn font-normal md:btn-lg text-black hover:bg-white ring-2 ring-white rounded-2xl text-[2rem] xxs:text-[2rem] xs:px-[1.5rem] sm:text-[2.2rem] md:text-[2.5rem] font-capital-daren">Únete
       a AlFilo</a>
