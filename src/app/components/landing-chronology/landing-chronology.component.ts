@@ -20,37 +20,37 @@ export class LandingChronologyComponent extends VisibilityComponent{
     {
       title: '12 de enero,<br/>Año 2949',
       body: 'Un grupo de personas forman AL FILO.',
-      image: 'event/event-creation.png',
+      image: 'event/event-creation.webp',
     },
     {
       title: '17 de Agosto,<br/>Año 2949',
       body: 'Alcanzamos los 100 miembros.',
-      image: 'event/event-100-members.png',
+      image: 'event/event-100-members.webp',
     },
     {
       title: '7 de Octubre,<br/>Año 2951',
       body: 'Cumplimos 1000 días de vida.',
-      image: 'event/event-1000-days.png',
+      image: 'event/event-1000-days.webp',
     },
     {
       title: '5 de Agosto,<br/>Año 2952',
       body: 'Alcanzamos los 500 miembros.',
-      image: 'event/event-500-members.png',
+      image: 'event/event-500-members.webp',
     },
     {
       title: '9 de Agosto,<br/>Año 2952',
       body: 'Asistimos a JumpTown con más de 30 personas.<br/>Una emocionante flota de hammerheads, cazas y cargueros.',
-      image: 'event/event-jumptown-1.png',
+      image: 'event/event-jumptown-1.webp',
     },
     {
       title: '21 de Enero,<br/>Año 2953',
       body: 'Terminamos el DaymarRally, organizado por ATMO Esports (www.atmo.gg).',
-      image: 'event/event-rally-1.png',
+      image: 'event/event-rally-1.webp',
     },
     {
       title: '19 de Agosto,<br/>Año 2953',
       body: 'Participamos en el Fight or Flight, organizado por ATMO Esports (www.atmo.gg).',
-      image: 'event/event-ff-1.png',
+      image: 'event/event-ff-1.webp',
     },
   ];
 
