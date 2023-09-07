@@ -37,6 +37,9 @@ export class NavBarComponent {
   ) {
   }
 
+  clickSection(section: string) {
+    this.navigationService.setActiveTab(section);
+  }
 
   updateActiveTab(tab: string) {
     this.activeTab = tab;
