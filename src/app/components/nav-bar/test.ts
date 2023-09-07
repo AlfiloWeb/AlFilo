@@ -1,14 +1,13 @@
-import {Component} from '@angular/core';
-import {NavTab} from '../../models/navTab';
+import { Component } from '@angular/core';
+import { NavTab } from '../../models/navTab';
 import {
   HttpClient,
   HttpErrorResponse,
   HttpHeaders,
   HttpStatusCode,
 } from '@angular/common/http';
-import {Subscription} from 'rxjs';
-import {NavigationService} from 'src/app/services/navigation.service';
-import jwt_decode from "jwt-decode";
+import { Subscription } from 'rxjs';
+import { NavigationService } from 'src/app/services/navigation.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -19,34 +18,40 @@ export class NavBarComponent {
   textResult: string = '';
   isLogin: boolean = false;
   navItems: NavTab[] = [
-    {name: 'Clan', path: '', active: true},
-    {name: 'Wiki', path: '/wiki'},
+    { name: 'Clan', path: '', active: true },
+    { name: 'Wiki', path: '/wiki' },
+    { name: 'Tienda', path: '/tienda' },
   ];
   loggedIn: boolean = false;
   activeTab!: string;
   subscription!: Subscription;
-  loginTitle: string = "Login con Discord";
-  currentSectionSelected = 'clan';
 
-  constructor(
-    private navigationService: NavigationService,
-    private http: HttpClient
-  ) {
+  constructor(private navigationService: NavigationService, private http: HttpClient) {}
+
+  public toggleLoggedIn() {
+    this.loggedIn = !this.loggedIn;
+    const checkbox = document.getElementById(
+      'my-drawer-4'
+    ) as HTMLInputElement | null;
+
+    if (checkbox != null && checkbox.checked) {
+      checkbox.checked = false;
+    }
   }
-
 
   updateActiveTab(tab: string) {
     this.activeTab = tab;
 
     this.navItems.forEach((navItem) => {
-      navItem.active = navItem.name === tab;
-    });
+        navItem.active = navItem.name === tab;
+      }
+    );
+
   }
 
   ngOnInit() {
     this.generateToken();
-    this.subscription = this.navigationService.activeTab$.subscribe(
-      (activeTab) => {
+    this.subscription = this.navigationService.activeTab$.subscribe( activeTab => {
         this.updateActiveTab(activeTab);
       }
     );
@@ -71,26 +76,14 @@ export class NavBarComponent {
         })
         .subscribe((resp) => {
           localStorage.setItem('alfilo_token', resp);
-          var tokenDecoded = this.getDecodedAccessToken(resp);
-          this.loginTitle = "Bienvenido " + tokenDecoded.unique_name;
           this.isLogin = true;
         });
-    } else {
-      this.isLogin = true;
     }
   }
 
-  getDecodedAccessToken(token: string): any {
-    try {
-      return jwt_decode(token);
-    } catch (Error) {
-      return null;
-    }
-  }
 
-  getToken(): string {
-    let token = localStorage.getItem('alfilo_token');
-    return token === null ? "" : token;
+  getToken() {
+    return localStorage.getItem('alfilo_token');
   }
 
   removeToken() {
@@ -99,16 +92,13 @@ export class NavBarComponent {
 
   logout() {
     let headers = new HttpHeaders({
+      Authorization: 'Bearer ' + this.getToken(),
       'Content-Type': 'application/json',
     });
     this.http
-      .get<any>('https://api.staging.alfilo.org/signOut', {
-        headers,
-        withCredentials: true,
-      })
+      .get<any>('https://api.staging.alfilo.org/singOut', { headers })
       .subscribe((resp) => {
         this.removeToken();
-        this.loginTitle = "Login con Discord";
         this.isLogin = false;
       });
   }
@@ -139,7 +129,7 @@ export class NavBarComponent {
       'Content-Type': 'application/json',
     });
     this.http
-      .get<any>('https://api.staging.alfilo.org/' + method, {headers})
+      .get<any>('https://api.staging.alfilo.org/' + method, { headers })
       .subscribe({
         next: (result) => {
           this.textResult = result;
