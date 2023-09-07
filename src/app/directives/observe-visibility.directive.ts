@@ -82,10 +82,8 @@ export class ObserveVisibilityDirective implements OnDestroy, OnInit, AfterViewI
 
         if (visibilityPercentage > 50) {
           this.visible.emit();
-          console.log('visible');
         } else {
             this.hidden.emit();
-            console.log('hidden');
         }
 
         //this.visible.emit();

@@ -8,7 +8,6 @@ export class VisibilityComponent {
     activateAnimation() {
         this.isVisible = true;
     }
-
     activateNavigation(name: string) {
         this.navigationService.setActiveTab(name);
     }

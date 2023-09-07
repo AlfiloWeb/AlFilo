@@ -15,11 +15,6 @@ export class LandingChronologyComponent extends VisibilityComponent{
         super(navService);
     }
 
-    override activateAnimation() {
-      super.activateAnimation();
-      console.log('test')
-    }
-
 
   events: event[] = [
     {
