@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import {dashLeft} from "../../animations/dashLeft";
-import {AnimatedComponent} from "../../animations/animated-component";
+import {VisibilityComponent} from "../../animations/visibility-component";
+import {NavigationService} from "../../services/navigation.service";
 
 @Component({
   selector: 'app-landing-chronology',
@@ -8,12 +9,17 @@ import {AnimatedComponent} from "../../animations/animated-component";
   styleUrls: ['./landing-chronology.component.css'],
   animations: [dashLeft]
 })
-export class LandingChronologyComponent extends AnimatedComponent{
+export class LandingChronologyComponent extends VisibilityComponent{
 
-  override activateAnimation() {
-    super.activateAnimation();
-    console.log(this.isVisible);
-  }
+    constructor(private navService: NavigationService) {
+        super(navService);
+    }
+
+    override activateAnimation() {
+      super.activateAnimation();
+      console.log('test')
+    }
+
 
   events: event[] = [
     {

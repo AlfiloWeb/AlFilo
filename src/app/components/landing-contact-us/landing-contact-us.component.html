@@ -2,7 +2,7 @@
   <div class="flex flex-col justify-center gap-10">
     <div>
       <p class="font-capital-daren-italic text-[2.5rem] leading-[4.5rem] xxxs:text-[3rem] xxxs:leading-[5rem] md:text-[3.5rem] md:leading-[2rem] text-center text-shadow">contacta con</p>
-      <p class="font-capital-daren-italic text-[6rem] leading-[4rem] xxxs:text-[7rem] xxxs:leading-[6rem] md:text-[9rem] md:leading-[11rem] text-center text-shadow">al filo</p>
+      <p class="font-capital-daren-italic text-[6rem] leading-[4rem] xxxs:text-[7rem] xxxs:leading-[6rem] md:text-[9rem] md:leading-[11rem] text-center text-shadow" appObserveVisibility [stopObserving]="false"  (visible)="activateNavigation('Contacto')" >al filo</p>
     </div>
     <div class="flex justify-center flex-wrap gap-10 sm:gap-6">
       <div class="bg-alfilo-gray text-center p-10 rounded-2xl w-[95%] xxs:w-[100%] max-w-[21rem] flex flex-col gap-10 border-2 border-white">

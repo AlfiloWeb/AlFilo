@@ -2,7 +2,7 @@
   <div class="flex flex-col items-center">
     <p class="font-capital-daren-italic text-[2.5rem] leading-[2.5rem] xxs:text-[3rem] xxs:leading-[3rem] xs:text-[3.5rem] xs:leading-[3.5rem] md:text-[5.5rem] md:leading-[5rem] text-shadow">CONOCE NUESTROS</p>
     <p class="font-capital-daren-italic text-[2.5rem] leading-[2.5rem] xxs:text-[3rem] xxs:leading-[3rem] xs:text-[3.5rem] xs:leading-[3.5rem] md:text-[4.5rem] md:leading-[4rem] text-shadow">CREADORES DE</p>
-    <p class="font-capital-daren-italic text-[4.5rem] lg:text-[10rem] xxs:text-[5rem] xxs:leading-[6rem] xs:text-[6rem] xs:leading-[7rem] md:leading-[11rem] text-shadow">CONTENIDO</p>
+    <p class="font-capital-daren-italic text-[4.5rem] lg:text-[10rem] xxs:text-[5rem] xxs:leading-[6rem] xs:text-[6rem] xs:leading-[7rem] md:leading-[11rem] text-shadow" appObserveVisibility [stopObserving]="false"  (visible)="activateNavigation('Creadores')" >CONTENIDO</p>
   </div>
   <div class="relative h-auto">
     <div class="w-full h-64 absolute bottom-0 ">

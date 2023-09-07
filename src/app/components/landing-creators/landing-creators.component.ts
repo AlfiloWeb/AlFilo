@@ -1,11 +1,18 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import {VisibilityComponent} from "../../animations/visibility-component";
+import {NavigationService} from "../../services/navigation.service";
 
 @Component({
   selector: 'app-landing-creators',
   templateUrl: './landing-creators.component.html',
   styleUrls: ['./landing-creators.component.css']
 })
-export class LandingCreatorsComponent {
+export class LandingCreatorsComponent extends VisibilityComponent{
+
+  constructor(private navService: NavigationService) {
+    super(navService);
+  }
+
   actualBgImage: string = ''
   creators: creator[] = [
     {

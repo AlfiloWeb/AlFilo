@@ -1,11 +1,17 @@
 import { Component, AfterViewInit, ElementRef, ViewChild} from '@angular/core';
+import {NavigationService} from "../../services/navigation.service";
+import {VisibilityComponent} from "../../animations/visibility-component";
 
 @Component({
   selector: 'app-landing-activities',
   templateUrl: './landing-activities.component.html',
   styleUrls: ['./landing-activities.component.css']
 })
-export class LandingActivitiesComponent implements AfterViewInit {
+export class LandingActivitiesComponent extends VisibilityComponent implements AfterViewInit {
+
+    constructor(private navService: NavigationService) {
+        super(navService);
+    }
 
   combat: string = 'combat';
   transport: string = 'transport';
@@ -79,7 +85,7 @@ export class LandingActivitiesComponent implements AfterViewInit {
   }
 
   isCurrentActivity(activityName: string): boolean {
-    return this.currentActivitiy.name === activityName ? true : false;
+    return this.currentActivitiy.name === activityName;
   }
 }
 

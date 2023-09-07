@@ -19,7 +19,7 @@ export class NavBarComponent {
   textResult: string = '';
   isLogin: boolean = false;
   navItems: NavTab[] = [
-    {name: 'Clan', path: 'clan', active: true},
+    {name: 'Clan', path: 'clan'},
     {name: 'Actividades', path: 'actividades'},
     {name: 'Cronología', path: 'cronologia'},
     {name: 'Creadores', path: 'creadores'},
@@ -35,10 +35,6 @@ export class NavBarComponent {
     private navigationService: NavigationService,
     private http: HttpClient
   ) {
-  }
-
-  clickSection(section: string) {
-    this.navigationService.setActiveTab(section);
   }
 
   updateActiveTab(tab: string) {

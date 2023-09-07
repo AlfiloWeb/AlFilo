@@ -9,7 +9,8 @@ export class ObserveVisibilityDirective implements OnDestroy, OnInit, AfterViewI
   @Input() debounceTime = 0;
   @Input() threshold = 0.5;
 
-  @Output() visible = new EventEmitter<number>(); // Cambiado a number para emitir el valor en porcentaje
+  @Output() visible = new EventEmitter(); // Cambiado a number para emitir el valor en porcentaje
+  @Output() hidden = new EventEmitter();
 
   private observer: IntersectionObserver | undefined;
   private subject$ = new Subject<{
@@ -77,10 +78,17 @@ export class ObserveVisibilityDirective implements OnDestroy, OnInit, AfterViewI
       .pipe(delay(this.debounceTime), filter(Boolean))
       .subscribe(async ({ entry, observer }) => {
         const target = entry.target as HTMLElement;
-        //const visibilityPercentage = await this.isVisible(target) * 100;
+        const visibilityPercentage = await this.isVisible(target) * 100;
 
-        //this.visible.emit(visibilityPercentage);
-        this.visible.emit();
+        if (visibilityPercentage > 50) {
+          this.visible.emit();
+          console.log('visible');
+        } else {
+            this.hidden.emit();
+            console.log('hidden');
+        }
+
+        //this.visible.emit();
         if (this.stopObserving){
           observer.unobserve(target);
         }

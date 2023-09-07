@@ -3,7 +3,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 export const dashLeft = trigger('dashLeft', [
   state('hidden', style({
     opacity: 0,
-    transform: 'translateX(-50%)'
+    transform: 'translateX(-40%)'
   })),
   state('visible', style({
     opacity: 1,

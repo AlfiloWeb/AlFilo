@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import {fadeIn} from "../../animations/fadeIn";
-import {AnimatedComponent} from "../../animations/animated-component";
+import {VisibilityComponent} from "../../animations/visibility-component";
+import {NavigationService} from "../../services/navigation.service";
 
 @Component({
   selector: 'app-basic-card',
@@ -8,9 +9,13 @@ import {AnimatedComponent} from "../../animations/animated-component";
   styleUrls: ['./basic-card.component.css'],
   animations: [fadeIn]
 })
-export class BasicCardComponent extends AnimatedComponent{
+export class BasicCardComponent extends VisibilityComponent{
   @Input() title: string = '';
   @Input() body: string = '';
   @Input() srcImage: string = '';
-  
+
+  constructor(private navService: NavigationService) {
+    super(navService);
+  }
+
 }
