@@ -5,6 +5,7 @@ import { delay, filter, Subject } from "rxjs";
   selector: '[appObserveVisibility]'
 })
 export class ObserveVisibilityDirective implements OnDestroy, OnInit, AfterViewInit {
+  @Input() stopObserving = true;
   @Input() debounceTime = 0;
   @Input() threshold = 0.5;
 
@@ -80,7 +81,9 @@ export class ObserveVisibilityDirective implements OnDestroy, OnInit, AfterViewI
 
         //this.visible.emit(visibilityPercentage);
         this.visible.emit();
-        observer.unobserve(target);
+        if (this.stopObserving){
+          observer.unobserve(target);
+        }
       });
   }
 }

@@ -15,5 +15,9 @@ export class LandingJoinComponent implements AfterViewInit {
 
   }
 
+  test(){
+
+  }
+
 
 }
