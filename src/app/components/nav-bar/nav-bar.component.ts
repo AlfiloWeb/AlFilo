@@ -19,8 +19,11 @@ export class NavBarComponent {
   textResult: string = '';
   isLogin: boolean = false;
   navItems: NavTab[] = [
-    {name: 'Clan', path: '', active: true},
-    {name: 'Wiki', path: '/wiki'},
+    {name: 'Clan', path: 'clan', active: true},
+    {name: 'Actividades', path: 'actividades'},
+    {name: 'Cronología', path: 'cronologia'},
+    {name: 'Creadores', path: 'creadores'},
+    {name: 'Contacto', path: 'contacto'},
   ];
   loggedIn: boolean = false;
   activeTab!: string;

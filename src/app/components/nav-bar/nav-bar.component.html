@@ -8,6 +8,7 @@
   <div class="navbar-end">
     <div class="w-5/6 hidden lg:flex justify-center">
       <div class="tabs lg:inline-flex">
+
         <a href="#clan" (click)="toggleSectionSelected('clan')" [ngClass]="{'!text-alfilo-dark-blue': currentSectionSelected === 'clan'}" class="tab font-capital-daren text-[1rem] xl:text-[1.4rem] leading-[1.5rem] text-white hover:text-alfilo-blue rounded-lg">Clan</a>
         <a href="#actividades" (click)="toggleSectionSelected('actividades')" [ngClass]="{'!text-alfilo-dark-blue': currentSectionSelected === 'actividades'}" class="tab font-capital-daren text-[1rem] xl:text-[1.4rem] leading-[1rem] text-white hover:text-alfilo-blue rounded-lg">Actividades</a>
         <a href="#cronologia" (click)="toggleSectionSelected('cronologia')" [ngClass]="{'!text-alfilo-dark-blue': currentSectionSelected === 'cronologia'}" class="tab font-capital-daren text-[1rem] xl:text-[1.4rem] leading-[1rem] text-white hover:text-alfilo-blue rounded-lg">Cronología</a>
