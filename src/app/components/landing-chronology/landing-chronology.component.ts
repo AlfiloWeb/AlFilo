@@ -1,11 +1,20 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import {dashLeft} from "../../animations/dashLeft";
+import {AnimatedComponent} from "../../animations/animated-component";
 
 @Component({
   selector: 'app-landing-chronology',
   templateUrl: './landing-chronology.component.html',
-  styleUrls: ['./landing-chronology.component.css']
+  styleUrls: ['./landing-chronology.component.css'],
+  animations: [dashLeft]
 })
-export class LandingChronologyComponent {
+export class LandingChronologyComponent extends AnimatedComponent{
+
+  override activateAnimation() {
+    super.activateAnimation();
+    console.log(this.isVisible);
+  }
+
   events: event[] = [
     {
       title: '12 de enero,<br/>Año 2949',

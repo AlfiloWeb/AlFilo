@@ -1,21 +1,29 @@
-<div class="landing-chronology w-full
-bg-cover bg-center sm:pb-10 relative flex flex-col pt-12 lg:pt-15 lg:pb-16">
-  <div class="hidden lg:block absolute h-[95%] top-0 left-0 border-b-2 border-r-2 rounded-br-2xl sm:w-0 lg:w-[50%] lg:min-w-[754px] "></div>
-    <div class="text-[4rem] xxs:text-[5rem] xs:text-[6rem] md:text-[9rem] text-center font-capital-daren-italic lg:w-[50%] lg:min-w-[754px] text-shadow">cronología</div>
-    <swiper-container #carouselChronology init="false" class="w-[100vw] h-fit lg:hidden">
-      <ng-template ngFor let-event [ngForOf]="events" let-i="index">
-        <swiper-slide class="mt-5 px-5 xxxs:h-[15rem] xxs:h-[18rem]">
-          <app-basic-card class="mb-5 xxxs:h-[15rem] xxs:h-[18rem]" srcImage={{event.image}} title={{event.title}} body={{event.body}}></app-basic-card>
-        </swiper-slide>
-      </ng-template>
-    </swiper-container>
-    <div class="event-list-lg h-[40rem] gap-x-10 gap-y-20 py-10 overflow-x-hidden grid-cols-2
+<div class="landing-chronology w-full bg-cover bg-center sm:pb-10 relative flex flex-col pt-12 lg:pt-15 lg:pb-16">
+  <div
+    class="hidden lg:block absolute h-[95%] top-0 left-0 border-b-2 border-r-2 rounded-br-2xl sm:w-0 lg:w-[50%] lg:min-w-[754px] "></div>
+
+  <div
+    class="text-[4rem] xxs:text-[5rem] xs:text-[6rem] md:text-[9rem] text-center font-capital-daren-italic lg:w-[50%] lg:min-w-[754px] text-shadow"
+    appObserveVisibility (visible)="activateAnimation()" [@dashLeft]="isVisible ? 'visible' : 'hidden'">cronología
+  </div>
+  <swiper-container #carouselChronology init="false" class="w-[100vw] h-fit lg:hidden">
+    <ng-template ngFor let-event [ngForOf]="events" let-i="index">
+      <swiper-slide class="mt-5 px-5 xxxs:h-[15rem] xxs:h-[18rem]">
+        <app-basic-card class="mb-5 xxxs:h-[15rem] xxs:h-[18rem]" srcImage={{event.image}} title={{event.title}}
+                        body={{event.body}}></app-basic-card>
+      </swiper-slide>
+    </ng-template>
+  </swiper-container>
+  <div class="event-list-lg h-[40rem] gap-x-10 gap-y-20 py-10 overflow-x-hidden grid-cols-2
     hidden sm:self-center md:w-full lg:flex lg:flex-col lg:self-start lg:h-[51rem] xl:self-center
     lg:px-10 lg+:w-[80%] lg+:grid lg+:min-w-[754px] lg+:max-w-[90rem] z-10">
-      <ng-template ngFor let-event [ngForOf]="events" let-i="index">
-        <app-basic-card class="event-card flex items-center lg:max-w-[43.4rem]
+    <ng-template ngFor let-event [ngForOf]="events" let-i="index">
+      <app-basic-card class="event-card flex items-center lg:max-w-[43.4rem]
         sm:before:content-none lg+:before:content-[''] before:w-[1rem] before:h-[1rem] before:rounded-full before:bg-white before:-ml-[1.8rem] before:mr-[1.8rem]
-        sm:after:content-none md:after:content-[''] after:w-[1rem] after:h-[1rem] after:rounded-full after:bg-white after:-mr-[1.68rem] after:ml-[1.68rem]" [ngClass]="{'lg+:before:content-none' : (i+1) % 2 !== 0, 'lg+:after:content-none' : (i+1) % 2 === 0}" [style.grid-row-start]="i+1" [style.grid-row-end]="i+3" srcImage={{event.image}} title={{event.title}} body={{event.body}}></app-basic-card>
-      </ng-template>
-    </div>
+        sm:after:content-none md:after:content-[''] after:w-[1rem] after:h-[1rem] after:rounded-full after:bg-white after:-mr-[1.68rem] after:ml-[1.68rem]"
+                      [ngClass]="{'lg+:before:content-none' : (i+1) % 2 !== 0, 'lg+:after:content-none' : (i+1) % 2 === 0}"
+                      [style.grid-row-start]="i+1" [style.grid-row-end]="i+3" srcImage={{event.image}}
+                      title={{event.title}} body={{event.body}}></app-basic-card>
+    </ng-template>
+  </div>
 </div>
