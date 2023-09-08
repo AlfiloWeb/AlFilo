@@ -16,7 +16,7 @@ export class LandingCreatorsComponent extends VisibilityComponent{
   actualBgImage: string = ''
   creators: creator[] = [
     {
-      bgImage: "url('/assets/images/content-creator/fondo-herbizida.webp')",
+      bgImage: 'fondo-senor.webp',
       logo: 'logo-herbizida.png',
       name: 'HErBiZiDA',
       description: 'Volar desde un caza hasta un ladrillo. La aventura de Star Citizen.',
@@ -25,7 +25,7 @@ export class LandingCreatorsComponent extends VisibilityComponent{
       x: 'https://twitter.com/HErBiZiDA_',
     },
     {
-      bgImage: "url('/assets/images/content-creator/fondo-senor.webp')",
+      bgImage: 'fondo-senor.webp',
       logo: 'logo-senor.webp',
       name: 'Senor55',
       description: 'Industria y planificación. La verdad que se esconde trás los números.',
@@ -34,7 +34,7 @@ export class LandingCreatorsComponent extends VisibilityComponent{
       x: 'https://twitter.com/HErBiZiDA_',
     },
     {
-      bgImage: "url('/assets/images/content-creator/fondo-raylker.webp')",
+      bgImage: 'fondo-senor.webp',
       logo: 'logo-raylker.webp',
       name: 'Raylker',
       description: 'Lore y juego en compañía. Mi gato necesita una base.',

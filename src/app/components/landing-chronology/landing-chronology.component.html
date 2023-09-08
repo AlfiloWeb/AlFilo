@@ -9,7 +9,7 @@
             >cronología
     </div>
   </div>
-  <swiper-container #carouselChronology init="false" class="w-[100vw] h-fit lg:hidden">
+  <swiper-container #carouselChronology init="false" class="w-full h-fit lg:hidden">
     <ng-template ngFor let-event [ngForOf]="events" let-i="index">
       <swiper-slide class="mt-5 px-5 xxxs:h-[15rem] xxs:h-[18rem]">
         <app-basic-card class="mb-5 xxxs:h-[15rem] xxs:h-[18rem]" srcImage={{event.image}} title={{event.title}}
