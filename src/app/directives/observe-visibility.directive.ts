@@ -49,7 +49,6 @@ export class ObserveVisibilityDirective implements OnDestroy, OnInit, AfterViewI
     });
   }
 
-
   private createObserver() {
     const options = {
       rootMargin: '0px',
@@ -72,9 +71,7 @@ export class ObserveVisibilityDirective implements OnDestroy, OnInit, AfterViewI
     if (!this.observer) {
       return;
     }
-
     this.observer.observe(this.element.nativeElement);
-
     this.subject$
       .pipe(delay(this.debounceTime), filter(Boolean))
       .subscribe(async ({entry, observer}) => {
@@ -83,16 +80,12 @@ export class ObserveVisibilityDirective implements OnDestroy, OnInit, AfterViewI
 
         if (visibilityPercentage > 50) {
           this.visible.emit();
-          console.log('visible');
           if (this.stopObserving) {
             observer.unobserve(target);
           }
         } else {
           this.hidden.emit();
-          console.log('hidden');
         }
-
-
       });
   }
 }
