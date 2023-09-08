@@ -1,5 +1,5 @@
-import { AfterViewInit, Directive, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
-import { delay, filter, Subject } from "rxjs";
+import {AfterViewInit, Directive, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
+import {delay, filter, Subject} from "rxjs";
 
 @Directive({
   selector: '[appObserveVisibility]'
@@ -18,7 +18,8 @@ export class ObserveVisibilityDirective implements OnDestroy, OnInit, AfterViewI
     observer: IntersectionObserver;
   }>();
 
-  constructor(private element: ElementRef) {}
+  constructor(private element: ElementRef) {
+  }
 
   ngOnInit() {
     this.createObserver();
@@ -61,7 +62,7 @@ export class ObserveVisibilityDirective implements OnDestroy, OnInit, AfterViewI
     this.observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (isIntersecting(entry)) {
-          this.subject$.next({ entry, observer });
+          this.subject$.next({entry, observer});
         }
       });
     }, options);
@@ -76,20 +77,22 @@ export class ObserveVisibilityDirective implements OnDestroy, OnInit, AfterViewI
 
     this.subject$
       .pipe(delay(this.debounceTime), filter(Boolean))
-      .subscribe(async ({ entry, observer }) => {
+      .subscribe(async ({entry, observer}) => {
         const target = entry.target as HTMLElement;
         const visibilityPercentage = await this.isVisible(target) * 100;
 
         if (visibilityPercentage > 50) {
           this.visible.emit();
+          console.log('visible');
+          if (this.stopObserving) {
+            observer.unobserve(target);
+          }
         } else {
-            this.hidden.emit();
+          this.hidden.emit();
+          console.log('hidden');
         }
 
-        //this.visible.emit();
-        if (this.stopObserving){
-          observer.unobserve(target);
-        }
+
       });
   }
 }
