@@ -48,51 +48,52 @@
   </div>
 </div>
 
+<router-outlet></router-outlet>
 
-<div class="drawer drawer-end ">
+<!--<div class="drawer drawer-end ">-->
 
-  <input id="my-drawer-4" type="checkbox" class="drawer-toggle"/>
-  <div class="drawer-content">
-    <div class="w-full h-full bg-no-repeat bg-cover bg-fixed">
-      <router-outlet></router-outlet>
-    </div>
-  </div>
+<!--  <input id="my-drawer-4" type="checkbox" class="drawer-toggle"/>-->
+<!--  <div class="drawer-content">-->
+<!--    <div class="w-full h-full bg-no-repeat bg-cover bg-fixed">-->
+<!--      <router-outlet></router-outlet>-->
+<!--    </div>-->
+<!--  </div>-->
 
-  <div class="drawer-side ">
-    <label for="my-drawer-4" class="drawer-overlay "></label>
-    <ul class="menu w-2/3 lg:w-1/3 h-full p-0">
-      <!-- Sidebar content here -->
-      <section class="bg-secondary w-full h-full ">
-        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen ">
-          <div class="w-full rounded-tr-3xl rounded-3xl shadow-2xl border mt-0 max-w-md xl:p-0 ">
-            <div class="p-6 space-y-4   rounded-tr-3xl rounded-3xl">
-              <h1 class="text-xl font-bold leading-tight tracking-tight text-white">
-                {{loginTitle}}
-              </h1>
-              <div class="flex flex-col gap-4">
-                <button class="btn btn-primary btn-discord" *ngIf="!isLogin" (click)="login()">Login</button>
-                <h1 class="text-xl">- Por qué sólo puedo hacer login con discord?</h1>
-                <p>
-                  En Al Filo no queremos almacenar nunguno de tus datos personales, es por ello que delegamos la gestión
-                  del login a Discord.
-                </p>
-                <button class="btn btn-primary btn-discord" disabled *ngIf="isLogin" (click)="logout()">Logout</button>
-                <div *ngIf="isLogin" class="flex flex-col gap-4">
-                  <h2 class="text-xl font-bold leading-tight tracking-tight text-white">
-                    ¿Cuál es tu rol más alto?
-                  </h2>
-                  <input type="radio" class="btn" (click)="loginTestAlfilo()" name="button" aria-label="Afiliado"/>
-                  <input type="radio" class="btn" (click)="loginTestCadete()" name="button" aria-label="Cadete"/>
-                  <input type="radio" class="btn" (click)="loginTestDaga()" name="button" aria-label="Daga"/>
-                  <input type="radio" class="btn" (click)="loginEspada()" name="button" aria-label="Espada"/>
-                  <input type="radio" class="btn" (click)="loginAdmin()" name="button" aria-label="Admin"/>
-                  <h2 class="text-xl font-bold leading-tight tracking-tight  text-white">{{textResult}}</h2>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </ul>
-  </div>
-</div>
+<!--  <div class="drawer-side ">-->
+<!--    <label for="my-drawer-4" class="drawer-overlay "></label>-->
+<!--    <ul class="menu w-2/3 lg:w-1/3 h-full p-0">-->
+<!--      &lt;!&ndash; Sidebar content here &ndash;&gt;-->
+<!--      <section class="bg-secondary w-full h-full ">-->
+<!--        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen ">-->
+<!--          <div class="w-full rounded-tr-3xl rounded-3xl shadow-2xl border mt-0 max-w-md xl:p-0 ">-->
+<!--            <div class="p-6 space-y-4   rounded-tr-3xl rounded-3xl">-->
+<!--              <h1 class="text-xl font-bold leading-tight tracking-tight text-white">-->
+<!--                {{loginTitle}}-->
+<!--              </h1>-->
+<!--              <div class="flex flex-col gap-4">-->
+<!--                <button class="btn btn-primary btn-discord" *ngIf="!isLogin" (click)="login()">Login</button>-->
+<!--                <h1 class="text-xl">- Por qué sólo puedo hacer login con discord?</h1>-->
+<!--                <p>-->
+<!--                  En Al Filo no queremos almacenar nunguno de tus datos personales, es por ello que delegamos la gestión-->
+<!--                  del login a Discord.-->
+<!--                </p>-->
+<!--                <button class="btn btn-primary btn-discord" disabled *ngIf="isLogin" (click)="logout()">Logout</button>-->
+<!--                <div *ngIf="isLogin" class="flex flex-col gap-4">-->
+<!--                  <h2 class="text-xl font-bold leading-tight tracking-tight text-white">-->
+<!--                    ¿Cuál es tu rol más alto?-->
+<!--                  </h2>-->
+<!--                  <input type="radio" class="btn" (click)="loginTestAlfilo()" name="button" aria-label="Afiliado"/>-->
+<!--                  <input type="radio" class="btn" (click)="loginTestCadete()" name="button" aria-label="Cadete"/>-->
+<!--                  <input type="radio" class="btn" (click)="loginTestDaga()" name="button" aria-label="Daga"/>-->
+<!--                  <input type="radio" class="btn" (click)="loginEspada()" name="button" aria-label="Espada"/>-->
+<!--                  <input type="radio" class="btn" (click)="loginAdmin()" name="button" aria-label="Admin"/>-->
+<!--                  <h2 class="text-xl font-bold leading-tight tracking-tight  text-white">{{textResult}}</h2>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </section>-->
+<!--    </ul>-->
+<!--  </div>-->
+<!--</div>-->
