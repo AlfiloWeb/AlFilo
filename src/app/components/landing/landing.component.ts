@@ -15,6 +15,5 @@ export class LandingComponent {
       this.navigationService.setActiveTab('Clan');
   }
 
-  array = Array.from({length: 100}, (_, i) => i + 1);
 
 }
