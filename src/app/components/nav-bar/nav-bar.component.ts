@@ -63,10 +63,8 @@ export class NavBarComponent {
   }
 
   getToken(){
-    let headers = new HttpHeaders({
-      'Content-Type': 'application/json'
-    });
-    this.http.get('https://api.staging.alfilo.org/token', {headers, withCredentials:true}).subscribe((data) => {
+
+    this.http.get('https://api.staging.alfilo.org/token', {withCredentials: true}).subscribe((data) => {
       console.log(data);
     }, (error) => {
       console.log(error);
