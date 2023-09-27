@@ -10,6 +10,7 @@
       <div class="tabs lg:inline-flex">
         <a *ngFor="let item of navItems" href="#{{item.path}}" class="tab font-capital-daren text-[1rem] xl:text-[1.4rem] leading-[1.5rem]  hover:text-alfilo-blue rounded-lg" [ngClass]="{'text-alfilo-dark-blue' : item.active, 'text-base-content' : !item.active}">{{item.name}}</a>
         <a class="btn" (click)="login()">LOGIN</a>
+        <a class="btn" (click)="getToken()">SIGN UP</a>
 
 
 
@@ -31,14 +32,40 @@
 
 <router-outlet></router-outlet>
 <dialog #signUpModal id="my_modal_1" class="modal">
-  <div class="modal-box">
+  <div class="modal-box border-2">
     <h3 class="font-bold text-lg">ATENCIÓN</h3>
-    <p class="py-4">{{signUpModalText}}</p>
+    <p class="py-4">No se encontró el usuario. Por favor, regístrate.</p>
     <div class="modal-action">
-      <form method="dialog">
+
+    </div>
+    <div class="relative flex items-start">
+      <div class="collapse">
+        <input type="checkbox" />
+        <div class="collapse-title">
+          <button class="btn">Registrarse</button>
+        </div>
+        <div class="collapse-content">
+          <p> Esta informacion es opcional, podrás rellenarla mas tarde.</p>
+          <div class="form-control w-full ">
+            <label class="label">
+              <span class="label-text">¿Cuál es tu Game Handle?</span>
+            </label>
+            <input type="text" placeholder="Type here" class="input input-bordered w-full" />
+          </div>
+          <div class="form-control w-full">
+            <label class="label">
+              <span class="label-text">¿Cuál es tu nombre en spectrum?</span>
+            </label>
+            <input type="text" placeholder="Type here" class="input input-bordered w-full" />
+          </div>
+          <button class="btn w-full mt-5 ">Continuar</button>
+        </div>
+      </div>
+      <form method="dialog" class="absolute z-50 right-4 top-[16px]">
         <!-- if there is a button in form, it will close the modal -->
         <button class="btn">Close</button>
       </form>
+
     </div>
   </div>
 </dialog>
