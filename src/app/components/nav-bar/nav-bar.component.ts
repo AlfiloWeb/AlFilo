@@ -72,27 +72,51 @@ export class NavBarComponent {
     localStorage.setItem('isLoggedIn', 'true');
   }
 
+  // Función para realizar la solicitud PUT a signIn
+  signUp() {
+    const requestBody = { /* Aquí coloca los datos que deseas enviar en el cuerpo de la solicitud PUT */ };
+
+    this.http.put('https://api.staging.alfilo.org/signUp', requestBody, { withCredentials: true }).subscribe({
+      next: (response: any) => {
+        if (response.status === 200) {
+          // Éxito: El servidor respondió con un código 200.
+          alert('Cuenta creada correctamente. Por favor, inicia sesión.');
+        }
+      },
+      error: (error) => {
+        console.log(error);
+        if (error.status === 400) {
+          // Error 400: Bad Request
+          alert('Error en la solicitud: Bad Request');
+        } else if (error.status === 500) {
+          // Error 500: Server Error
+          alert('Error en el servidor: Server Error');
+        } else {
+          // Otros errores
+          alert('Error inesperado.');
+        }
+      }
+    });
+  }
   getToken() {
-    this.http.get('https://api.staging.alfilo.org/token', { withCredentials: true }).subscribe(
-      (response: any) => {
+    this.http.get('https://api.staging.alfilo.org/token', { withCredentials: true }).subscribe({
+      next: (response: any) => {
         if (response.status === 200) {
           alert('Token obtenido correctamente.');
         }
       },
-      (error) => {
+      error: (error) => {
         console.log(error);
         if (error.status === 404) {
           this.signUpModalText = "No se encontró el usuario. Por favor, regístrate.";
           this.openModal();
         } else if (error.status === 500) {
-          this.signUpModalText = "Se produjo un error en el servidor. Por favor, inténtalo más tarde.";
-          this.openModal();
+          alert('Se produjo un error en el servidor. Por favor, inténtalo más tarde.');
         } else {
-          this.signUpModalText = "Se produjo un error inesperado. Por favor, contacta al soporte técnico.";
-          this.openModal();
+          alert('Se produjo un error inesperado. Por favor, contacta al soporte técnico.');
         }
       }
-    );
+    });
   }
 
 
