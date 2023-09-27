@@ -1,14 +1,10 @@
 import {Component, ChangeDetectorRef} from '@angular/core';
 import {NavTab} from '../../models/navTab';
 import {
-  HttpClient,
-  HttpErrorResponse,
-  HttpHeaders,
-  HttpStatusCode,
+  HttpClient
 } from '@angular/common/http';
 import {Subscription} from 'rxjs';
 import {NavigationService} from 'src/app/services/navigation.service';
-import jwt_decode from "jwt-decode";
 
 @Component({
   selector: 'app-nav-bar',
@@ -62,14 +58,29 @@ export class NavBarComponent {
       encodeURIComponent(aRerirectUrl);
   }
 
-  getToken(){
-
-    this.http.get('https://api.staging.alfilo.org/token', {withCredentials: true}).subscribe((data) => {
-      console.log(data);
-    }, (error) => {
-      console.log(error);
-    });
+  getToken() {
+    this.http.get('https://api.staging.alfilo.org/token', { withCredentials: true }).subscribe(
+      (response: any) => {
+        if (response.status === 200) {
+          console.log("usuario encontrado")
+        }
+      },
+      (error) => {
+        console.log(error);
+        if (error.status === 404) {
+          // Usuario no encontrado
+          alert('Usuario no encontrado. Por favor, inténtalo de nuevo.');
+        } else if (error.status === 500) {
+          // Error del servidor
+          alert('Se produjo un error en el servidor. Por favor, inténtalo más tarde.');
+        } else {
+          // Otros errores
+          alert('Se produjo un error inesperado. Por favor, contacta al soporte técnico.');
+        }
+      }
+    );
   }
+
 
 
 
