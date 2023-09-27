@@ -1,4 +1,4 @@
-import {Component, ChangeDetectorRef} from '@angular/core';
+import {Component, ChangeDetectorRef, ViewChild, ElementRef} from '@angular/core';
 import {NavTab} from '../../models/navTab';
 import {
   HttpClient
@@ -13,6 +13,9 @@ import {NavigationService} from 'src/app/services/navigation.service';
 })
 export class NavBarComponent {
 
+  @ViewChild('signUpModal') signUpModal!: ElementRef;
+
+  signUpModalText = "";
   activeTab!: string;
   subscription!: Subscription;
 
@@ -32,9 +35,19 @@ export class NavBarComponent {
     private cdr: ChangeDetectorRef
   ) {}
 
+  openModal() {
+    const modal = this.signUpModal.nativeElement as HTMLDialogElement;
+    modal.showModal();
+  }
 
 
   ngOnInit() {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+
+    if (isLoggedIn) {
+      this.getToken();
+    }
+
     this.subscription = this.navigationService.activeTab$.subscribe(
       (activeTab) => {
         this.updateActiveTab(activeTab);
@@ -56,32 +69,32 @@ export class NavBarComponent {
     window.location.href =
       'https://api.staging.alfilo.org/signIn?aRedirectUrl=' +
       encodeURIComponent(aRerirectUrl);
+    localStorage.setItem('isLoggedIn', 'true');
   }
 
   getToken() {
     this.http.get('https://api.staging.alfilo.org/token', { withCredentials: true }).subscribe(
       (response: any) => {
         if (response.status === 200) {
-          console.log("usuario encontrado")
+          alert('Token obtenido correctamente.');
         }
       },
       (error) => {
         console.log(error);
         if (error.status === 404) {
-          // Usuario no encontrado
-          alert('Usuario no encontrado. Por favor, inténtalo de nuevo.');
+          this.signUpModalText = "No se encontró el usuario. Por favor, regístrate.";
+          this.openModal();
         } else if (error.status === 500) {
-          // Error del servidor
-          alert('Se produjo un error en el servidor. Por favor, inténtalo más tarde.');
+          this.signUpModalText = "Se produjo un error en el servidor. Por favor, inténtalo más tarde.";
+          this.openModal();
         } else {
-          // Otros errores
-          alert('Se produjo un error inesperado. Por favor, contacta al soporte técnico.');
+          this.signUpModalText = "Se produjo un error inesperado. Por favor, contacta al soporte técnico.";
+          this.openModal();
         }
       }
     );
   }
 
 
-
-
+  protected readonly open = open;
 }
