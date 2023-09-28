@@ -135,7 +135,6 @@ export class NavBarComponent {
   getToken() {
     this.http.get('https://api.staging.alfilo.org/token', { withCredentials: true }).subscribe({
       next: (response: any) => {
-        if (response.status === 200) {
           // Guarda el token en el localStorage
           console.log(response);
           localStorage.setItem('accessToken', response.accessToken);
@@ -143,7 +142,7 @@ export class NavBarComponent {
           localStorage.setItem('refreshToken', response.refreshToken);
           this.printRefreshToken = response.refreshToken;
           alert('Token obtenido correctamente.' + response.accesToken + ' ' + response.refreshToken);
-        }
+
       },
       error: (error) => {
         console.log(error);
