@@ -49,9 +49,9 @@ export class NavBarComponent {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
     this.printLogin = isLoggedIn === 'true';
 
-    if (isLoggedIn) {
-      this.getToken();
-    }
+    // if (isLoggedIn) {
+    //   this.getToken();
+    // }
 
     this.subscription = this.navigationService.activeTab$.subscribe(
       (activeTab) => {
@@ -137,6 +137,7 @@ export class NavBarComponent {
       next: (response: any) => {
         if (response.status === 200) {
           // Guarda el token en el localStorage
+          console.log(response);
           localStorage.setItem('accessToken', response.accessToken);
           this.printAccesToken = response.accessToken;
           localStorage.setItem('refreshToken', response.refreshToken);
