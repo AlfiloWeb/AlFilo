@@ -15,6 +15,10 @@ export class NavBarComponent {
 
   @ViewChild('signUpModal') signUpModal!: ElementRef;
 
+  printLogin: boolean = false;
+  printAccesToken: string = "no";
+  printRefreshToken: string = "no";
+
   signUpModalText = "";
   activeTab!: string;
   subscription!: Subscription;
@@ -43,6 +47,7 @@ export class NavBarComponent {
 
   ngOnInit() {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
+    this.printLogin = isLoggedIn === 'true';
 
     if (isLoggedIn) {
       this.getToken();
@@ -70,6 +75,7 @@ export class NavBarComponent {
       'https://api.staging.alfilo.org/signIn?aRedirectUrl=' +
       encodeURIComponent(aRerirectUrl);
     localStorage.setItem('isLoggedIn', 'true');
+    this.printLogin = true;
   }
 
   logout() {
@@ -93,8 +99,11 @@ export class NavBarComponent {
       }
     });
     localStorage.removeItem('isLoggedIn');
+    this.printLogin = false;
     localStorage.removeItem('accessToken');
+    this.printAccesToken = "no";
     localStorage.removeItem('refreshToken');
+    this.printRefreshToken = "no";
   }
 
   // Función para realizar la solicitud PUT a signIn
@@ -129,7 +138,9 @@ export class NavBarComponent {
         if (response.status === 200) {
           // Guarda el token en el localStorage
           localStorage.setItem('accessToken', response.accessToken);
+          this.printAccesToken = response.accessToken;
           localStorage.setItem('refreshToken', response.refreshToken);
+          this.printRefreshToken = response.refreshToken;
           alert('Token obtenido correctamente.' + response.accesToken + ' ' + response.refreshToken);
         }
       },
