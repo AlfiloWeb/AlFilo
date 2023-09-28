@@ -69,16 +69,14 @@ export class NavBarComponent {
     });
   }
 
-
   login() {
-    var aRerirectUrl = encodeURIComponent(window.location.href);
+    var aRerirectUrl = window.location.href;
     window.location.href =
       'https://api.staging.alfilo.org/signIn?aRedirectUrl=' +
       encodeURIComponent(aRerirectUrl);
     localStorage.setItem('isLoggedIn', 'true');
     this.printLogin = true;
   }
-
 
   logout() {
     this.http.get('https://api.staging.alfilo.org/signOut', {withCredentials: true}).subscribe({
