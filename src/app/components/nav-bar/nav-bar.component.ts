@@ -69,14 +69,16 @@ export class NavBarComponent {
     });
   }
 
+
   login() {
-    var aRerirectUrl = window.location.href;
+    var aRerirectUrl = encodeURIComponent(window.location.href);
     window.location.href =
       'https://api.staging.alfilo.org/signIn?aRedirectUrl=' +
       encodeURIComponent(aRerirectUrl);
     localStorage.setItem('isLoggedIn', 'true');
     this.printLogin = true;
   }
+
 
   logout() {
     this.http.get('https://api.staging.alfilo.org/signOut', {withCredentials: true}).subscribe({
@@ -137,11 +139,11 @@ export class NavBarComponent {
       next: (response: any) => {
           // Guarda el token en el localStorage
           console.log(response);
-          localStorage.setItem('accessToken', response.accessToken);
-          this.printAccesToken = response.accessToken;
-          localStorage.setItem('refreshToken', response.refreshToken);
-          this.printRefreshToken = response.refreshToken;
-          alert('Token obtenido correctamente.' + response.accesToken + ' ' + response.refreshToken);
+          localStorage.setItem('accessToken', response.AccessToken);
+          this.printAccesToken = response.AccessToken;
+          localStorage.setItem('refreshToken', response.RefreshToken);
+          this.printRefreshToken = response.RefreshToken;
+          alert('Token obtenido correctamente.' + response.AccesToken + ' ' + response.RefreshToken);
 
       },
       error: (error) => {
