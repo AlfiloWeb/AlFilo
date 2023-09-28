@@ -72,6 +72,31 @@ export class NavBarComponent {
     localStorage.setItem('isLoggedIn', 'true');
   }
 
+  logout() {
+    this.http.get('https://api.staging.alfilo.org/signOut', {withCredentials: true}).subscribe({
+      next: (response: any) => {
+        if (response.status === 200) {
+          // Éxito: El servidor respondió con un código 200.
+          alert('Cierre de sesión exitoso.');
+        }
+      },
+      error: (error) => {
+        console.log(error);
+        if (error.status === 500) {
+          // Error 500: Server Error
+          alert('Error en el servidor: Server Error');
+        } else {
+          // Otros errores
+          alert('Error inesperado.');
+        }
+
+      }
+    });
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('refreshToken');
+  }
+
   // Función para realizar la solicitud PUT a signIn
   signUp() {
     const requestBody = { /* Aquí coloca los datos que deseas enviar en el cuerpo de la solicitud PUT */ };
@@ -102,7 +127,10 @@ export class NavBarComponent {
     this.http.get('https://api.staging.alfilo.org/token', { withCredentials: true }).subscribe({
       next: (response: any) => {
         if (response.status === 200) {
-          alert('Token obtenido correctamente.');
+          // Guarda el token en el localStorage
+          localStorage.setItem('accessToken', response.accessToken);
+          localStorage.setItem('refreshToken', response.refreshToken);
+          alert('Token obtenido correctamente.' + response.accesToken + ' ' + response.refreshToken);
         }
       },
       error: (error) => {
@@ -118,7 +146,4 @@ export class NavBarComponent {
       }
     });
   }
-
-
-  protected readonly open = open;
 }
