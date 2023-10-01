@@ -46,8 +46,8 @@ export class NavBarComponent {
 
 
   ngOnInit() {
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
-    this.printLogin = isLoggedIn === 'true';
+    // const isLoggedIn = localStorage.getItem('isLoggedIn');
+    // this.printLogin = isLoggedIn === 'true';
 
     // if (isLoggedIn) {
     //   this.getToken();
@@ -141,7 +141,7 @@ export class NavBarComponent {
           this.printAccesToken = response.AccessToken;
           localStorage.setItem('refreshToken', response.RefreshToken);
           this.printRefreshToken = response.RefreshToken;
-          alert('Token obtenido correctamente.' + response.AccesToken + ' ' + response.RefreshToken);
+          alert('Token obtenido correctamente.' + response.AccessToken + ' ' + response.RefreshToken);
 
       },
       error: (error) => {

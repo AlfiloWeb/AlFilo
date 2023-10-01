@@ -9,10 +9,10 @@
     <div class="w-5/6 hidden lg:flex justify-center">
       <div class="tabs lg:inline-flex">
         <a *ngFor="let item of navItems" [href]="'#' + item.path" class="tab font-capital-daren text-[1rem] xl:text-[1.4rem] leading-[1.5rem]  hover:text-alfilo-blue rounded-lg" [ngClass]="{'text-alfilo-dark-blue' : item.active, 'text-base-content' : !item.active}">{{item.name}}</a>
-        <a class="btn" (click)="login()">LOGIN</a>
-        <a class="btn" (click)="getToken()">GET TOKEN</a>
-        <a class="btn" (click)="signUp()">SIGN UP</a>
-        <a class="btn" (click)="logout()">LOGOUT</a>
+<!--        <a class="btn" (click)="login()">LOGIN</a>-->
+<!--        <a class="btn" (click)="getToken()">GET TOKEN</a>-->
+<!--        <a class="btn" (click)="signUp()">SIGN UP</a>-->
+<!--        <a class="btn" (click)="logout()">LOGOUT</a>-->
 
 
 
@@ -32,9 +32,6 @@
   </div>
 </div>
 
-<div>{{printLogin}}</div>
-<div>{{printAccesToken}}</div>
-<div>{{printRefreshToken}}</div>
 <router-outlet></router-outlet>
 <dialog #signUpModal id="my_modal_1" class="modal">
   <div class="modal-box border-2">
