@@ -7,7 +7,7 @@
       &:hover {
         cursor: pointer;
 
-        & > svg > path {
+        &>svg>path {
           @media (min-width: 768px) {
             fill: black;
           }
@@ -17,6 +17,14 @@
   }
 }
 
+.soon-svg {
+  background-color: white;
+  height: 18.75rem;
+  width: 22.75rem;
+}
 
-
-
+.tm-svg {
+  background-color: white;
+  height: 2.75rem;
+  width: 2.75rem;
+}
