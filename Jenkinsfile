@@ -5,8 +5,8 @@ pipeline {
         }
     }
     environment {
-        SSH_USER_PASS = credentials('sshcreds')
-        HOST = credentials('host-stg')
+        SSH_USER_PASS = credentials('sshcreds-prd')
+        HOST = credentials('host-prd')
         DOCKER_COMPOSE_DIR = '/home/alfilo/Infrastructure/docker-compose/front/' // Chose for what you need
     }
     parameters {
