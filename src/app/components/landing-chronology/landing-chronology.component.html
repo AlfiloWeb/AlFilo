@@ -17,9 +17,11 @@
       </swiper-slide>
     </ng-template>
   </swiper-container>
-  <div class="event-list-lg h-[40rem] gap-x-10 gap-y-20 py-10 overflow-x-hidden grid-cols-2 w-fit
+
+  <div class="relative event-list-lg h-[40rem] gap-x-10 gap-y-20 py-10 overflow-x-hidden grid-cols-2 w-fit
     hidden sm:self-center lg:flex lg:flex-col lg:self-start lg:h-[51rem] lg+:self-center
     lg:px-10 lg+:w-[80%] lg+:grid lg+:min-w-[754px] lg+:max-w-[90rem] z-10">
+
     <ng-template ngFor let-event [ngForOf]="events" let-i="index">
       <app-basic-card class="event-card flex items-center lg:max-w-[43.4rem]
         sm:before:content-none lg+:before:content-[''] before:w-[1rem] before:h-[1rem] before:rounded-full before:bg-white before:-ml-[1.8rem] before:mr-[1.8rem]

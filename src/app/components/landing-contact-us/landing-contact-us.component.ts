@@ -9,6 +9,11 @@ import {NavigationService} from "../../services/navigation.service";
 })
 export class LandingContactUsComponent extends VisibilityComponent{
 
+  referralCodes: string[] = [
+    'STAR-G2NP-74KS',
+    'STAR-LR5D-V7SA',
+  ];
+
   constructor(private navService: NavigationService) {
     super(navService);
   }
@@ -20,4 +25,11 @@ export class LandingContactUsComponent extends VisibilityComponent{
     'Inteligencia',
     'Suministros',
   ];
+
+  redirectWithReferral() {
+    const randomIndex = Math.floor(Math.random() * this.referralCodes.length);
+    const randomCode = this.referralCodes[randomIndex];
+
+    window.location.href = `https://robertsspaceindustries.com/enlist?referral=${randomCode}`;
+  }
 }

@@ -63,4 +63,9 @@
   width: 2.5rem;
   height: 2.5rem;
   background-color: white;
+
+}
+
+.discord-button:hover .discord-svg {
+  background-color: #7289DA;
 }

@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ElementRef, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
 import {NavigationService} from "../../services/navigation.service";
 import {VisibilityComponent} from "../../animations/visibility-component";
 
@@ -19,6 +19,11 @@ export class LandingActivitiesComponent extends VisibilityComponent implements A
   industrial: string = 'industrial';
   support: string = 'support';
   competition: string = 'competition';
+
+  referralCodes: string[] = [
+    'STAR-G2NP-74KS',
+    'STAR-LR5D-V7SA',
+  ];
 
   activities: activity[] = [
     {
@@ -87,6 +92,15 @@ export class LandingActivitiesComponent extends VisibilityComponent implements A
   isCurrentActivity(activityName: string): boolean {
     return this.currentActivitiy.name === activityName;
   }
+
+
+  redirectWithReferral() {
+    const randomIndex = Math.floor(Math.random() * this.referralCodes.length);
+    const randomCode = this.referralCodes[randomIndex];
+
+    window.location.href = `https://robertsspaceindustries.com/enlist?referral=${randomCode}`;
+  }
+
 }
 
 interface activity {

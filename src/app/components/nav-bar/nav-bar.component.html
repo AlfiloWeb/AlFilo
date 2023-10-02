@@ -8,12 +8,7 @@
   <div class="navbar-end">
     <div class="w-5/6 hidden lg:flex justify-center">
       <div class="tabs lg:inline-flex">
-        <a *ngFor="let item of navItems" [href]="'#' + item.path" class="tab font-capital-daren text-[1rem] xl:text-[1.4rem] leading-[1.5rem]  hover:text-alfilo-blue rounded-lg" [ngClass]="{'text-alfilo-dark-blue' : item.active, 'text-base-content' : !item.active}">{{item.name}}</a>
-<!--        <a class="btn" (click)="login()">LOGIN</a>-->
-<!--        <a class="btn" (click)="getToken()">GET TOKEN</a>-->
-<!--        <a class="btn" (click)="signUp()">SIGN UP</a>-->
-<!--        <a class="btn" (click)="logout()">LOGOUT</a>-->
-
+        <a *ngFor="let item of navItems" [href]="'#' + item.path" class="tab font-capital-daren text-[1rem] xl:text-[1.4rem] 2xl:text-[1.8rem] leading-[1.5rem]  hover:text-alfilo-blue rounded-lg" [ngClass]="{'text-alfilo-dark-blue' : item.active, 'text-base-content' : !item.active}">{{item.name}}</a>
 
 
       </div>
@@ -24,7 +19,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
         </label>
         <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-black rounded-box w-52 absolute -left-[10rem]">
-<!--          <li *ngFor="let item of navItems"><a href="#{{item.path}}"  [ngClass]="{'text-alfilo-dark-blue' : item.active, 'text-base-content' : !item.active}" class="tab font-capital-daren text-[1.5rem] leading-[1rem] hover:text-alfilo-blue hover:!bg-transparent rounded-lg">{{item.name}}</a></li>-->
+          <li *ngFor="let item of navItems"><a [href]="'#' + item.path" [ngClass]="{'text-alfilo-dark-blue' : item.active, 'text-base-content' : !item.active}" class="tab font-capital-daren text-[1.5rem] leading-[1rem] hover:text-alfilo-blue hover:!bg-transparent rounded-lg">{{item.name}}</a></li>
 
         </ul>
       </div>
