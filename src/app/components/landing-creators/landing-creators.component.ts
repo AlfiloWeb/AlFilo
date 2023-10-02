@@ -17,15 +17,6 @@ export class LandingCreatorsComponent extends VisibilityComponent{
   creators: creator[] = [
     {
       bgImage: 'fondo-senor.webp',
-      logo: 'logo-herbizida.png',
-      name: 'HErBiZiDA',
-      description: 'Volar desde un caza hasta un ladrillo. La aventura de Star Citizen.',
-      twitch: 'https://www.twitch.tv/herbizida',
-      youtube: 'https://www.youtube.com/@HErBiZiDA/featured',
-      x: 'https://twitter.com/HErBiZiDA_',
-    },
-    {
-      bgImage: 'fondo-senor.webp',
       logo: 'logo-senor.webp',
       name: 'Senor55',
       description: 'Industria y planificación. La verdad que se esconde trás los números. ',
@@ -35,9 +26,9 @@ export class LandingCreatorsComponent extends VisibilityComponent{
     },
     {
       bgImage: 'fondo-senor.webp',
-      logo: 'logo-raylker.webp',
-      name: 'Raylker',
-      description: 'Lore y juego en compañía. Mi gato necesita una base. Esto es solo para llegar al minimo de letras',
+      logo: 'logo-herbizida.png',
+      name: 'HErBiZiDA',
+      description: 'Volar desde un caza hasta un ladrillo. La aventura de Star Citizen.',
       twitch: 'https://www.twitch.tv/herbizida',
       youtube: 'https://www.youtube.com/@HErBiZiDA/featured',
       x: 'https://twitter.com/HErBiZiDA_',
@@ -46,7 +37,7 @@ export class LandingCreatorsComponent extends VisibilityComponent{
       bgImage: 'fondo-senor.webp',
       logo: 'logo-raylker.webp',
       name: 'Raylker',
-      description: 'Lore y juego en compañía. Mi gato necesita una base. Esto es solo para llegar al minimo de letrasLore y juego en compañía. Mi gato necesita una base. Esto es solo para llegar al minimo de letrasLore y juego en compañía. Mi gato necesita una base. Esto es solo para llegar al minimo de letrasLore y juego en compañía. Mi gato necesita una base. Esto es solo para llegar al minimo de letrasLore y juego en compañía. Mi gato necesita una base. Esto es solo para llegar al minimo de letrasLore y juego en compañía. Mi gato necesita una base. Esto es solo para llegar al minimo de letrasLore y juego en compañía. Mi gato necesita una base. Esto es solo para llegar al minimo de letrasLore y juego en compañía. Mi gato necesita una base. Esto es solo para llegar al minimo de letrasLore y juego en compañía. Mi gato necesita una base. Esto es solo para llegar al minimo de letrasLore y juego en compañía. Mi gato necesita una base. Esto es solo para llegar al minimo de letrasLore y juego en compañía. Mi gato necesita una base. Esto es solo para llegar al minimo de letrasLore y juego en compañía. Mi gato necesita una base. Esto es solo para llegar al minimo de letrasLore y juego en compañía. Mi gato necesita una base. Esto es solo para llegar al minimo de letrasLore y juego en compañía. Mi gato necesita una base. Esto es solo para llegar al minimo de letrasLore y juego en compañía. Mi gato necesita una base. Esto es solo para llegar al minimo de letrasLore y juego en compañía. Mi gato necesita una base. Esto es solo para llegar al minimo de letrasLore y juego en compañía. Mi gato necesita una base. Esto es solo para llegar al minimo de letrasLore y juego en compañía. Mi gato necesita una base. Esto es solo para llegar al minimo de letrasLore y juego en compañía. Mi gato necesita una base. Esto es solo para llegar al minimo de letrasLore y juego en compañía. Mi gato necesita una base. Esto es solo para llegar al minimo de letrasLore y juego en compañía. Mi gato necesita una base. Esto es solo para llegar al minimo de letrasLore y juego en compañía. Mi gato necesita una base. Esto es solo para llegar al minimo de letrasLore y juego en compañía. Mi gato necesita una base. Esto es solo para llegar al minimo de letrasLore y juego en compañía. Mi gato necesita una base. Esto es solo para llegar al minimo de letrasLore y juego en compañía. Mi gato necesita una base. Esto es solo para llegar al minimo de letrasLore y juego en compañía. Mi gato necesita una base. Esto es solo para llegar al minimo de letrasLore y juego en compañía. Mi gato necesita una base. Esto es solo para llegar al minimo de letrasLore y juego en compañía. Mi gato necesita una base. Esto es solo para llegar al minimo de letrasLore y juego en compañía. Mi gato necesita una base. Esto es solo para llegar al minimo de letrasLore y juego en compañía. Mi gato necesita una base. Esto es solo para llegar al minimo de letras',
+      description: 'Lore y juego en compañía. Mi gato necesita una base. Esto es solo para llegar al minimo de letras',
       twitch: 'https://www.twitch.tv/herbizida',
       youtube: 'https://www.youtube.com/@HErBiZiDA/featured',
       x: 'https://twitter.com/HErBiZiDA_',
