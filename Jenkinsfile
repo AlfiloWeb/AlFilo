@@ -1,61 +1,40 @@
 pipeline {
-    agent {
-        docker{
-            image 'agent:1.0' // donot touch
-        }
-    }
-    environment {
-        SSH_USER_PASS = credentials('sshcreds')
-        HOST = credentials('host-stg')
-        DOCKER_COMPOSE_DIR = '/home/alfilo/Infrastructure/docker-compose/front/' // Chose for what you need
-    }
+    agent any
+
     parameters {
-        choice(name: 'ExecutionMode', choices: ['Verbose', 'Quiet'], description: 'Select the execution mode')
+        booleanParam(name: 'Port_checking', defaultValue: false, description: 'Set to true to execute the script on the remote server')
     }
+
     stages {
-        stage('Prepare SSH') {
+        stage('Test-build-stg') {
             steps {
-                script {
-                    sh "mkdir ~/.ssh"
-                    sh "echo 'Host *' >> ~/.ssh/config"
-                    sh "echo '   StrictHostKeyChecking no' >> ~/.ssh/config"
-                    sh "echo '   LogLevel ERROR' >> ~/.ssh/config"
-                }
-            }
-        }
-        
-        stage('Stopping Container') {
-            steps {
-                script {
-                    sshagent(credentials: ['jenkins2']) {
-                        sh 'ssh $SSH_USER_PASS@$HOST "cd $DOCKER_COMPOSE_DIR && docker-compose down "'
-                    }
-                }
-            }
-        }
-        
-        stage('Build Container') {
-            steps {
-                script {
-                    sshagent(credentials: ['jenkins2']) {
-                        sh 'ssh  $SSH_USER_PASS@$HOST "cd $DOCKER_COMPOSE_DIR && docker build -t my-build-stage -f docker-helper --no-cache ."'
-                        if (params.ExecutionMode == 'Verbose') {
-                            sh 'ssh  $SSH_USER_PASS@$HOST "cd $DOCKER_COMPOSE_DIR && docker-compose build && docker-compose up -d"'
-                        } else if (params.ExecutionMode == 'Quiet'){
-                            sh 'ssh  $SSH_USER_PASS@$HOST "cd $DOCKER_COMPOSE_DIR && docker-compose build --quiet && docker-compose up -d"'
-                        }
+                withCredentials([usernamePassword(credentialsId: 'creds1', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                    script {
+                        def remote = [
+                            name: 'test',
+                            host: 'staging.alfilo.org',
+                            user: env.USERNAME,
+                            password: env.PASSWORD,
+                            allowAnyHosts: true
+                        ]
+                        sshCommand remote: remote, command: "cd /home/alfilo/docker-compose && echo ${env.PASSWORD} | sudo -S docker-compose down"
+                        sshCommand remote: remote, command: "cd /home/alfilo/docker-compose/ && sleep 10"
+                        sshCommand remote: remote, command: "cd  /home/alfilo && ./kill.sh"
+                        sshCommand remote: remote, command: "cd /home/alfilo/docker-compose && echo ${env.PASSWORD} | sudo -S docker system prune -a -f"
+                        sshCommand remote: remote, command: "cd /home/alfilo/docker-compose && echo ${env.PASSWORD} | sudo -S docker-compose build  --no-cache --quiet"
+                        sshCommand remote: remote, command: "cd /home/alfilo/docker-compose && echo ${env.PASSWORD} | sudo -S docker-compose up -d"
                     }
                 }
             }
         }
     }
+
     post {
         always {
             // Clean workdir or perform other cleanup tasks
+            sh 'exit'
             sh 'rm -rf *'
             sh 'ls -l'
-           // Trigger a new build of the same job
-            build job: "Maintenance/STG/cleaner-layers-docker", propagate: true, wait: false
         }
     }
 }
