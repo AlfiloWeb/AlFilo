@@ -1,4 +1,4 @@
-import {Component, ChangeDetectorRef, ViewChild, ElementRef, AfterViewInit} from '@angular/core';
+import {Component, ChangeDetectorRef, ViewChild, ElementRef} from '@angular/core';
 import {NavTab} from '../../models/navTab';
 import {
   HttpClient
@@ -99,7 +99,7 @@ export class NavBarComponent{
 
       }
     });
-    localStorage.removeItem('isLoggedIn');
+    localStorage.setItem('isLoggedIn', 'false');
     this.boolLogin = false;
     localStorage.removeItem('accessToken');
     localStorage.removeItem('refreshToken');
@@ -144,16 +144,16 @@ export class NavBarComponent{
         console.log(error);
         if (error.status === 404) {
           this.signUpModalText = "No se encontró el usuario. Por favor, regístrate.";
-          localStorage.removeItem('isLoggedIn');
+          localStorage.setItem('isLoggedIn', 'false');
           this.boolLogin = false;
           this.openModal();
         } else if (error.status === 500) {
           console.log('Se produjo un error en el servidor. Por favor, inténtalo más tarde.');
-          localStorage.removeItem('isLoggedIn');
+          localStorage.setItem('isLoggedIn', 'false');
           this.boolLogin = false;
         } else {
           console.log('Se produjo un error inesperado. Por favor, contacta al soporte técnico.');
-          localStorage.removeItem('isLoggedIn');
+          localStorage.setItem('isLoggedIn', 'false');
           this.boolLogin = false;
         }
       }
