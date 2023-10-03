@@ -74,6 +74,8 @@ export class NavBarComponent {
     window.location.href =
       'https://api.staging.alfilo.org/auth/signIn?redirectUrl=' +
       encodeURIComponent(aRerirectUrl);
+    localStorage.setItem('isLoggedIn', 'true');
+    this.boolLogin = true;
   }
 
   logout() {
@@ -133,19 +135,22 @@ export class NavBarComponent {
           console.log(response);
           localStorage.setItem('accessToken', response.AccessToken);
           localStorage.setItem('refreshToken', response.RefreshToken);
-          localStorage.setItem('isLoggedIn', 'true');
-          this.boolLogin = true;
-
       },
       error: (error) => {
         console.log(error);
         if (error.status === 404) {
           this.signUpModalText = "No se encontró el usuario. Por favor, regístrate.";
+          localStorage.removeItem('isLoggedIn');
+          this.boolLogin = false;
           this.openModal();
         } else if (error.status === 500) {
           console.log('Se produjo un error en el servidor. Por favor, inténtalo más tarde.');
+          localStorage.removeItem('isLoggedIn');
+          this.boolLogin = false;
         } else {
           console.log('Se produjo un error inesperado. Por favor, contacta al soporte técnico.');
+          localStorage.removeItem('isLoggedIn');
+          this.boolLogin = false;
         }
       }
     });
