@@ -75,14 +75,14 @@ export class NavBarComponent {
   login() {
     var aRerirectUrl = window.location.href;
     window.location.href =
-      'https://api.staging.alfilo.org/auth/signIn?aRedirectUrl=' +
+      'https://api.staging.alfilo.org/auth/signIn?redirectUrl=' +
       encodeURIComponent(aRerirectUrl);
     localStorage.setItem('isLoggedIn', 'true');
     this.boolLogin = true;
   }
 
   logout() {
-    this.http.get('https://api.staging.alfilo.org/auth /signOut', {withCredentials: true}).subscribe({
+    this.http.get('https://api.staging.alfilo.org/auth/signOut', {withCredentials: true}).subscribe({
       next: (response: any) => {
         if (response.status === 200) {
           // Éxito: El servidor respondió con un código 200.
