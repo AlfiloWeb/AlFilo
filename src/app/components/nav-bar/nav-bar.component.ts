@@ -11,7 +11,7 @@ import {NavigationService} from 'src/app/services/navigation.service';
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css'],
 })
-export class NavBarComponent implements AfterViewInit{
+export class NavBarComponent{
 
   @ViewChild('signUpModal') signUpModal!: ElementRef;
 
@@ -42,9 +42,6 @@ export class NavBarComponent implements AfterViewInit{
     modal.showModal();
   }
 
-  ngAfterViewInit() {
-    this.openModal();
-  }
 
   ngOnInit() {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
