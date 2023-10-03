@@ -42,11 +42,6 @@ export class NavBarComponent {
     modal.showModal();
   }
 
-  closeModal() {
-    const modal = this.signUpModal.nativeElement as HTMLDialogElement;
-    modal.close();
-  }
-
 
   ngOnInit() {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
@@ -55,6 +50,8 @@ export class NavBarComponent {
     if (isLoggedIn) {
       this.getToken();
     }
+
+
 
     this.subscription = this.navigationService.activeTab$.subscribe(
       (activeTab) => {
@@ -77,8 +74,6 @@ export class NavBarComponent {
     window.location.href =
       'https://api.staging.alfilo.org/auth/signIn?redirectUrl=' +
       encodeURIComponent(aRerirectUrl);
-    localStorage.setItem('isLoggedIn', 'true');
-    this.boolLogin = true;
   }
 
   logout() {
@@ -114,22 +109,19 @@ export class NavBarComponent {
     this.http.put('https://api.staging.alfilo.org/auth/signUp', requestBody, { withCredentials: true }).subscribe({
       next: (response: any) => {
         if (response.status === 200) {
-          // Éxito: El servidor respondió con un código 200.
-          alert('Cuenta creada correctamente. Por favor, inicia sesión.');
-          this.closeModal();
+          console.log('Cuenta creada correctamente. Por favor, inicia sesión.');
         }
       },
       error: (error) => {
         console.log(error);
         if (error.status === 400) {
           // Error 400: Bad Request
-          alert('Error en la solicitud: Bad Request');
+          console.log('Error en la solicitud: Bad Request, cuenta ya creada');
         } else if (error.status === 500) {
           // Error 500: Server Error
-          alert('Error en el servidor: Server Error');
+          console.log('Se produjo un error en el servidor. Por favor, inténtalo más tarde.');
         } else {
-          // Otros errores
-          alert('Error inesperado.');
+          console.log('Se produjo un error inesperado. Por favor, contacta al soporte técnico.');
         }
       }
     });
@@ -141,7 +133,8 @@ export class NavBarComponent {
           console.log(response);
           localStorage.setItem('accessToken', response.AccessToken);
           localStorage.setItem('refreshToken', response.RefreshToken);
-          alert('Token obtenido correctamente.' + response.AccessToken + ' ' + response.RefreshToken);
+          localStorage.setItem('isLoggedIn', 'true');
+          this.boolLogin = true;
 
       },
       error: (error) => {
@@ -150,9 +143,9 @@ export class NavBarComponent {
           this.signUpModalText = "No se encontró el usuario. Por favor, regístrate.";
           this.openModal();
         } else if (error.status === 500) {
-          alert('Se produjo un error en el servidor. Por favor, inténtalo más tarde.');
+          console.log('Se produjo un error en el servidor. Por favor, inténtalo más tarde.');
         } else {
-          alert('Se produjo un error inesperado. Por favor, contacta al soporte técnico.');
+          console.log('Se produjo un error inesperado. Por favor, contacta al soporte técnico.');
         }
       }
     });
