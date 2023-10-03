@@ -66,7 +66,7 @@
       <input type="text" placeholder="Type here" class="input input-bordered w-full"/>
     </div>
     <div class="flex justify-between pt-5">
-      <button class="btn bg-red-500 border-red-500 hover:bg-red-200" (click)="signUpModal.close()">Cerrar</button>
+      <button class="btn bg-red-500 border-red-500 hover:bg-red-200" (click)="logout(); signUpModal.close()">Cerrar</button>
       <button class="btn"  (click)="signUp(); signUpModal.close()">Registrarse</button>
     </div>
   </div>

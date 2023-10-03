@@ -113,6 +113,8 @@ export class NavBarComponent{
       next: (response: any) => {
         if (response.status === 200) {
           console.log('Cuenta creada correctamente. Por favor, inicia sesión.');
+          localStorage.setItem('isLoggedIn', 'true');
+          this.boolLogin = true;
           this.getToken();
         }
       },
