@@ -1,4 +1,4 @@
-import {Component, ChangeDetectorRef, ViewChild, ElementRef} from '@angular/core';
+import {Component, ChangeDetectorRef, ViewChild, ElementRef, AfterViewInit} from '@angular/core';
 import {NavTab} from '../../models/navTab';
 import {
   HttpClient
@@ -11,7 +11,7 @@ import {NavigationService} from 'src/app/services/navigation.service';
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css'],
 })
-export class NavBarComponent {
+export class NavBarComponent implements AfterViewInit{
 
   @ViewChild('signUpModal') signUpModal!: ElementRef;
 
@@ -42,6 +42,9 @@ export class NavBarComponent {
     modal.showModal();
   }
 
+  ngAfterViewInit() {
+    this.openModal();
+  }
 
   ngOnInit() {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
@@ -49,6 +52,7 @@ export class NavBarComponent {
 
     if (isLoggedIn) {
       this.getToken();
+
     }
 
 
@@ -112,6 +116,7 @@ export class NavBarComponent {
       next: (response: any) => {
         if (response.status === 200) {
           console.log('Cuenta creada correctamente. Por favor, inicia sesión.');
+          this.getToken();
         }
       },
       error: (error) => {

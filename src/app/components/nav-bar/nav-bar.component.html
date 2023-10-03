@@ -49,43 +49,26 @@
 
 <router-outlet></router-outlet>
 <dialog #signUpModal id="my_modal_1" class="modal">
-  <div class="modal-box border-2">
+  <div class="modal-box">
     <h3 class="font-bold text-lg">ATENCIÓN</h3>
     <p class="py-4">No se encontró el usuario. Por favor, regístrate.</p>
-    <div class="modal-action">
-
+    <p class="text-red-500"> Esta informacion es opcional, podrás rellenarla mas tarde.</p>
+    <div class="form-control w-full ">
+      <label class="label">
+        <span class="label-text">¿Cuál es tu Game Handle?</span>
+      </label>
+      <input type="text" placeholder="Type here" class="input input-bordered w-full"/>
     </div>
-    <div class="relative flex items-start">
-      <div class="collapse">
-        <input type="checkbox"/>
-        <div class="collapse-title">
-          <button class="btn">Registrarse</button>
-        </div>
-        <div class="collapse-content">
-          <p> Esta informacion es opcional, podrás rellenarla mas tarde.</p>
-          <div class="form-control w-full ">
-            <label class="label">
-              <span class="label-text">¿Cuál es tu Game Handle?</span>
-            </label>
-            <input type="text" placeholder="Type here" class="input input-bordered w-full"/>
-          </div>
-          <div class="form-control w-full">
-            <label class="label">
-              <span class="label-text">¿Cuál es tu nombre en spectrum?</span>
-            </label>
-            <input type="text" placeholder="Type here" class="input input-bordered w-full"/>
-          </div>
-          <form>
-            <button class="btn w-full mt-5 " (click)="signUp()">Continuar</button>
-          </form>
-
-        </div>
-      </div>
-      <form method="dialog" class="absolute z-50 right-4 top-[16px]">
-        <!-- if there is a button in form, it will close the modal -->
-        <button class="btn">Close</button>
-      </form>
-
+    <div class="form-control w-full">
+      <label class="label">
+        <span class="label-text">¿Cuál es tu nombre en spectrum?</span>
+      </label>
+      <input type="text" placeholder="Type here" class="input input-bordered w-full"/>
+    </div>
+    <div class="flex justify-between pt-5">
+      <button class="btn bg-red-500 border-red-500 hover:bg-red-200" (click)="signUpModal.close()">Cerrar</button>
+      <button class="btn"  (click)="signUp(); signUpModal.close()">Registrarse</button>
     </div>
   </div>
 </dialog>
+
