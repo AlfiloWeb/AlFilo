@@ -15,9 +15,7 @@ export class NavBarComponent {
 
   @ViewChild('signUpModal') signUpModal!: ElementRef;
 
-  printLogin: boolean = false;
-  printAccesToken: string = "no";
-  printRefreshToken: string = "no";
+  boolLogin: boolean = false;
 
   signUpModalText = "";
   activeTab!: string;
@@ -44,14 +42,19 @@ export class NavBarComponent {
     modal.showModal();
   }
 
+  closeModal() {
+    const modal = this.signUpModal.nativeElement as HTMLDialogElement;
+    modal.close();
+  }
+
 
   ngOnInit() {
-    // const isLoggedIn = localStorage.getItem('isLoggedIn');
-    // this.printLogin = isLoggedIn === 'true';
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    this.boolLogin = isLoggedIn === 'true';
 
-    // if (isLoggedIn) {
-    //   this.getToken();
-    // }
+    if (isLoggedIn) {
+      this.getToken();
+    }
 
     this.subscription = this.navigationService.activeTab$.subscribe(
       (activeTab) => {
@@ -72,14 +75,14 @@ export class NavBarComponent {
   login() {
     var aRerirectUrl = window.location.href;
     window.location.href =
-      'https://api.staging.alfilo.org/signIn?aRedirectUrl=' +
+      'https://api.staging.alfilo.org/auth/signIn?aRedirectUrl=' +
       encodeURIComponent(aRerirectUrl);
     localStorage.setItem('isLoggedIn', 'true');
-    this.printLogin = true;
+    this.boolLogin = true;
   }
 
   logout() {
-    this.http.get('https://api.staging.alfilo.org/signOut', {withCredentials: true}).subscribe({
+    this.http.get('https://api.staging.alfilo.org/auth /signOut', {withCredentials: true}).subscribe({
       next: (response: any) => {
         if (response.status === 200) {
           // Éxito: El servidor respondió con un código 200.
@@ -99,22 +102,21 @@ export class NavBarComponent {
       }
     });
     localStorage.removeItem('isLoggedIn');
-    this.printLogin = false;
+    this.boolLogin = false;
     localStorage.removeItem('accessToken');
-    this.printAccesToken = "no";
     localStorage.removeItem('refreshToken');
-    this.printRefreshToken = "no";
   }
 
   // Función para realizar la solicitud PUT a signIn
   signUp() {
     const requestBody = { /* Aquí coloca los datos que deseas enviar en el cuerpo de la solicitud PUT */ };
 
-    this.http.put('https://api.staging.alfilo.org/signUp', requestBody, { withCredentials: true }).subscribe({
+    this.http.put('https://api.staging.alfilo.org/auth/signUp', requestBody, { withCredentials: true }).subscribe({
       next: (response: any) => {
         if (response.status === 200) {
           // Éxito: El servidor respondió con un código 200.
           alert('Cuenta creada correctamente. Por favor, inicia sesión.');
+          this.closeModal();
         }
       },
       error: (error) => {
@@ -133,14 +135,12 @@ export class NavBarComponent {
     });
   }
   getToken() {
-    this.http.get('https://api.staging.alfilo.org/token', { withCredentials: true }).subscribe({
+    this.http.get('https://api.staging.alfilo.org/auth/token', { withCredentials: true }).subscribe({
       next: (response: any) => {
           // Guarda el token en el localStorage
           console.log(response);
           localStorage.setItem('accessToken', response.AccessToken);
-          this.printAccesToken = response.AccessToken;
           localStorage.setItem('refreshToken', response.RefreshToken);
-          this.printRefreshToken = response.RefreshToken;
           alert('Token obtenido correctamente.' + response.AccessToken + ' ' + response.RefreshToken);
 
       },
