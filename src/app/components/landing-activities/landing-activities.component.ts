@@ -24,7 +24,7 @@ export class LandingActivitiesComponent extends VisibilityComponent implements A
     {
       name: this.combat,
       title: 'COMBATE',
-      videoSrc: '/assets/videos/activity/'+ this.combat +'.mp4',
+      videoSrc: '/assets/videos/activity/'+ this.combat +'Background.mp4',
       svgSrc: 'assets/images/activity/'+ this.combat +'.svg',
       imageCardSrc: 'activity-card/'+ this.combat +'.webp',
       bodyCardSrc: 'Fomentamos el juego en equipo mediante estrategia y táctica.'
@@ -32,7 +32,7 @@ export class LandingActivitiesComponent extends VisibilityComponent implements A
     {
       name: this.transport,
       title: 'TRANSPORTE',
-      videoSrc: '/assets/videos/activity/'+ this.transport +'.mp4',
+      videoSrc: '/assets/videos/activity/'+ this.transport +'Background.mp4',
       svgSrc: 'assets/images/activity/'+ this.transport +'.svg',
       imageCardSrc: 'activity-card/'+ this.transport +'.webp',
       bodyCardSrc: 'Realizamos diversas actividades de mercancía incluyendo contrabando, pirateria y logistica.'
@@ -40,7 +40,7 @@ export class LandingActivitiesComponent extends VisibilityComponent implements A
     {
       name: this.exploration,
       title: 'EXPLORACIÓN',
-      videoSrc: '/assets/videos/activity/'+ this.exploration +'.mp4',
+      videoSrc: '/assets/videos/activity/'+ this.exploration +'Background.mp4',
       svgSrc: 'assets/images/activity/'+ this.exploration +'.svg',
       imageCardSrc: 'activity-card/'+ this.exploration +'.webp',
       bodyCardSrc: 'Abarcamos todas las actividades relacionadas con encontrar recursos, ciencia y reconocimiento.'
