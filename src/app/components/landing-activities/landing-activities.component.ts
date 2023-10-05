@@ -53,7 +53,7 @@ export class LandingActivitiesComponent extends VisibilityComponent implements A
     {
       name: this.industrial,
       title: 'INDUSTRIA',
-      videoSrc: '/assets/videos/activity/'+ this.industrial +'.mp4',
+      videoSrc: '/assets/videos/activity/'+ this.industrial +'Background.mp4',
       svgSrc: 'assets/images/activity/'+ this.industrial +'.svg',
       imageCardSrc: 'activity-card/'+ this.industrial +'.webp',
       bodyCardSrc: 'Gestión de recursos a todos los niveles de legalidad, procedencia y magnitud.'
@@ -61,7 +61,7 @@ export class LandingActivitiesComponent extends VisibilityComponent implements A
     {
       name: this.support,
       title: 'APOYO',
-      videoSrc: '/assets/videos/activity/'+ this.support +'.mp4',
+      videoSrc: '/assets/videos/activity/'+ this.support +'Background.mp4',
       svgSrc: 'assets/images/activity/'+ this.support +'.svg',
       imageCardSrc: 'activity-card/'+ this.support +'.webp',
       bodyCardSrc: 'Operaciones de rescate, medicina, reabastecimiento y logistica.'
@@ -69,7 +69,7 @@ export class LandingActivitiesComponent extends VisibilityComponent implements A
     {
       name: this.competition,
       title: 'COMPETICIÓN',
-      videoSrc: '/assets/videos/activity/'+ this.competition +'.mp4',
+      videoSrc: '/assets/videos/activity/'+ this.competition +'Background.mp4',
       svgSrc: 'assets/images/activity/'+ this.competition +'.svg',
       imageCardSrc: 'activity-card/'+ this.competition +'.webp',
       bodyCardSrc: 'Participamos de forma activa con la comunidad en diferentes eventos y torneos.'
