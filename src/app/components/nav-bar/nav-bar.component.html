@@ -1,45 +1,25 @@
 <div class="navbar bg-black sticky h-10 top-0 z-50">
   <div class="navbar-start h-full lg:pl-[2rem] 2xl:pl-[10rem]">
-    <img src="assets/images/logo_icono_texto.png" alt="AlFilo Logo" class="h-full hidden lg:block">
+    <img src="assets/images/logo_icono_texto.png" alt="AlFilo Logo" loading="lazy" class="h-full hidden lg:block">
   </div>
   <div class="navbar-center h-full">
-    <div class=" hidden lg:flex justify-center">
-      <div class="tabs lg:inline-flex ">
-        <a *ngFor="let item of navItems" [href]="'#' + item.path"
-           class="tab font-capital-daren text-[1rem] xl:text-[1.4rem] 2xl:text-[1.8rem] leading-[1.5rem]  hover:text-alfilo-blue rounded-lg"
-           [ngClass]="{'text-alfilo-dark-blue' : item.active, 'text-base-content' : !item.active}">{{item.name}}</a>
-      </div>
-    </div>
-    <img src="assets/images/logo_icono_texto.png" alt="AlFilo Logo" class="h-full block lg:hidden">
+    <img src="assets/images/logo_icono_texto.png" alt="AlFilo Logo" loading="lazy" class="h-full block lg:hidden">
   </div>
   <div class="navbar-end">
+    <div class="w-5/6 hidden lg:flex justify-center">
+      <div class="tabs lg:inline-flex">
+        <a *ngFor="let item of navItems" [href]="'#' + item.path" class="tab font-capital-daren text-[1rem] xl:text-[1.4rem] 2xl:text-[1.8rem] leading-[1.5rem]  hover:text-alfilo-blue rounded-lg" [ngClass]="{'text-alfilo-dark-blue' : item.active, 'text-base-content' : !item.active}">{{item.name}}</a>
 
-    <button *ngIf="!boolLogin" (click)="login()" class="btn">LogIn</button>
-    <div *ngIf="boolLogin" class="dropdown dropdown-end">
-      <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-        <div class="w-10 rounded-full">
-          <img src="/assets/images/logo_256.png" alt="userLogo"/>
-        </div>
-      </label>
-      <ul tabindex="0" class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-        <li><a>GuildManager</a></li>
-        <li><a (click)="logout()">Logout</a></li>
-      </ul>
+
+      </div>
     </div>
-
-    <div class="lg:hidden flex justify-end">
+    <div class="lg:hidden w-5/6 flex justify-end">
       <div class="dropdown relative">
         <label tabindex="0" class="btn btn-ghost">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"/>
-          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
         </label>
-        <ul tabindex="0"
-            class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-black rounded-box w-52 absolute -left-[10rem]">
-          <li *ngFor="let item of navItems"><a [href]="'#' + item.path"
-                                               [ngClass]="{'text-alfilo-dark-blue' : item.active, 'text-base-content' : !item.active}"
-                                               class="tab font-capital-daren text-[1.5rem] leading-[1rem] hover:text-alfilo-blue hover:!bg-transparent rounded-lg">{{item.name}}</a>
-          </li>
+        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-black rounded-box w-52 absolute -left-[10rem]">
+          <li *ngFor="let item of navItems"><a [href]="'#' + item.path" [ngClass]="{'text-alfilo-dark-blue' : item.active, 'text-base-content' : !item.active}" class="tab font-capital-daren text-[1.5rem] leading-[1rem] hover:text-alfilo-blue hover:!bg-transparent rounded-lg">{{item.name}}</a></li>
 
         </ul>
       </div>
@@ -49,26 +29,40 @@
 
 <router-outlet></router-outlet>
 <dialog #signUpModal id="my_modal_1" class="modal">
-  <div class="modal-box">
+  <div class="modal-box border-2">
     <h3 class="font-bold text-lg">ATENCIÓN</h3>
     <p class="py-4">No se encontró el usuario. Por favor, regístrate.</p>
-    <p class="text-red-500"> Esta informacion es opcional, podrás rellenarla mas tarde.</p>
-    <div class="form-control w-full ">
-      <label class="label">
-        <span class="label-text">¿Cuál es tu Game Handle?</span>
-      </label>
-      <input type="text" placeholder="Type here" class="input input-bordered w-full"/>
+    <div class="modal-action">
+
     </div>
-    <div class="form-control w-full">
-      <label class="label">
-        <span class="label-text">¿Cuál es tu nombre en spectrum?</span>
-      </label>
-      <input type="text" placeholder="Type here" class="input input-bordered w-full"/>
-    </div>
-    <div class="flex justify-between pt-5">
-      <button class="btn bg-red-500 border-red-500 hover:bg-red-200" (click)="logout(); signUpModal.close()">Cerrar</button>
-      <button class="btn"  (click)="signUp(); signUpModal.close()">Registrarse</button>
+    <div class="relative flex items-start">
+      <div class="collapse">
+        <input type="checkbox" />
+        <div class="collapse-title">
+          <button class="btn">Registrarse</button>
+        </div>
+        <div class="collapse-content">
+          <p> Esta informacion es opcional, podrás rellenarla mas tarde.</p>
+          <div class="form-control w-full ">
+            <label class="label">
+              <span class="label-text">¿Cuál es tu Game Handle?</span>
+            </label>
+            <input type="text" placeholder="Type here" class="input input-bordered w-full" />
+          </div>
+          <div class="form-control w-full">
+            <label class="label">
+              <span class="label-text">¿Cuál es tu nombre en spectrum?</span>
+            </label>
+            <input type="text" placeholder="Type here" class="input input-bordered w-full" />
+          </div>
+          <button class="btn w-full mt-5 " (click)="signUp()">Continuar</button>
+        </div>
+      </div>
+      <form method="dialog" class="absolute z-50 right-4 top-[16px]">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+
     </div>
   </div>
 </dialog>
-
