@@ -55,7 +55,7 @@ pipeline {
             sh 'rm -rf *'
             sh 'ls -l'
            // Trigger a new build of the same job
-            build job: "Maintenance/PRD-alfilo/cleaner-layers-docker", propagate: true, wait: false
+            build job: "Maintenance/PRD-alfilo/cleaning-all-layers", propagate: true, wait: false
         }
     }
 }
