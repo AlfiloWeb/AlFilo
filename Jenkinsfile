@@ -5,8 +5,8 @@ pipeline {
         }
     }
     environment {
-        SSH_USER_PASS = credentials('sshcreds')
-        HOST = credentials('host-stg')
+        SSH_USER_PASS = credentials('sshcreds-prd')
+        HOST = credentials('host-alfilo-web')
         DOCKER_COMPOSE_DIR = '/home/alfilo/Infrastructure/docker-compose/front/' // Chose for what you need
     }
     parameters {
@@ -18,8 +18,8 @@ pipeline {
                 script {
                     sh "mkdir ~/.ssh"
                     sh "echo 'Host *' >> ~/.ssh/config"
-                    sh "echo '   StrictHostKeyChecking no' >> ~/.ssh/config"
-                    sh "echo '   LogLevel ERROR' >> ~/.ssh/config"
+                    sh "echo 'LogLevel ERROR' >> ~/.ssh/config"
+                    sh "ssh-keyscan alfilo.org >> ~/.ssh/known_hosts"
                 }
             }
         }
@@ -27,7 +27,7 @@ pipeline {
         stage('Stopping Container') {
             steps {
                 script {
-                    sshagent(credentials: ['jenkins2']) {
+                    sshagent(credentials: ['jenkins-prd']) {
                         sh 'ssh $SSH_USER_PASS@$HOST "cd $DOCKER_COMPOSE_DIR && docker-compose down "'
                     }
                 }
@@ -37,7 +37,7 @@ pipeline {
         stage('Build Container') {
             steps {
                 script {
-                    sshagent(credentials: ['jenkins2']) {
+                    sshagent(credentials: ['jenkins-prd']) {
                         sh 'ssh  $SSH_USER_PASS@$HOST "cd $DOCKER_COMPOSE_DIR && docker build -t my-build-stage -f docker-helper --no-cache ."'
                         if (params.ExecutionMode == 'Verbose') {
                             sh 'ssh  $SSH_USER_PASS@$HOST "cd $DOCKER_COMPOSE_DIR && docker-compose build && docker-compose up -d"'
@@ -55,7 +55,7 @@ pipeline {
             sh 'rm -rf *'
             sh 'ls -l'
            // Trigger a new build of the same job
-            build job: "Maintenance/STG/cleaner-layers-docker", propagate: true, wait: false
+            build job: "Maintenance/PRD-alfilo/cleaner-layers-docker", propagate: true, wait: false
         }
     }
 }
