@@ -54,23 +54,17 @@ pipeline {
             // Clean workdir or perform other cleanup tasks
             sh 'rm -rf *'
             sh 'ls -l'
-           // Trigger a new build of the same job
-            build job: "Maintenance/STG/cleaner-layers-docker", propagate: true, wait: false
-            slackSend( channel: "#webhook-notify-web", token: "slack_webhook token", color: "#FF0000", message: "${custom_msg()}")
         }
+      failure{
+            slackSend( channel: "#webhook-notify-web", token: "slack_webhook token", color: "#FF0000", message: "${custom_msg()}")
+      }
     }
 }
 def custom_msg() {
     def JENKINS_URL = "https://jenkins.staging.alfilo.org"
-    def JOB_NAME = env.JOB_NAME
     def BUILD_ID = env.BUILD_ID
 
-    // Split the JOB_NAME using '/' as a delimiter to extract folder and job name
-    def parts = JOB_NAME.split('/')
-    def folderName = parts[0] // The first part is the folder name
-    def jobName = parts[1]   // The second part is the job name
-
-    def JENKINS_LOG = "FAILED: Job [${env.JOB_NAME}] Logs path: ${JENKINS_URL}/job/${folderName}/job/${jobName}/${BUILD_ID}/consoleFull"
+    def JENKINS_LOG = "FAILED: Job [${env.JOB_NAME}] Logs path: ${JENKINS_URL}/job/Development%20Tools/job/Web/job/STG/job/deployment-multi/job/develop/${BUILD_ID}/consoleFull"
     
     return JENKINS_LOG
 }
