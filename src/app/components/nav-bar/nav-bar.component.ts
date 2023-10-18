@@ -42,6 +42,9 @@ export class NavBarComponent{
     modal.showModal();
   }
 
+  printCookies(){
+    console.log('cookies:' + document.cookie);
+  }
 
   ngOnInit() {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
