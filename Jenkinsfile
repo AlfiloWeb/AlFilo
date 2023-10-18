@@ -65,11 +65,12 @@ def custom_msg() {
     def JOB_NAME = env.JOB_NAME
     def BUILD_ID = env.BUILD_ID
 
-    def lastIndex = JOB_NAME.lastIndexOf('/job/')
-    def trimmedURL = JOB_NAME.substring(0, lastIndex)
+    // Split the JOB_NAME using '/' as a delimiter to extract folder and job name
+    def parts = JOB_NAME.split('/')
+    def folderName = parts[0] // The first part is the folder name
+    def jobName = parts[1]   // The second part is the job name
 
-    def JENKINS_LOG = "FAILED: Job [${env.JOB_NAME}] Logs path: ${JENKINS_URL}${trimmedURL}/${BUILD_ID}/consoleText"
-
+    def JENKINS_LOG = "FAILED: Job [${env.JOB_NAME}] Logs path: ${JENKINS_URL}/job/${folderName}/job/${jobName}/${BUILD_ID}/consoleFull"
+    
     return JENKINS_LOG
 }
-
