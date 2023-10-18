@@ -14,6 +14,7 @@
   </div>
   <div class="navbar-end">
 
+    <button class="btn" (click)="printCookies()" >PrintToken</button>
     <button *ngIf="!boolLogin" (click)="login()" class="btn">LogIn</button>
     <div *ngIf="boolLogin" class="dropdown dropdown-end">
       <label tabindex="0" class="btn btn-ghost btn-circle avatar">
