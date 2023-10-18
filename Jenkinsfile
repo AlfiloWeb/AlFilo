@@ -56,6 +56,20 @@ pipeline {
             sh 'ls -l'
            // Trigger a new build of the same job
             build job: "Maintenance/STG/cleaner-layers-docker", propagate: true, wait: false
+            slackSend( channel: "#webhook-notify-web", token: "slack_webhook token", color: "#FF0000", message: "${custom_msg()}")
         }
     }
 }
+def custom_msg() {
+    def JENKINS_URL = "https://jenkins.staging.alfilo.org"
+    def JOB_NAME = env.JOB_NAME
+    def BUILD_ID = env.BUILD_ID
+
+    def lastIndex = JOB_NAME.lastIndexOf('/job/')
+    def trimmedURL = JOB_NAME.substring(0, lastIndex)
+
+    def JENKINS_LOG = "FAILED: Job [${env.JOB_NAME}] Logs path: ${JENKINS_URL}${trimmedURL}/${BUILD_ID}/consoleText"
+
+    return JENKINS_LOG
+}
+
