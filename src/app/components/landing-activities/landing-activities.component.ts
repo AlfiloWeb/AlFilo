@@ -29,7 +29,7 @@ export class LandingActivitiesComponent extends VisibilityComponent implements A
     {
       name: this.combat,
       title: 'COMBATE',
-      videoSrc: '/assets/videos/activity/'+ this.combat +'Background.mp4',
+      videoSrc: '/assets/videos/activity/'+ this.combat +'Backgroundd.mp4',
       svgSrc: 'assets/images/activity/'+ this.combat +'.svg',
       imageCardSrc: 'activity-card/'+ this.combat +'.webp',
       bodyCardSrc: 'Fomentamos el juego en equipo mediante estrategia y táctica.'
@@ -37,7 +37,7 @@ export class LandingActivitiesComponent extends VisibilityComponent implements A
     {
       name: this.transport,
       title: 'TRANSPORTE',
-      videoSrc: '/assets/videos/activity/'+ this.transport +'Background.mp4',
+      videoSrc: '/assets/videos/activity/'+ this.transport +'Backgroundd.mp4',
       svgSrc: 'assets/images/activity/'+ this.transport +'.svg',
       imageCardSrc: 'activity-card/'+ this.transport +'.webp',
       bodyCardSrc: 'Realizamos diversas actividades de mercancía incluyendo contrabando, pirateria y logistica.'
@@ -45,7 +45,7 @@ export class LandingActivitiesComponent extends VisibilityComponent implements A
     {
       name: this.exploration,
       title: 'EXPLORACIÓN',
-      videoSrc: '/assets/videos/activity/'+ this.exploration +'Background.mp4',
+      videoSrc: '/assets/videos/activity/'+ this.exploration +'Backgroundd.mp4',
       svgSrc: 'assets/images/activity/'+ this.exploration +'.svg',
       imageCardSrc: 'activity-card/'+ this.exploration +'.webp',
       bodyCardSrc: 'Abarcamos todas las actividades relacionadas con encontrar recursos, ciencia y reconocimiento.'
@@ -53,7 +53,7 @@ export class LandingActivitiesComponent extends VisibilityComponent implements A
     {
       name: this.industrial,
       title: 'INDUSTRIA',
-      videoSrc: '/assets/videos/activity/'+ this.industrial +'Background.mp4',
+      videoSrc: '/assets/videos/activity/'+ this.industrial +'Backgroundd.mp4',
       svgSrc: 'assets/images/activity/'+ this.industrial +'.svg',
       imageCardSrc: 'activity-card/'+ this.industrial +'.webp',
       bodyCardSrc: 'Gestión de recursos a todos los niveles de legalidad, procedencia y magnitud.'
@@ -61,7 +61,7 @@ export class LandingActivitiesComponent extends VisibilityComponent implements A
     {
       name: this.support,
       title: 'APOYO',
-      videoSrc: '/assets/videos/activity/'+ this.support +'Background.mp4',
+      videoSrc: '/assets/videos/activity/'+ this.support +'Backgroundd.mp4',
       svgSrc: 'assets/images/activity/'+ this.support +'.svg',
       imageCardSrc: 'activity-card/'+ this.support +'.webp',
       bodyCardSrc: 'Operaciones de rescate, medicina, reabastecimiento y logistica.'
@@ -69,7 +69,7 @@ export class LandingActivitiesComponent extends VisibilityComponent implements A
     {
       name: this.competition,
       title: 'COMPETICIÓN',
-      videoSrc: '/assets/videos/activity/'+ this.competition +'Background.mp4',
+      videoSrc: '/assets/videos/activity/'+ this.competition +'Backgroundd.mp4',
       svgSrc: 'assets/images/activity/'+ this.competition +'.svg',
       imageCardSrc: 'activity-card/'+ this.competition +'.webp',
       bodyCardSrc: 'Participamos de forma activa con la comunidad en diferentes eventos y torneos.'
