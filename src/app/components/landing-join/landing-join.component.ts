@@ -1,4 +1,4 @@
-import {Component, AfterViewInit, ElementRef, ViewChild} from '@angular/core';
+import {Component} from '@angular/core';
 import {NavigationService} from "../../services/navigation.service";
 import {VisibilityComponent} from "../../animations/visibility-component";
 
@@ -7,18 +7,10 @@ import {VisibilityComponent} from "../../animations/visibility-component";
   templateUrl: './landing-join.component.html',
   styleUrls: ['./landing-join.component.css']
 })
-export class LandingJoinComponent extends VisibilityComponent implements AfterViewInit{
+export class LandingJoinComponent extends VisibilityComponent{
 
   constructor(private navService: NavigationService) {
     super(navService);
-  }
-
-  @ViewChild('myVideo') videoElement!: ElementRef;
-
-  ngAfterViewInit() {
-
-    this.videoElement.nativeElement.muted = true;
-
   }
 
 
