@@ -7,18 +7,22 @@
 @font-face {
   font-family: "Capital Daren";
   src: url("assets/fonts/capital-daren-regular.ttf") format('truetype');
+  font-display: swap;
 }
 @font-face {
   font-family: "Capital Daren Italic";
   src: url("assets/fonts/capital-daren-italic.ttf") format('truetype');
+  font-display: swap;
 }
 
 .font-capital-daren {
   font-family: "Capital Daren", sans-serif;
 }
+
 .font-capital-daren-italic {
   font-family: "Capital Daren Italic", sans-serif;
 }
+
 .text-shadow {
   text-shadow: 2px 2px black;
 }
