@@ -52,6 +52,11 @@ export class LandingChronologyComponent extends VisibilityComponent{
       body: 'Participamos en el Fight or Flight, organizado por ATMO Esports (www.atmo.gg).',
       image: 'event/event-ff-1.webp',
     },
+    {
+      title: '24 de Agosto,<br/>Año 2953',
+      body: 'Alcanzamos los 600 miembros.',
+      image: 'event/event-600-members.webp',
+    }
   ];
 
   @ViewChild('myVideo') videoElement!: ElementRef;
