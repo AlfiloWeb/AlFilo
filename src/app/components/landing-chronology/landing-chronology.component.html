@@ -1,4 +1,4 @@
-<div class="landing-chronology w-full bg-cover bg-center sm:pb-10 relative flex flex-col pt-12 lg:pt-15 lg:pb-16"             appObserveVisibility [stopObserving]="false"  (visible)="activateNavigation('Cronología')">
+<div class="landing-chronology w-full bg-cover bg-center sm:pb-10 relative flex flex-col pt-12 lg:pt-15 lg:pb-16 "             appObserveVisibility [stopObserving]="false"  (visible)="activateNavigation('Cronología')">
   <div
     class="hidden lg:block absolute h-[95%] top-0 left-0 border-b-2 border-r-2 rounded-br-2xl sm:w-0 lg:w-[50%] lg:min-w-[754px] "></div>
 
@@ -20,7 +20,7 @@
 
   <div class="relative event-list-lg h-[40rem] gap-x-10 gap-y-20 py-10 overflow-x-hidden grid-cols-2 w-fit
     hidden sm:self-center lg:flex lg:flex-col lg:self-start lg:h-[51rem] lg+:self-center
-    lg:px-10 lg+:w-[80%] lg+:grid lg+:min-w-[754px] lg+:max-w-[90rem] z-10">
+    lg:px-10 lg+:w-[80%] lg+:grid lg+:min-w-[754px] lg+:max-w-[90rem] z-10 ">
 
     <ng-template ngFor let-event [ngForOf]="events" let-i="index">
       <app-basic-card class="event-card flex items-center lg:max-w-[43.4rem]

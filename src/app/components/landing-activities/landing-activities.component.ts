@@ -1,6 +1,7 @@
 import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
 import {NavigationService} from "../../services/navigation.service";
 import {VisibilityComponent} from "../../animations/visibility-component";
+import {referralCodes} from "../../models/referralCodes";
 
 @Component({
   selector: 'app-landing-activities',
@@ -9,9 +10,10 @@ import {VisibilityComponent} from "../../animations/visibility-component";
 })
 export class LandingActivitiesComponent extends VisibilityComponent implements AfterViewInit {
 
-    constructor(private navService: NavigationService) {
-        super(navService);
-    }
+  constructor(private navService: NavigationService) {
+    super(navService);
+  }
+
 
   combat: string = 'combat';
   transport: string = 'transport';
@@ -20,64 +22,60 @@ export class LandingActivitiesComponent extends VisibilityComponent implements A
   support: string = 'support';
   competition: string = 'competition';
 
-  referralCodes: string[] = [
-    'STAR-G2NP-74KS',
-    'STAR-LR5D-V7SA',
-  ];
-
   activities: activity[] = [
     {
       name: this.combat,
       title: 'COMBATE',
-      videoSrc: '/assets/videos/activity/'+ this.combat +'Background.mp4',
-      svgSrc: 'assets/images/activity/'+ this.combat +'.svg',
-      imageCardSrc: 'activity-card/'+ this.combat +'.webp',
+      videoSrc: '/assets/videos/activity/' + this.combat + 'Background.mp4',
+      svgSrc: 'assets/images/activity/' + this.combat + '.svg',
+      imageCardSrc: 'activity-card/' + this.combat + '.webp',
       bodyCardSrc: 'Fomentamos el juego en equipo mediante estrategia y táctica.'
     },
     {
       name: this.transport,
       title: 'TRANSPORTE',
-      videoSrc: '/assets/videos/activity/'+ this.transport +'Background.mp4',
-      svgSrc: 'assets/images/activity/'+ this.transport +'.svg',
-      imageCardSrc: 'activity-card/'+ this.transport +'.webp',
+      videoSrc: '/assets/videos/activity/' + this.transport + 'Background.mp4',
+      svgSrc: 'assets/images/activity/' + this.transport + '.svg',
+      imageCardSrc: 'activity-card/' + this.transport + '.webp',
       bodyCardSrc: 'Realizamos diversas actividades de mercancía incluyendo contrabando, pirateria y logistica.'
     },
     {
       name: this.exploration,
       title: 'EXPLORACIÓN',
-      videoSrc: '/assets/videos/activity/'+ this.exploration +'Background.mp4',
-      svgSrc: 'assets/images/activity/'+ this.exploration +'.svg',
-      imageCardSrc: 'activity-card/'+ this.exploration +'.webp',
+      videoSrc: '/assets/videos/activity/' + this.exploration + 'Background.mp4',
+      svgSrc: 'assets/images/activity/' + this.exploration + '.svg',
+      imageCardSrc: 'activity-card/' + this.exploration + '.webp',
       bodyCardSrc: 'Abarcamos todas las actividades relacionadas con encontrar recursos, ciencia y reconocimiento.'
     },
     {
       name: this.industrial,
       title: 'INDUSTRIA',
-      videoSrc: '/assets/videos/activity/'+ this.industrial +'Background.mp4',
-      svgSrc: 'assets/images/activity/'+ this.industrial +'.svg',
-      imageCardSrc: 'activity-card/'+ this.industrial +'.webp',
+      videoSrc: '/assets/videos/activity/' + this.industrial + 'Background.mp4',
+      svgSrc: 'assets/images/activity/' + this.industrial + '.svg',
+      imageCardSrc: 'activity-card/' + this.industrial + '.webp',
       bodyCardSrc: 'Gestión de recursos a todos los niveles de legalidad, procedencia y magnitud.'
     },
     {
       name: this.support,
       title: 'APOYO',
-      videoSrc: '/assets/videos/activity/'+ this.support +'Background.mp4',
-      svgSrc: 'assets/images/activity/'+ this.support +'.svg',
-      imageCardSrc: 'activity-card/'+ this.support +'.webp',
+      videoSrc: '/assets/videos/activity/' + this.support + 'Background.mp4',
+      svgSrc: 'assets/images/activity/' + this.support + '.svg',
+      imageCardSrc: 'activity-card/' + this.support + '.webp',
       bodyCardSrc: 'Operaciones de rescate, medicina, reabastecimiento y logistica.'
     },
     {
       name: this.competition,
       title: 'COMPETICIÓN',
-      videoSrc: '/assets/videos/activity/'+ this.competition +'Background.mp4',
-      svgSrc: 'assets/images/activity/'+ this.competition +'.svg',
-      imageCardSrc: 'activity-card/'+ this.competition +'.webp',
+      videoSrc: '/assets/videos/activity/' + this.competition + 'Background.mp4',
+      svgSrc: 'assets/images/activity/' + this.competition + '.svg',
+      imageCardSrc: 'activity-card/' + this.competition + '.webp',
       bodyCardSrc: 'Participamos de forma activa con la comunidad en diferentes eventos y torneos.'
     },
   ];
   currentActivitiy: activity = this.activities[0];
 
   @ViewChild('myVideo') videoElement!: ElementRef;
+
   ngAfterViewInit() {
     this.videoElement.nativeElement.muted = true;
   }
@@ -95,8 +93,8 @@ export class LandingActivitiesComponent extends VisibilityComponent implements A
 
 
   redirectWithReferral() {
-    const randomIndex = Math.floor(Math.random() * this.referralCodes.length);
-    const randomCode = this.referralCodes[randomIndex];
+    const randomIndex = Math.floor(Math.random() * referralCodes.length);
+    const randomCode = referralCodes[randomIndex].code;
 
     window.location.href = `https://robertsspaceindustries.com/enlist?referral=${randomCode}`;
   }
