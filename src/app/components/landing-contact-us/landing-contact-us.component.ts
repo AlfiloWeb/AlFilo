@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {VisibilityComponent} from "../../animations/visibility-component";
 import {NavigationService} from "../../services/navigation.service";
+import {referralCodes} from "../../models/referralCodes";
 
 @Component({
   selector: 'app-landing-contact-us',
@@ -9,10 +10,6 @@ import {NavigationService} from "../../services/navigation.service";
 })
 export class LandingContactUsComponent extends VisibilityComponent{
 
-  referralCodes: string[] = [
-    'STAR-G2NP-74KS',
-    'STAR-LR5D-V7SA',
-  ];
 
   constructor(private navService: NavigationService) {
     super(navService);
@@ -27,8 +24,8 @@ export class LandingContactUsComponent extends VisibilityComponent{
   ];
 
   redirectWithReferral() {
-    const randomIndex = Math.floor(Math.random() * this.referralCodes.length);
-    const randomCode = this.referralCodes[randomIndex];
+    const randomIndex = Math.floor(Math.random() * referralCodes.length);
+    const randomCode = referralCodes[randomIndex].code;
 
     window.location.href = `https://robertsspaceindustries.com/enlist?referral=${randomCode}`;
   }
