@@ -1,7 +1,6 @@
-div{
-  overflow: hidden;
+img{
+  width: 85vh;
+  height: 75vh;
+  background-image: url(Event.jpg);
 }
 
-img{
-  height: 70vh;
-}
