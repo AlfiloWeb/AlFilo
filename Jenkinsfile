@@ -7,7 +7,7 @@ pipeline {
     environment {
         SSH_USER_PASS = "jenkins-prd"
         HOST = credentials('host-alfilo-web') //commit-for-test
-        DOCKER_COMPOSE_DIR = '/home/GuildManager/Infrastructure/docker-compose/front/' // Chose for what you need
+        DOCKER_COMPOSE_DIR = '/home/alfilo/Infrastructure/docker-compose/front/' // Chose for what you need
     }
     parameters {
         choice(name: 'ExecutionMode', choices: ['Verbose', 'Quiet'], description: 'Select the execution mode')
