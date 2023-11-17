@@ -6,7 +6,7 @@ pipeline {
     }
     environment {
         SSH_USER_PASS = credentials('sshcreds')
-        HOST = credentials('host-stg') //commit-for-test
+        HOST = credentials('host-alfilo-web') //commit-for-test
         DOCKER_COMPOSE_DIR = '/home/GuildManager/Infrastructure/docker-compose/front/' // Chose for what you need
     }
     parameters {
