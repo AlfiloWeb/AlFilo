@@ -61,7 +61,7 @@ pipeline {
     }
 }
 def custom_msg() {
-    def JENKINS_URL = "https://jenkins.staging.alfilo.org"
+    def JENKINS_URL = "https://jenkins.guildswarm.org"
     def BUILD_ID = env.BUILD_ID
 
     def JENKINS_LOG = "FAILED: Job [${env.JOB_NAME}] Logs path: ${JENKINS_URL}/job/Development%20Tools/job/Web/job/STG/job/deployment-multi/job/develop/${BUILD_ID}/consoleFull"
