@@ -19,6 +19,8 @@ import { LandingContactUsComponent } from './components/landing-contact-us/landi
 import { CreatorCardComponent } from './components/creator-card/creator-card.component';
 import { ObserveVisibilityDirective } from './directives/observe-visibility.directive';
 import { register } from 'swiper/element/bundle';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ModalComponent } from './components/modal/modal.component';
 register();
 
 @NgModule({
@@ -38,12 +40,14 @@ register();
     LandingContactUsComponent,
     CreatorCardComponent,
     ObserveVisibilityDirective,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent],
