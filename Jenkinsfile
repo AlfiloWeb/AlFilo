@@ -45,4 +45,16 @@ pipeline {
             }
         }
     }
+    post{
+        always{
+            script{
+                pga.cleanupWorkspace()
+            }
+        }
+        failure{
+            script{
+                pga.slack_webhook()
+            }
+        }
+    }
 }
