@@ -8,7 +8,7 @@ pipeline {
     }
    environment {
         SSH_USER_PASS_PRD = "jenkins-prd"
-        HOST_PRD = credentials ('host-prd')
+        HOST_PRD = credentials ('host-alfilo-web')
         DOCKER_COMPOSE_DIR = '/home/alfilo/Infrastructure/docker-compose/front' // Chose for what you need
     }
     parameters {
