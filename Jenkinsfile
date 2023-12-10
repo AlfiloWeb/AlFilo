@@ -13,7 +13,7 @@ pipeline {
     }
     parameters {
         choice(name: 'ExecutionMode', choices: ['Verbose', 'Quiet'], description: 'Select the execution mode')
-        choice(name: 'env', choices: ['STG', 'PRD'], description: 'Select the deployment environment')
+        //choice(name: 'env', choices: ['STG', 'PRD'], description: 'Select the deployment environment')
     }
     stages {
         stage('Prepare SSH') {
