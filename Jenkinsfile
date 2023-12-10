@@ -1,3 +1,5 @@
+@Library('standard-library@1.0') _
+
 pipeline {
     agent {
         docker{
@@ -16,46 +18,23 @@ pipeline {
         stage('Prepare SSH') {
             steps {
                 script {
-                    sh "mkdir ~/.ssh"
-                    sh "echo 'Host *' >> ~/.ssh/config"
-                    sh "echo 'LogLevel ERROR' >> ~/.ssh/config"
-                    sh "ssh-keyscan alfilo.org >> ~/.ssh/known_hosts"
+                    example.prepareSSH('STG', '${HOST}')
                 }
             }
         }
-
         stage('Stopping Container') {
             steps {
                 script {
-                    sshagent(credentials: ['jenkins-prd']) {
-                        sh 'ssh $SSH_USER_PASS@$HOST "cd $DOCKER_COMPOSE_DIR && docker-compose down "'
-                    }
+                    docker.dockerdown()
                 }
             }
         }
-
         stage('Build Container') {
             steps {
                 script {
-                    sshagent(credentials: ['jenkins-prd']) {
-                        sh 'ssh  $SSH_USER_PASS@$HOST "cd $DOCKER_COMPOSE_DIR && docker build -t my-build-stage -f docker-helper --no-cache ."'
-                        if (params.ExecutionMode == 'Verbose') {
-                            sh 'ssh  $SSH_USER_PASS@$HOST "cd $DOCKER_COMPOSE_DIR && docker-compose build && docker-compose up -d"'
-                        } else if (params.ExecutionMode == 'Quiet'){
-                            sh 'ssh  $SSH_USER_PASS@$HOST "cd $DOCKER_COMPOSE_DIR && docker-compose build --quiet && docker-compose up -d"'
-                        }
-                    }
+                    docker.buildContainer()
                 }
             }
-        }
-    }
-    post {
-        always {
-            // Clean workdir or perform other cleanup tasks
-            sh 'rm -rf *'
-            sh 'ls -l'
-           // Trigger a new build of the same job
-            build job: "Maintenance/PRD-alfilo/cleaning-all-layers", propagate: true, wait: false
         }
     }
 }
