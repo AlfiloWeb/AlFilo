@@ -23,6 +23,13 @@ pipeline {
                 }
             }
         }
+        stage ('Test Build') {
+           steps {
+             script {
+                    dockerlib.buildTestAlFilo("front")
+             }
+           }
+        }
         stage('Stopping Container') {
             steps {
                 script {
