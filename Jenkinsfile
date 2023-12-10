@@ -25,14 +25,14 @@ pipeline {
         stage('Stopping Container') {
             steps {
                 script {
-                    docker.dockerdown()
+                    dockerlib.dockerdown()
                 }
             }
         }
         stage('Build Container') {
             steps {
                 script {
-                    docker.buildContainer()
+                    dockerlib.buildContainer()
                 }
             }
         }
