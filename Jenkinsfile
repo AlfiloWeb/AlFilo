@@ -18,7 +18,7 @@ pipeline {
         stage('Prepare SSH') {
             steps {
                 script {
-                    example.prepareSSH('STG', '${HOST}')
+                    example.prepareSSH('PRD', '${HOST}')
                 }
             }
         }
