@@ -28,14 +28,14 @@ pipeline {
         stage('Stopping Container') {
             steps {
                 script {
-                    dockerlib.dockerdown()
+                    dockerlib.stopdockeralfilo()
                 }
             }
         }
         stage('Build Container') {
             steps {
                 script {
-                    dockerlib.buildContainer()
+                    dockerlib.composedockeralfilo()
                 }
             }
         }
