@@ -3,7 +3,7 @@
 pipeline {
     agent {
         docker{
-            image 'agent:1.0'
+            image 'agent:1.0' //don't touch
         }
     }
     environment {
