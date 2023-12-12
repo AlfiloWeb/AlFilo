@@ -51,8 +51,12 @@ pipeline {
             always{
                 script{
                     pga.cleanupWorkspace()
-                    pga.slack_webhook()
                 }
             }
+          failure{
+               script{
+                   pga.slack_webhook()
+               }
+          }
     }
 }
