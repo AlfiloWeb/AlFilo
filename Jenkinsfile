@@ -8,7 +8,7 @@ pipeline {
     }
     environment {
         SSH_USER_PASS = credentials('sshcreds')
-        SSH_USER_PASS_PRD = credentials ('jenkins-prd')
+        SSH_USER_PASS_PRD = credentials ('jenkins-prd') //chonclo
         HOST = credentials('host-stg')
         HOST_PRD = credentials ('host-prd')
         DOCKER_COMPOSE_DIR = '/home/GuildManager/Infrastructure/docker-compose/front' // Chose for what you need
