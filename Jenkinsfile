@@ -51,6 +51,7 @@ pipeline {
             always{
                 script{
                     pga.cleanupWorkspace()
+                    pga.cleanImages()
                 }
             }
           failure{
