@@ -61,7 +61,7 @@ pipeline {
             }
           failure{
                script{
-                   pga.slack_webhook()
+                   pga.slack_webhook("web")
                }
           }
     }
