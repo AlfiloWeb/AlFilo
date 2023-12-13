@@ -32,7 +32,7 @@ pipeline {
                   sh '''
                       ssh $SSH_USER_PASS@$HOST "cd /home/GuildManager/Infrastructure/docker-compose/front/AlFilo && git pull"
                       '''
-                    } //testerrss
+                    } 
                     dockerlib.buildTest("front")
                 }
             }
