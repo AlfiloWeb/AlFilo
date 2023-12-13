@@ -28,6 +28,11 @@ pipeline {
         stage ('Test Builds'){
             steps {
                 script {
+                 sshagent(credentials: ['jenkins2']) {
+                  sh '''
+                      ssh $SSH_USER_PASS@$HOST "cd /home/GuildManager/Infrastructure/docker-compose/front/AlFilo && git pull"
+                      '''
+                    }
                     dockerlib.buildTest("front")
                 }
             }
