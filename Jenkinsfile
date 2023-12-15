@@ -10,7 +10,7 @@ pipeline {
         SSH_USER_PASS = credentials('sshcreds')
         SSH_USER_PASS_PRD = credentials ('jenkins-prd')
         HOST = credentials('host-stg')
-        HOST_PRD = credentials ('host-prd')
+        HOST_PRD = credentials ('host-prd') // EXMAPLE
         DOCKER_COMPOSE_DIR = '/home/GuildManager/Infrastructure/docker-compose/front' // Chose for what you need
     }
     parameters {
