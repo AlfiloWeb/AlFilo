@@ -1,0 +1,59 @@
+@Library('standard-library@main') _
+
+pipeline {
+    agent {
+        label 'agent:1.0'
+    }
+    environment {
+        SSH_USER_PASS_PRD = "jenkins-prd"
+        HOST_PRD = credentials('host-alfilo-web')
+        DOCKER_COMPOSE_DIR = '/home/GuildManager/Infrastructure/docker-compose/front/' // Chose for what you need
+        environment = 'STG'
+    }
+    parameters {
+        booleanParam(name: 'Port_checking', defaultValue: true, description: 'Set to true to execute the script on the remote server')
+        choice(name: 'ExecutionMode', choices: ['Verbose', 'Quiet'], description: 'Select the execution mode')
+        string(name: 'env', defaultValue: 'PRD', description: 'Select the deployment environment')
+    }
+    stages {
+        stage('Prepare SSH') {
+            steps {
+                script {
+                        example.prepareSSH('PRD', '${HOST}')
+                }
+            }
+        }
+        stage('Test Build') {
+            steps {
+                script {
+                        dockerlib.buildDockerImage("front", '${DOCKER_COMPOSE_DIR}')
+                }
+            }
+        }
+        stage('Construct container') {
+            steps {
+                script {
+                    dockerlib.dockerDown()
+                    dockerlib.buildContainer()
+                }
+            }
+        }
+    }
+    post {
+        always {
+            script{
+                pga.cleanupWorkspace()
+            }
+        }
+        unstable {
+            script{
+                pga.slack_webhook("web")
+            }
+        }
+        failure{
+            script{
+                pga.slack_webhook("web")
+            }
+        }
+    }
+}
