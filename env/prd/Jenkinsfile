@@ -8,7 +8,7 @@ pipeline {
         SSH_USER_PASS_PRD = "jenkins-prd"
         HOST_PRD = credentials('host-alfilo-web')
         DOCKER_COMPOSE_DIR = '/home/GuildManager/Infrastructure/docker-compose/front/' // Chose for what you need
-        environment = 'STG'
+        environment = 'PRD'
     }
     parameters {
         booleanParam(name: 'Port_checking', defaultValue: true, description: 'Set to true to execute the script on the remote server')
