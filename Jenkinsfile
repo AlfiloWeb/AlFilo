@@ -31,7 +31,7 @@ pipeline {
                       ssh $SSH_USER_PASS@$HOST "cd /home/GuildManager/Infrastructure/docker-compose/front/AlFilo && git pull"
                       '''
                     } 
-                    dockerlib.buildDockerImage("front")
+                    dockerlib.buildDockerImage("front","${DOCKER_COMPOSE_DIR}")
                 }
             }
         }
