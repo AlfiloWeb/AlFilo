@@ -38,7 +38,7 @@ pipeline {
         stage('Stopping Container') {
             steps {
                 script {
-                    dockerlib.dockerdown()
+                    dockerlib.dockerDown()
                 }
             }
         }
