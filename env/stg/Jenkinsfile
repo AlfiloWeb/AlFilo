@@ -2,43 +2,14 @@
 
 pipeline {
     agent {
-        label 'agent:1.0'
+        label 'node20'
     }
-    environment {
-        SSH_USER_PASS = "jenkins-stg-ionos"
-        HOST = credentials('host-stg')
-        DOCKER_COMPOSE_DIR = '/home/GuildManager/Infrastructure/docker-compose/front/' // Chose for what you need
-        environment = 'STG'
-    }
-    parameters {
-        booleanParam(name: 'Port_checking', defaultValue: true, description: 'Set to true to execute the script on the remote server')
-        choice(name: 'ExecutionMode', choices: ['Verbose', 'Quiet'], description: 'Select the execution mode')
-        string(name: 'env', defaultValue: 'STG', description: 'Select the deployment environment')
-    }
-    stages {
-        stage('Prepare SSH') {
-            steps {
-                script {
-                    example.prepareSSH('STG', '${HOST}')
-                    sshagent(credentials: ['jenkins2']) {
-                        sh 'ssh  $SSH_USER_PASS@$HOST "cd ${DOCKER_COMPOSE_DIR}/AlFilo && git pull "'
-                    }
-                }
-            }
-        }
-        stage('Test Build') {
-            steps {
-                script {
-                        dockerlib.buildDockerImage("front", '${DOCKER_COMPOSE_DIR}')
-                }
-            }
-        }
-        stage('Construct container') {
-            steps {
-                script {
-                        dockerlib.dockerDown()
-                        dockerlib.buildContainer()
-                }
+    stages{
+        stage('Install bun'){
+            steps{
+                sh 'bun install'
+                sh 'bun build'
+                sleep 600
             }
         }
     }
