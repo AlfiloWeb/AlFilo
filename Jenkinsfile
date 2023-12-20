@@ -1,4 +1,4 @@
-@Library('standard-library@main') _
+@Library('standard-library@latest') _
 
 pipeline {
     agent {
