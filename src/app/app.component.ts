@@ -1,7 +1,6 @@
 // app.component.ts
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ModalComponent } from './components/modal/modal.component';
 
 @Component({
   selector: 'app-root',
