@@ -18,8 +18,6 @@ import { SvgIconComponent } from './components/svg-icon/svg-icon.component';
 import { LandingContactUsComponent } from './components/landing-contact-us/landing-contact-us.component';
 import { CreatorCardComponent } from './components/creator-card/creator-card.component';
 import { ObserveVisibilityDirective } from './directives/observe-visibility.directive';
-import { MatDialogModule } from '@angular/material/dialog';
-import { ModalComponent } from './components/modal/modal.component';
 import { register } from 'swiper/element/bundle';
 register();
 
@@ -40,14 +38,12 @@ register();
     LandingContactUsComponent,
     CreatorCardComponent,
     ObserveVisibilityDirective,
-    ModalComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
