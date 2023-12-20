@@ -2,9 +2,7 @@
 
 pipeline {
     agent {
-        docker{
-            image 'agent:1.0' //don't touch please
-        }
+           label 'agent:1.0' //don't touch please
     }
     environment {
         SSH_USER_PASS = credentials('sshcreds')
@@ -33,7 +31,7 @@ pipeline {
                       ssh $SSH_USER_PASS@$HOST "cd /home/GuildManager/Infrastructure/docker-compose/front/AlFilo && git pull"
                       '''
                     } 
-                    dockerlib.buildTest("front")
+                    dockerlib.buildDockerImage("front")
                 }
             }
         }
