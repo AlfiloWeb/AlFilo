@@ -19,10 +19,7 @@ pipeline {
         stage('Prepare SSH') {
             steps {
                 script {
-                    example.prepareSSH('STG', '${HOST}')
-                    sshagent(credentials: ['jenkins2']) {
-                        sh 'ssh  $SSH_USER_PASS@$HOST "cd ${DOCKER_COMPOSE_DIR}/AlFilo && git pull "'
-                    }
+                        example.prepareSSH('STG', '${HOST}')
                 }
             }
         }
