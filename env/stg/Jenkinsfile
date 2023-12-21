@@ -1,35 +1,20 @@
-@Library('standard-library@main') _
-
 pipeline {
     agent {
-        label 'node20'
+        label 'npmbuilds'
     }
     stages{
         stage('Install bun'){
             steps{
-                sh 'bun install'
-                sh 'bun build'
-                sleep 600
-            }
-        }
-    }
-    post {
-        always {
-            script{
-                pga.cleanupWorkspace()
-            }
-        }
-        unstable {
-            script{
-                pga.slack_webhook("web")
-            }
-        }
-        failure{
-            script{
-                sshagent(credentials: ['jenkins2']) {
-                    sh 'ssh  $SSH_USER_PASS@$HOST "cd /home/GuildManager/Infrastructure/scripts && ./restore-images.sh"'
+                script{
+                    container('bun-container') {
+                        // Your Bun commands go here
+                        sh 'bun install'
+                        sh 'bun run build'
+                        sh 'cp -r dist/al-filo/* /home/app/web/'
+                        sh 'rm -rf'
+                        // Add more Bun commands as needed
+                    }
                 }
-                pga.slack_webhook("web")
             }
         }
     }
